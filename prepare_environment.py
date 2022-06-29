@@ -29,6 +29,4 @@ def prepare_folders():
     os.makedirs(RESULTS_PATH, exist_ok=True)
     os.makedirs(ALL_JSONS_PATH, exist_ok=True)
 
-
-if __name__ == "__main__":
-    prepare_folders()
+prepare_folders()
