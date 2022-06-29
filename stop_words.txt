@@ -1,0 +1,3 @@
+a, i, v, z, za, ve, k, ke, s, se, u, před, po, do, na, nad, nade, pod, ale, protože, o, nebo, ani, že, pak, potom, bez,
+!, ", #, $, %, &, ', (, ), *, +, -, ., /, :, ;, <, =, >, ?, @, [, \, ], ^, _, `, {, |, }, ~, '', ..., >>, <<, », «, |,
+“, „,
