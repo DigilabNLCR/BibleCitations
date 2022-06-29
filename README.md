@@ -40,3 +40,9 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
 - do this by running [prepare_batches.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/prepare_batches.py)
 - this cleares the previous batches, so be careful.
 - to set parameters (like batch size), change the setting in the python file.
+
+## 4) Run search
+- [run_biblical_intertextuality.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/run_biblical_intertextuality.py)
+
+## 5) Apply evaluation functions
+- IN PROGRESS, this process serves to improve and filter the discovered citations.
