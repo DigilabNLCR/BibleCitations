@@ -17,6 +17,7 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
 
 ## 1) Preparation
 - install required packages from the [requirements.txt](https://github.com/DigilabNLCR/BibleCitations/blob/main/requirements.txt) file
+    - The virtual environment is yet in preparation...
 - create necessary folders by running [prepare_environment.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/prepare_environment.py)
 - create biblical dataset objects by running [prepare_bible.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/prepare_bible.py)
     - here, you can influence the process and performance by changing some of the parameters - for example by the n-gramming length, or by defining stop-subverses in [stop_subverses_21.txt](https://github.com/DigilabNLCR/BibleCitations/blob/main/stop_subverses_21.txt), or by ignoring the short subverses, or by changing stop words in [stop_words.txt](https://github.com/DigilabNLCR/BibleCitations/blob/main/stop_words.txt)
@@ -36,4 +37,6 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
 
 ## 3) Prepare batches to run
 - Batch approach to search is used for convenience of searching through large dataset - without the need to save the results after each page which slows the process, and on the other hand providing the researcher with a possibility to stop tu search without loosing much of the process.
-- do this by running [prepare_batches.py]()
+- do this by running [prepare_batches.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/prepare_batches.py)
+- this cleares the previous batches, so be careful.
+- to set parameters (like batch size), change the setting in the python file.

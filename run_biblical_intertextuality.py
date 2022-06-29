@@ -250,12 +250,12 @@ def get_verse_text(translation:str, verse_id:str, print_exceptions=True) -> str:
     return verse_text
 
 
-def save_dataset(dataset, dataset_name='fullBibleDataset'):
+def save_dataset(dataset, dataset_name='completeBibleDataset'):
     """ Saving dataset has default name, because there is supposedly only one version of it. """
     joblib.dump(dataset, join_path(DATASETS_PATH, f'{dataset_name}.joblib'))
 
 
-def load_dataset(dataset_name='fullBibleDataset'):
+def load_dataset(dataset_name='completeBibleDataset'):
     """ Loading dataset has default name, because there is supposedly only one version of it. """
     dataset = joblib.load(join_path(DATASETS_PATH, f'{dataset_name}.joblib'))
     return dataset
@@ -295,7 +295,7 @@ class bibleDataset:
         return (len(self.data) == len(self.target))
 
 
-def bible_to_dataset(save=True, ignore_stop_subs=True, return_shorts=True,  dataset_name='fullBibleDataset'):
+def bible_to_dataset(save=True, ignore_stop_subs=True, return_shorts=True,  dataset_name='completeBibleDataset'):
     """ This function prepares dataset into bibleDataset class.
 
     :param ignore_stop_subs: if True, the stop subverses defined in stop_subverses_21 are ignored.
@@ -469,13 +469,11 @@ def split_query(input_text:str, window_len=4, overlap=1):
 """ CREATING AND LOADING NECESSARY OBJECTS ------------------------------------------------------------------------- """
 
 
-def create_necessary_objects(ngram_size=4, skip_dataset=True, dataset=None, save_objects=True):
+def create_necessary_objects(ngram_size=4, skip_dataset=True, dataset=None, save_objects=True, out_prefix='completeBible'):
     """
-    This function creates all necessary objects for the search. Run this function if you are starting the process or if
-    you have changed the dataset or functions that create it, otherwise it is not necessary.
+    This function creates all necessary objects for the search. Run this function if you are starting the process or if you have changed the dataset or functions that create it, otherwise it is not necessary.
 
-    :param ngram_size: size of ngrams (in characters) to which everything is parsed; According to it,
-        other objects for search are loaded.
+    :param ngram_size: size of ngrams (in characters) to which everything is parsed; According to it, other objects for search are loaded.
     :param skip_dataset: if the dataset exists, it is loaded instead of created.
     :param dataset: dataset can be also loaded externaly, so it does not have to be loaded for every iteration.
     :param save_objects: if True, objects are saved, if False, objects are only returned.
@@ -483,33 +481,33 @@ def create_necessary_objects(ngram_size=4, skip_dataset=True, dataset=None, save
 
     if dataset:
         bible_dataset = dataset
-    else:
+    else:    
         if skip_dataset:
             print('Dataset already exists --> loaded.')
-            bible_dataset = load_dataset('fullBibleDataset')
+            bible_dataset = load_dataset(f'{out_prefix}Dataset')
         else:
-            start_ = time()
+            start_ = time.time()
             print('Creating bible dataset...')
             bible_dataset = bible_to_dataset()
-            save_dataset(bible_dataset, 'fullBibleDataset')
-            end_ = time()
-            print(f'Dataset has been created in {round((end_-start_)/60, 2)} minutes. Saved as fullBibleDataset.joblib')
+            save_dataset(bible_dataset, f'{out_prefix}Dataset')
+            end_ = time.time()
+            print(f'Dataset has been created in {round((end_-start_)/60, 2)} minutes. Saved as {out_prefix}Datset.joblib')
 
-    start_ = time()
+    start_ = time.time()
     print('Processing corpus and creating dictionary...')
     dictionary, processed_corpus = process_corpus(bible_dataset, ngram_size=ngram_size)
     if save_objects:
-        save_dictionary(dictionary, f'n{ngram_size}_fullBibleDict')
-    end_ = time()
-    print(f'Dictionary has been created in {round((end_-start_), 2)} seconds. Saved as n{ngram_size}_fullBibleDict.joblib')
+        save_dictionary(dictionary, f'n{ngram_size}_{out_prefix}Dict')
+    end_ = time.time()
+    print(f'Dictionary has been created in {round((end_-start_), 2)} seconds. Saved as n{ngram_size}_{out_prefix}Dict.joblib')
 
-    start_ = time()
+    start_ = time.time()
     print('Creating corpus...')
     corpus = create_corpus(dictionary, processed_corpus)
     if save_objects:
-        save_corpus(corpus, f'n{ngram_size}_fullBibleCorpus')
-    end_ = time()
-    print(f'Corpus has been created in {round((end_-start_), 2)} seconds. Saved as n{ngram_size}_fullBibleCorpus.mm')
+        save_corpus(corpus, f'n{ngram_size}_{out_prefix}Corpus')
+    end_ = time.time()
+    print(f'Corpus has been created in {round((end_-start_), 2)} seconds. Saved as n{ngram_size}_{out_prefix}Corpus.mm')
 
     return corpus, dictionary
 
@@ -521,9 +519,9 @@ def load_necessary_objects(ngram_size=4):
     :param ngram_size: int; size of ngrams to which everything is parsed; According to it,
         other objects for search are loaded.
     """
-    dataset = load_dataset('fullBibleDataset')
-    corpus = load_corpus(f'n{ngram_size}_fullBibleCorpus')
-    dictionary = load_dictionary(f'n{ngram_size}_fullBibleDict')
+    dataset = load_dataset('completeBibleDataset')
+    corpus = load_corpus(f'n{ngram_size}_completeBibleCorpus')
+    dictionary = load_dictionary(f'n{ngram_size}_completeBibleDict')
 
     subverses = transfer_corpus_to_simple_token_vectors(corpus)
 
@@ -534,7 +532,7 @@ def load_necessary_objects(ngram_size=4):
 
 
 class bibleObject:
-    def __init__(self, dataset:bibleDataset, create_anew_other_necessary_objects=False, ngram_size=4, objects_prefix='fullBible'):
+    def __init__(self, dataset:bibleDataset, create_anew_other_necessary_objects=False, ngram_size=4, objects_prefix='completeBible'):
         """
         :param dataset: prepared dataset object of bibleDataset class
         :param create_anew_necessary_objects: Bool, set True if you want to create and save corpus and dictionary. These may be already created so the default is set to False.
@@ -968,7 +966,7 @@ def run_search_by_batch(batch_id:int, bible_object:bibleObject, ngram_tolerance=
     change_run_log(batch_id=batch_id, avereage_pre_page=avg_time_per_page)
 
 
-def search_by_batches(batches_to_run:list, bible_dataset_filename='fullBibleDataset', skip_done=True, ngram_tolerance=0.7, edit_distance_tolerance=0.85, ngram_size=4, query_window_len=4, query_overlap=1):
+def search_by_batches(batches_to_run:list, bible_dataset_filename='completeBibleDataset', skip_done=True, ngram_tolerance=0.7, edit_distance_tolerance=0.85, ngram_size=4, query_window_len=4, query_overlap=1):
     """ This function executes search across a number of batches.
     Batches must be prepared in batches.csv (with update_batches_csv() function).
     
@@ -1003,8 +1001,7 @@ def search_by_batches(batches_to_run:list, bible_dataset_filename='fullBibleData
 
 
 if __name__ == "__main__":
-    batches = range(1800, 2000)
-    search_by_batches(batches, bible_dataset_filename='completeBibleDataset', query_window_len=6, query_overlap=1)
-
-    batches = range(3000, 3360)
+    low_batch = input('Set the lowest batch_id to be searched in')
+    high_batch = input('Set the highest batch_id to be searched in')
+    batches = range(eval(low_batch), eval(high_batch)+1)
     search_by_batches(batches, bible_dataset_filename='completeBibleDataset', query_window_len=6, query_overlap=1)
