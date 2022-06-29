@@ -45,4 +45,4 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
 
 ## 5) Apply evaluation functions
 - IN PROGRESS, this process serves to improve and filter the discovered citations.
-- So far, you can use [matches_evaluation.ipynb](https://github.com/DigilabNLCR/BibleCitations/blob/main/matches_evaluation.ipynb)
+- So far, you can use [matches_evaluation.ipynb](https://github.com/DigilabNLCR/BibleCitations/blob/main/matches_evaluation.ipynb) but some functions are yet in development
