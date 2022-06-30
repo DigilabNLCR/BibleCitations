@@ -19,7 +19,8 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
 - install required packages from the [requirements.txt](https://github.com/DigilabNLCR/BibleCitations/blob/main/requirements.txt) file
 - create necessary folders by running [prepare_environment.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/prepare_environment.py)
 - create biblical dataset objects by running [prepare_bible.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/prepare_bible.py)
-    - here, you can influence the process and performance by changing some of the parameters - for example by the n-gramming length, or by defining stop-subverses in [stop_subverses_21.txt](https://github.com/DigilabNLCR/BibleCitations/blob/main/stop_subverses_21.txt), or by ignoring the short subverses, or by changing stop words in [stop_words.txt](https://github.com/DigilabNLCR/BibleCitations/blob/main/stop_words.txt)
+    - Initial version of the bibleDataset and other necessary objects (dictionary and corpus) is already created.
+    - here, you can influence the process and performance by changing some of the parameters - for example by the n-gramming length, or by defining stop-subverses in [stop_subverses_21.txt](https://github.com/DigilabNLCR/BibleCitations/blob/main/stop_subverses_21.txt) and apply them on the bibleDataset preparation, or by ignoring the short subverses, or by changing stop words in [stop_words.txt](https://github.com/DigilabNLCR/BibleCitations/blob/main/stop_words.txt)
     - some more deep changes, like the length of subverse, need to be implemented in [run_biblical_intertextuality.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/run_biblical_intertextuality.py)
 
 ## 2) Prepare your data

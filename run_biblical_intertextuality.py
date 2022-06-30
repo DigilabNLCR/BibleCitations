@@ -177,14 +177,17 @@ def split_long_sent(input_sent_text: str, tole_len: int):
         return subverses
 
 
-def split_verse(input_text:str, tole_len=21, return_shorts=False) -> list:
+def split_verse(input_text:str, tole_len=21, return_shorts=False, short_limit=9) -> list:
     """ This function ensures verse splitting into smaller subverses.
     :param input_text: text of verse that is to be split.
     :param tole_len: minimal length of subverse in characters.
     """
     if len(input_text) < tole_len:
         if return_shorts:
-            return [input_text]
+            if len(input_text) <= short_limit:
+                return [input_text]
+            else:
+                return []
         else:
             return []
     
@@ -486,27 +489,27 @@ def create_necessary_objects(ngram_size=4, skip_dataset=True, dataset=None, save
             print('Dataset already exists --> loaded.')
             bible_dataset = load_dataset(f'{out_prefix}Dataset')
         else:
-            start_ = time.time()
+            start_ = time()
             print('Creating bible dataset...')
             bible_dataset = bible_to_dataset()
             save_dataset(bible_dataset, f'{out_prefix}Dataset')
-            end_ = time.time()
+            end_ = time()
             print(f'Dataset has been created in {round((end_-start_)/60, 2)} minutes. Saved as {out_prefix}Datset.joblib')
 
-    start_ = time.time()
+    start_ = time()
     print('Processing corpus and creating dictionary...')
     dictionary, processed_corpus = process_corpus(bible_dataset, ngram_size=ngram_size)
     if save_objects:
         save_dictionary(dictionary, f'n{ngram_size}_{out_prefix}Dict')
-    end_ = time.time()
+    end_ = time()
     print(f'Dictionary has been created in {round((end_-start_), 2)} seconds. Saved as n{ngram_size}_{out_prefix}Dict.joblib')
 
-    start_ = time.time()
+    start_ = time()
     print('Creating corpus...')
     corpus = create_corpus(dictionary, processed_corpus)
     if save_objects:
         save_corpus(corpus, f'n{ngram_size}_{out_prefix}Corpus')
-    end_ = time.time()
+    end_ = time()
     print(f'Corpus has been created in {round((end_-start_), 2)} seconds. Saved as n{ngram_size}_{out_prefix}Corpus.mm')
 
     return corpus, dictionary
