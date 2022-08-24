@@ -300,12 +300,15 @@ class bibleDataset:
         return (len(self.data) == len(self.target))
 
 
-def bible_to_dataset(save=True, ignore_stop_subs=False, return_shorts=True,  dataset_prefix='fullBible'):
+def bible_to_dataset(save=True, ignore_stop_subs=False, dataset_prefix='fullBible', return_shorts=True,  tole_len=21, short_limit=9):
     """ This function prepares dataset into bibleDataset class.
 
     :param ignore_stop_subs: if True, the stop subverses defined in stop_subverses_21 are ignored.
-    :param save: set False f you do not want to save the dataset.
-    :param dataset_name: filename of the saved dataset.
+    :param save: set False if you do not want to save the dataset.
+    :param dataset_prefix: prefix for the filename of the saved dataset (prefixDataset.joblib).
+    :param return_shorts: should verses shorter than tole_len characters be returned?
+    :param tole_len: minimal length for verse split
+    :param short_limit: minimal characters needed for the verse to be included in the dataset.
     """
     data = []
     targets = []
@@ -320,7 +323,7 @@ def bible_to_dataset(save=True, ignore_stop_subs=False, return_shorts=True,  dat
             except:
                 print('There is some error in:', bible_file)
             for verse_id in verses_dict:
-                subverses = split_verse(verses_dict[verse_id], return_shorts=return_shorts)
+                subverses = split_verse(verses_dict[verse_id], return_shorts=return_shorts, tole_len=tole_len, short_limit=short_limit)
                 for sub in subverses:
                     if ignore_stop_subs:
                         if sub in stop_subverses:
@@ -741,10 +744,18 @@ def clear_batches_csv(clear: bool):
 
 
 def create_batches_csv():
-    # create batches.csv if not exists
+    """ create batches.csv if not exists """
     if not os_exists(BATCHES_FILE_PATH):
         empty_df = pd.DataFrame(columns=batches_columns)
         pd.DataFrame.to_csv(empty_df, BATCHES_FILE_PATH)
+
+
+def get_last_batch_id():
+    """ This function is used in 'run_biblical_intertextuality.py' to detect the last batch in order to set the right range. """
+    batches_df = pd.read_csv(BATCHES_FILE_PATH)
+    last_assigned_batch = batches_df['batch_id'].max()
+
+    return last_assigned_batch
 
 
 def update_batches_csv(clear=False, max_batch_size=40):
@@ -927,4 +938,4 @@ def search_by_batches(batches_to_run:list, bible_dataset_filename='fullBibleData
 
 
 """ EVALUATION OF RESULTS --------------------------------------------------------------------------------------- """
-
+# TODO: in preparation...

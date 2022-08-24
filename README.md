@@ -13,6 +13,19 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
     - Translation of František Žilka (ZP) - New Testament, see [translation of František Žilka on obohu.cz](https://obohu.cz/bible/index.php?styl=ZP&k=Mt&kap=1)
 - We have also worked with an incomplete translation of "Bible Svatováclavská" that was provided us by prof. [Pavel Kosek from the Masaryk University](https://www.muni.cz/lide/4755-pavel-kosek) but we do not have a permission to make this one public.
 
+## Versions
+### Current version: 1.0.0
+The current version is the first complete version published.
+- the search is executed via journal_fulldata.joblib file (contains python dictionary object); this has made the search process faster by about !!!!DOPLNIT!!!!
+- results of search executed on our data publiseh in [PUBLIC_RESULTS]()
+### Previous versions
+#### 0.0.2
+- first published version, in connection with presenting this project on [EASR 2022 conference, Cork, Ireland](https://www.easr2022.org/).
+- the search has been executed on individual JSON query files
+- limited evaluation functions
+#### 0.0.1
+- development version, never published
+
 # How to use this script
 
 ## 1) Preparation
@@ -34,6 +47,7 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
     - "page_num"
     - "text"
 - should you wish to change the fields, you need to make changes to [run_biblical_intertextuality.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/run_biblical_intertextuality.py), too.
+- prepare journals_fulldata.joblib and journals_metadata.joblib files that are used within the search and evaluation. Do this by running [prepare_query_documants.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/prepare_query_documants.py)
 
 ## 3) Prepare batches to run
 - Batch approach to search is used for convenience of searching through large dataset - without the need to save the results after each page which slows the process, and on the other hand providing the researcher with a possibility to stop tu search without loosing much of the process.
@@ -45,5 +59,6 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
 - [run_biblical_intertextuality.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/run_biblical_intertextuality.py)
 
 ## 5) Apply evaluation functions
-- IN PROGRESS, this process serves to improve and filter the discovered citations.
-- So far, you can use [matches_evaluation.ipynb](https://github.com/DigilabNLCR/BibleCitations/blob/main/matches_evaluation.ipynb) but some functions are yet in development
+- use [evaluate.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluate.py) but some functions are yet in development
+- STILL IN PROGRESS, this process serves to improve and filter the discovered citations.
+- You can explore the process of evaluation using [evaluation.ipynb](https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluation.ipynb) notebook.

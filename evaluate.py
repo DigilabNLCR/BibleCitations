@@ -16,4 +16,9 @@ The evaluation scheme consists of the following steps:
     --> creates 'MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv' file
 6) Marking 'sure' citations:
     --> creates 'FINAL_MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv' file
+
+NOTE: All of the files are created in the process so you can explore the development of the evaluation scheme.
 """
+import biblical_intertextuality_package as bip
+
+# TODO: in preparation
