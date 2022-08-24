@@ -15,8 +15,9 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
 
 ## Versions
 ### Current version: 1.0.0
+- NOT COMPLETE YET, STILL IN THE PROCESS!!! Will be done by the end of August 2022 ;-)
 The current version is the first complete version published.
-- the search is executed via journal_fulldata.joblib file (contains python dictionary object); this has made the search process faster by about !!!!DOPLNIT!!!!
+- the search is executed via journals_fulldata.joblib file (contains python dictionary object); this has made the search process faster by about !!!!DOPLNIT!!!!
 - results of search executed on our data publiseh in [PUBLIC_RESULTS]()
 ### Previous versions
 #### 0.0.2
