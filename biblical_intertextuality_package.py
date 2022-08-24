@@ -4,7 +4,6 @@ import pandas as pd
 import os
 import joblib
 
-# using these from xy import z improves the performace quite well...
 from os import listdir as os_listdir
 from os.path import isdir as os_path_isdir
 from os.path import exists as os_exists
@@ -84,7 +83,9 @@ with open(STOP_SUBVERSES_PATH, 'r', encoding='utf-8') as ssv_f:
     stop_subverses = stop_subverses.split('\n')
 
 """ List of all translations. """
-all_translations = ['BKR', 'BSV', 'HEJCL', 'SYK', 'ZP']
+# all_translations = ['BKR', 'BSV', 'HEJCL', 'SYK', 'ZP']
+# NOTE: translation Bible svatováclavská is unfortunately not public. See README
+all_translations = ['BKR', 'HEJCL', 'SYK', 'ZP']
 
 
 """ FUNCTIONS THAT ENSURE VERSE SPLITTING ------------------------------------------------------------------------- """
@@ -715,7 +716,7 @@ def search_for_bible_for_batches_implementation(bible_object:bibleObject, journa
 
 
 def collect_query_jsons():
-    """ This function list all json files as stored in folder "extracted_query_jsons"."""
+    """ This function list all json files as stored in folder "query_jsons"."""
     folders_in_extracted_query_jsons = os_listdir(ALL_JSONS_PATH)
 
     journals_et_folders = {}
