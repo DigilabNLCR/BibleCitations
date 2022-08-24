@@ -48,7 +48,7 @@ The current version is the first complete version published.
     - "page_num"
     - "text"
 - should you wish to change the fields, you need to make changes to [run_biblical_intertextuality.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/run_biblical_intertextuality.py), too.
-- prepare journals_fulldata.joblib and journals_metadata.joblib files that are used within the search and evaluation. Do this by running [prepare_query_documants.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/prepare_query_documants.py)
+- prepare journals_fulldata.joblib and journals_metadata.joblib files that are used within the search and evaluation. Do this by running [prepare_query_documents.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/prepare_query_documents.py)
 
 ## 3) Prepare batches to run
 - Batch approach to search is used for convenience of searching through large dataset - without the need to save the results after each page which slows the process, and on the other hand providing the researcher with a possibility to stop tu search without loosing much of the process.
