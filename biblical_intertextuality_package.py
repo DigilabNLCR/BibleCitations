@@ -469,6 +469,79 @@ def split_query(input_text:str, window_len=4, overlap=1):
     return query_docs
 
 
+def create_all_jsons_metadata_file(return_dict=False):
+    """ This function is used to create 'journals_metadata.joblib' file, i.e. a dictionary object that stores metadata of all JSON files according to their filename. It is used because it is much faster than load JSON files and extract the matadata all over (for evaluation processes). This function is used in prepare_query_documents.py """
+    files_as_keys = {}
+
+    journals_folders = os_listdir(ALL_JSONS_PATH)
+
+    for folder in journals_folders:
+        print('Working on', folder)
+        files_in_folder = os_listdir(join_path(ALL_JSONS_PATH, folder))
+        print('\tFiles in folder', len(files_in_folder))
+        files_done = 0
+        print_progress = 0
+        for file_ in files_in_folder:
+            if print_progress >= 500:
+                print('\tProgress:', files_done, '/', len(files_in_folder))
+                print_progress = 0
+
+            with open(join_path(ALL_JSONS_PATH, folder, file_), 'r', encoding='utf-8') as js_file:
+                data = json_load(js_file)
+                journal = data['journal']
+                issue_date = data['date']
+                issue_page = data['page_num']
+                issue_uuid = data['issue_uuid']
+                kramerius_url = f'https://kramerius5.nkp.cz/view/uuid:{issue_uuid}'
+                
+                files_as_keys[file_] = {'journal': journal, 'issue_date': issue_date, 'issue_page': issue_page, 'issue_uuid': issue_uuid, 'kramerius_url': kramerius_url}
+            
+            print_progress += 1
+            files_done += 1
+
+    joblib.dump(files_as_keys, join_path(ROOT_PATH, 'journals_metadata.joblib'))
+
+    if return_dict:
+        return (files_as_keys)
+
+
+def create_all_jsons_fulldata_file(return_dict=False):
+    """ This function is used to create 'journals_fulldata.joblib' file, i.e. a dictionary object that stores metadata of all JSON files according to their filename. It is used because it is much faster than load JSON files and extract the matadata and text all over. However, the file is quite large (ca. 2 GB) so some computers may have problems with RAM using this file. """
+    files_as_keys = {}
+
+    journals_folders = os.listdir(ALL_JSONS_PATH)
+
+    for folder in journals_folders:
+        print('Working on', folder)
+        files_in_folder = os.listdir(join_path(ALL_JSONS_PATH, folder))
+        print('\tFiles in folder', len(files_in_folder))
+        files_done = 0
+        print_progress = 0
+        for file_ in files_in_folder:
+            if print_progress >= 500:
+                print('\tProgress:', files_done, '/', len(files_in_folder))
+                print_progress = 0
+
+            with open(join_path(ALL_JSONS_PATH, folder, file_), 'r', encoding='utf-8') as js_file:
+                data = json_load(js_file)
+                journal = data['journal']
+                issue_date = data['date']
+                issue_page = data['page_num']
+                issue_uuid = data['issue_uuid']
+                kramerius_url = f'https://kramerius5.nkp.cz/view/uuid:{issue_uuid}'
+                full_text = data['text']
+                
+                files_as_keys[file_] = {'journal': journal, 'issue_date': issue_date, 'issue_page': issue_page, 'issue_uuid': issue_uuid, 'kramerius_url': kramerius_url, 'text': full_text}
+            
+            print_progress += 1
+            files_done += 1
+
+    joblib.dump(files_as_keys, join_path(ROOT_PATH, 'journals_fulldata.joblib'))
+
+    if return_dict:
+        return (files_as_keys)
+
+
 """ CREATING AND LOADING NECESSARY OBJECTS ------------------------------------------------------------------------- """
 
 
@@ -939,4 +1012,22 @@ def search_by_batches(batches_to_run:list, bible_dataset_filename='fullBibleData
 
 
 """ EVALUATION OF RESULTS --------------------------------------------------------------------------------------- """
+
+
+def load_results(results_filename='batch_results.csv', delimiter=',') -> pd.core.frame.DataFrame:
+    """ This function loads selected results from the results folder. It is returned as pandas dataframe
+    
+    :param results_filename: filename of results; 'batch_results.csv' is the default parameter, as this is the default filename of results from the search functions.
+    """
+    return pd.read_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', delimiter=delimiter, encoding='utf-8')
+
+
+def get_verseid_queryfile(dataframe:pd.core.frame.DataFrame, row_id:int):
+    """ This function returns search properties of a given row in the results dataframe. """
+
+    verse_id = dataframe.loc[row_id]['verse_id']
+    query_file = dataframe.loc[row_id]['query_file']
+
+    return verse_id, query_file
+
 # TODO: in preparation...

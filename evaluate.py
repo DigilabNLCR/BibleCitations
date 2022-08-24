@@ -16,6 +16,7 @@ The evaluation scheme consists of the following steps:
     --> creates 'MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv' file
 6) Marking 'sure' citations:
     --> creates 'FINAL_MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv' file
+7) Check the results by yourselves ;-)
 
 NOTE: All of the files are created in the process so you can explore the development of the evaluation scheme.
 """
