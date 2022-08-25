@@ -38,4 +38,4 @@ bip.mark_sure_citations(results_filename='MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_ba
 # step 7) - check it by yourselves
 print('The evaluation has been run, now chcek the results by yourselves ;-)')
 print('You can find the results file in "results/FINAL_MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv"')
-print('\tAll other steps of the filtering process are also save in the "results" directory')
+print('\t- All other steps of the filtering process are also save in the "results" directory')
