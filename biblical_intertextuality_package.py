@@ -1055,10 +1055,11 @@ def make_unfiltered_search_dataframe(results_filename='batch_results.csv', save=
     res_id = 0
     print_progress = 0
 
+    print('Dropping duplicates...')
     for row_id in results_dataframe.index:
         if print_progress == 500:
-            print(row_id, 'of', len(results_dataframe))
-            print_progress =0
+            print('\t', row_id, 'of', len(results_dataframe))
+            print_progress = 0
       
         verse_id, query_file = get_verseid_queryfile(dataframe=results_dataframe, row_id=row_id)
 
@@ -1413,6 +1414,7 @@ def make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.cs
     final_results = {}
     res_id = 0
 
+    print('Running initial filtering...')
     rows_to_skip = []
     print_progress = 0
     iter_ = 0
@@ -1420,7 +1422,7 @@ def make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.cs
         print_progress += 1
         iter_ += 1
         if print_progress >= 500:
-            print(iter_, '/', len(results_dataframe))
+            print('\t', iter_, '/', len(results_dataframe))
             print_progress = 0
 
         verse_id, query_file, query_window_len, query_overlap = get_row_data_for_check_results(dataframe=results_dataframe, row_id=row_id)
@@ -1573,18 +1575,11 @@ def filter_duplicates_by_overlap(results_filename='ST_SUBS_FILTERED_UNFILTERED_b
     final_results = {}
     res_id = 0
 
+    print('Filtering "hidden" duplicates...')
     rows_to_skip = []
     rows_dropped = 0
-    print_progress = 0
     res_id = 0
-    iter_ = 0
     for row_id in results_dataframe.index:
-        print_progress += 1
-        iter_ += 1
-        if print_progress >= 500:
-            print(iter_, '/', len(results_dataframe))
-            print_progress = 0
-  
         if row_id in rows_to_skip:
             continue
         else:
@@ -1883,7 +1878,7 @@ def mark_sure_citations(results_filename='MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_ba
 
     num_of_sure_citations = 0
 
-    print('Evaluation "sure" citations ...')
+    print('Marking "sure" citations ...')
     for row_id in original_df.index:
         row_as_dict = original_df.loc[row_id].to_dict()
 
