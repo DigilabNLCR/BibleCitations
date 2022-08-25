@@ -1014,6 +1014,9 @@ def search_by_batches(batches_to_run:list, bible_dataset_filename='fullBibleData
 """ EVALUATION OF RESULTS --------------------------------------------------------------------------------------- """
 
 
+""" GENERAL FUNCTIONS FOR EVALUATION """
+
+
 def load_results(results_filename='batch_results.csv', delimiter=',') -> pd.core.frame.DataFrame:
     """ This function loads selected results from the results folder. It is returned as pandas dataframe
     
@@ -1030,4 +1033,908 @@ def get_verseid_queryfile(dataframe:pd.core.frame.DataFrame, row_id:int):
 
     return verse_id, query_file
 
-# TODO: in preparation...
+
+""" 'UNFILTERED' REDUCTION OF RESULTS """
+
+
+def make_unfiltered_search_dataframe(results_filename='batch_results.csv', save=True, return_df=False):
+    """ This functions converts the preliminary results to structure same as all of the other results (filtered and improved). This is for purely statistical reasons. It only drops duplicates. """
+    # Load results:
+    results_dataframe = load_results(results_filename)
+
+    # Load metadata from json_metadata.joblib (created with prepare_query_documents.py)
+    jsons_metadata = joblib.load(join_path(ROOT_PATH, 'journals_metadata.joblib'))
+
+    # Remove duplicate rows from the result dataframe
+    print('Original size of the results dataframe:', len(results_dataframe))
+    results_dataframe.drop_duplicates(subset=['verse_id', 'query_file', 'index_query_part'], keep='first', inplace=True)
+    print('Size of the results dataframe after droping duplicates:', len(results_dataframe))
+
+    # Create (empty) final results dataframe:
+    final_results = {}
+    res_id = 0
+    print_progress = 0
+
+    for row_id in results_dataframe.index:
+        if print_progress == 500:
+            print(row_id, 'of', len(results_dataframe))
+            print_progress =0
+      
+        verse_id, query_file = get_verseid_queryfile(dataframe=results_dataframe, row_id=row_id)
+
+        row_dict = results_dataframe.loc[row_id].to_dict()
+
+        row_dict['verse_id'] = verse_id
+        row_dict['book'] = get_book_id(verse_id)
+        row_dict['journal'] = jsons_metadata[query_file]['journal']
+        row_dict['date'] = jsons_metadata[query_file]['issue_date']
+        row_dict['page_num'] = jsons_metadata[query_file]['issue_page']
+
+        final_results[res_id] = row_dict
+        res_id += 1
+        print_progress += 1
+
+    final_results_df = pd.DataFrame.from_dict(final_results)
+    final_results_df = final_results_df.transpose()
+    
+    if save:
+        final_results_df.to_csv(join_path(RESULTS_PATH, f'UNFILTERED_{results_filename}'), encoding='utf-8', quotechar='"', sep=';')
+
+    if return_df:
+        return final_results_df
+
+
+""" FUNCTIONS AND OBJECTS FOR INITIAL FILTER AND SCORINGS """
+
+""" Define mutually exclusive words in exclusives.txt """
+with open(EXCLUSIVES_PATH, 'r', encoding='utf-8') as exclusives_file:
+    data = exclusives_file.read()
+    words_lines = data.split('\n')
+
+    exclusives_dict = defaultdict(list)
+    list_of_exclusives = []
+
+    for line in words_lines:
+        word_list = line.split(', ')
+        for word_from in word_list:
+            for word_to in word_list:
+                if word_from == word_to:
+                    continue
+                if word_from == 'je' and word_to == 'jest':
+                    continue
+                if word_from == 'jest' and word_to == 'je':
+                    continue
+                else:
+                    exclusives_dict[normalize_string(word_from)].append(normalize_string(word_to))
+            list_of_exclusives.append(normalize_string(word_from))
+
+
+def exclusiveness_test(subverse_string:str, query_string:str) -> bool:
+    """
+    This function serves to check if the detected string is not false positive based on mutually exclusive words. E.g. naše vs. vaše;, je vs, není etc.
+    """
+    subverse_string = normalize_string(subverse_string)
+    query_string = normalize_string(query_string)
+
+    subverse_words = word_tokenize_no_punctuation(subverse_string)
+    query_words = word_tokenize_no_punctuation(query_string)
+
+    for i, word in enumerate(subverse_words):
+        if word in list_of_exclusives:
+            list_to_ex = exclusives_dict[word]
+            try:
+                if query_words[i] in list_to_ex:
+                    return False
+            except:
+                continue
+
+    return True
+
+
+def get_row_data_for_check_results(dataframe:pd.core.frame.DataFrame, row_id:int):
+    """ This function returns search properties of a given row in the results dataframe to be used in check_results function. """
+
+    verse_id = dataframe.loc[row_id]['verse_id']
+    query_file = dataframe.loc[row_id]['query_file']
+    query_window_len = dataframe.loc[row_id]['query_window_len']
+    query_overlap = dataframe.loc[row_id]['query_overlap']
+
+    return verse_id, query_file, query_window_len, query_overlap
+
+
+def get_verse_et_idx(dataframe:pd.core.frame.DataFrame, row_id:int):
+    """ This function returns search properties of a given row in the results dataframe. """
+
+    verse_id = dataframe.loc[row_id, 'verse_id']
+    index_query_part = dataframe.loc[row_id, 'index_query_part']
+
+    return verse_id, index_query_part
+
+
+def select_attributions_to_json(dataframe:pd.core.frame.DataFrame, query_file:str):
+    """ This function selects all attributions to a given JSON file. 
+    
+    It returns: dataframe of all of the results, row_ids to skip
+    """
+    subset_dataframe = dataframe[dataframe['query_file'] == query_file]
+
+    # If the subset dataframe contains only one result, return it and empty skips.
+    if len(subset_dataframe) == 1:
+        verse_id, index_query_part = get_verse_et_idx(subset_dataframe, subset_dataframe.index[0])
+        attributed_verses = {verse_id: [index_query_part]}
+        return attributed_verses, []
+
+    # If the subset dataframe contains more rows, check if further.
+    else:
+        row_ids_to_skip = subset_dataframe.index
+        attributed_verses = defaultdict(list)
+        for row_id in row_ids_to_skip:
+            verse_id, index_query_part = get_verse_et_idx(dataframe=subset_dataframe, row_id=row_id)
+            attributed_verses[verse_id].append(index_query_part)
+
+        return attributed_verses, row_ids_to_skip
+
+
+def join_overlap(list_of_parts:list, query_index:int) -> str:
+    """ This function serves to join two parts of a query into one string (when the citation has been discovered in two consecutive parts of the query document). """
+    output = ''
+
+    sentences_in_1 = sent_tokenize(list_of_parts[query_index])
+    try:
+        sentences_in_2 = sent_tokenize(list_of_parts[query_index+1])
+    except IndexError:
+        print(sentences_in_1)
+        print(list_of_parts[-1])
+
+    for sent_1 in sentences_in_1:
+        if sent_1 not in sentences_in_2:
+            output += sent_1 + ' '
+        else:
+            break
+
+    for sent_2 in sentences_in_2:
+        output += sent_2 + ' '
+
+    return output.strip()
+
+
+def fuzzy_string_matching_for_implementation_with_text(subverse_string:str, query_string:str, tolerance=0.85):
+    """ 
+    Contrary to fuzzy_string_matching_for_implementation(), this function also returns the matched part of the query string and the edit distance of the compared strings. The function is duplicated so as not to speed down the function in the broad search. However, the speed difference has not been tested yet.
+
+    This function is for implementation of typo similarity detection applied to two strings. It returns bool value of match.
+
+    :param subverse_string: string of the biblical subverse we are searching for.
+    :param query_string: string in which we are searching for the seubverse_string.
+    :param tolerance: how large proportion of the subverse_string must be present in query_string to consider it a match.
+    """
+    subverse_string = normalize_string(subverse_string)
+    subverse_len = len(subverse_string)
+
+    query_string = normalize_string(query_string)
+    query_len = len(query_string)
+
+    tolerance = subverse_len * (1-tolerance)
+
+    if subverse_len-tolerance > query_len:
+        # If subverse is longer than query string, it is not a match by default
+        return False, '', 0
+    elif subverse_len-tolerance <= query_len <= subverse_len+tolerance:
+        # If subverse is more or les of the same length as query string, just compare them.
+        edit_distance = distance(subverse_string, query_string)
+        if edit_distance <= tolerance:
+            return True, query_string, edit_distance
+    else:
+        # Oherwise, compare parts of the query string (always staring with word, so it is quicker; however, some mistakes may be made here.
+        word_len_subv = len(word_tokenize(subverse_string))
+        words_in_query_string = word_tokenize(query_string)
+        word_len_query_string = len(words_in_query_string)
+
+        for i, cycle in enumerate(range(word_len_subv, word_len_query_string+1)):
+            gram_str = ' '.join(words_in_query_string[i:(word_len_subv+i)])
+            edit_distance = distance(subverse_string, gram_str)
+            if edit_distance <= tolerance:
+                return True, gram_str, edit_distance
+            else:
+                continue
+    
+    return False, '', 0
+
+
+def check_for_verse(verse_id:str, string_to_check:str) -> dict:
+    """ This function performs the inner check for a verse in all availiable translations. It is implemented in the check_results() function. """
+    possible_citations = []
+
+    for trsl in all_translations:
+        verse_text = get_verse_text(trsl, verse_id, print_exceptions=False)
+        if verse_text:
+            subverses = split_verse(verse_text, tole_len=21, return_shorts=True, short_limit=9)
+
+            fuzzy_matched_subs_num = 0
+            fuzzy_matched_subs = []
+            matched_subs_edit_distance = 0
+            matched_subs_chars = 0
+            exclusive_matched_subs_num = 0
+
+            for subverse in subverses:
+                # check for every subverse in edit distance
+                fuzzy_match, query_match, edit_distance = fuzzy_string_matching_for_implementation_with_text(subverse, query_string=string_to_check, tolerance=0.85)
+                if fuzzy_match:
+                    fuzzy_matched_subs_num += 1
+                    fuzzy_matched_subs.append(subverse)
+                    matched_subs_edit_distance += edit_distance
+                    matched_subs_chars += len(subverse)
+
+                    # run the exclussiveness test
+                    if exclusiveness_test(subverse, query_match):
+                        exclusive_matched_subs_num += 1
+
+                else:
+                    continue
+
+            if fuzzy_matched_subs_num == 0:
+                continue
+            else:
+                matched_characters = (matched_subs_chars-matched_subs_edit_distance)/matched_subs_chars
+                matched_subverses_score = fuzzy_matched_subs_num/len(subverses)
+
+                match_probability = matched_characters*matched_subverses_score
+
+                result_for_trsl = {'verse_id': verse_id,
+                                    'verse_text': verse_text, 
+                                    'matched_subverses': fuzzy_matched_subs, 
+                                    'query_string': string_to_check, 
+                                    'matched_characters': (matched_subs_chars-matched_subs_edit_distance)/matched_subs_chars, 
+                                    'matched_subverses_score': fuzzy_matched_subs_num/len(subverses),
+                                    'exclusives_match': exclusive_matched_subs_num/fuzzy_matched_subs_num,
+                                    'match_probability': match_probability}
+            
+                possible_citations.append(result_for_trsl)
+
+    # If there are none possible citation (which is weird and it should not happen and it probably means that there are differently split verses in the originally used BibleDataset) return result that are basically False:
+    if not possible_citations:
+        result = {'verse_id': verse_id,
+                    'verse_text': verse_text, 
+                    'matched_subverses': [], 
+                    'query_string': string_to_check, 
+                    'matched_characters': 0, 
+                    'matched_subverses_score': 0,
+                    'exclusives_match': 0,
+                    'match_probability': 'FALSE'}
+        
+        return result
+    
+    # Now, if the results seem OK, select the best match (translations as such are not evaluated, just select the best result of all possible results)... in this evaluation, we consider the result with most detected subverses as a match, if same then based on the characters, and finally on the exclusiveness test results.
+    matched_subverses_scores = [pc['matched_subverses'] for pc in possible_citations]
+    matched_characters_scores = [pc['matched_characters'] for pc in possible_citations]
+    exclusiveness_test_scores = [pc['exclusives_match'] for pc in possible_citations]
+
+    # Check subverses score results:
+    best_subverses_match = max(matched_subverses_scores)
+    if matched_subverses_scores.count(best_subverses_match) == 1:
+        best_pc_idx = matched_subverses_scores.index(best_subverses_match)
+        return possible_citations[best_pc_idx]
+    else:
+        # check the character scores results:
+        idxs = [i for i, score in enumerate(matched_subverses_scores) if score == best_subverses_match]
+        best_chars_match = max([matched_characters_scores[i] for i in idxs])
+        if matched_characters_scores.count(best_chars_match) == 1:
+            best_pc_idx = matched_characters_scores.index(best_chars_match)
+            return possible_citations[best_pc_idx]
+        else:
+            # check exclusiveness test results:
+            idxs = [i for i, score in enumerate(matched_characters_scores) if score == best_chars_match]
+            best_excl_res = max([exclusiveness_test_scores[i] for i in idxs])
+            best_pc_idx = exclusiveness_test_scores.index(best_excl_res)
+            return possible_citations[best_pc_idx]
+
+
+def load_data_from_journals_fulldata(journals_fulldata:dict, query_file:str):
+    journal = journals_fulldata[query_file]['journal']
+    issue_date = journals_fulldata[query_file]['issue_date']
+    issue_page = journals_fulldata[query_file]['issue_page']
+    issue_uuid = journals_fulldata[query_file]['issue_uuid']
+    kramerius_url = journals_fulldata[query_file]['kramerius_url']
+    full_query_string = journals_fulldata[query_file]['text']
+
+    return journal, issue_date, issue_page, issue_uuid, kramerius_url, full_query_string
+
+
+def evaluate_attributions_in_doc(attributed_verses:dict, query_file:str, query_window_len:int, query_overlap:int, journals_fulldata:dict) -> list:
+    """ This function evaluates attributed verses, supposedly detected in a single JSON file. """
+    # Load data from journals_fulldata dictionary:
+    journal, issue_date, issue_page, issue_uuid, kramerius_url, full_query_string = load_data_from_journals_fulldata(journals_fulldata=journals_fulldata, query_file=query_file)
+
+    query_parts = split_query(full_query_string, window_len=query_window_len, overlap=query_overlap)
+    
+    results_of_attributions = []
+  
+    for verse_id in attributed_verses:
+        attributed_idxs = attributed_verses[verse_id]
+        if len(attributed_idxs) == 1:
+            string_to_check = query_parts[attributed_idxs[0]]
+            possible_citation = check_for_verse(verse_id=verse_id, string_to_check=string_to_check)
+            results_of_attributions.append(possible_citation)
+            
+        else:
+            skip = False
+            for i, q_idx in enumerate(attributed_idxs):
+                if not skip:
+                    try:
+                        if attributed_idxs[i+1] == q_idx+1:
+                            # checking if the next part is a joined sequence
+                            skip = True
+                            string_to_check = join_overlap(query_parts, q_idx)
+                            possible_citation = check_for_verse(verse_id=verse_id, string_to_check=string_to_check)
+                            results_of_attributions.append(possible_citation)
+                        else:
+                            string_to_check = query_parts[attributed_idxs[0]]
+                            possible_citation = check_for_verse(verse_id=verse_id, string_to_check=string_to_check)
+                            results_of_attributions.append(possible_citation)
+                    except IndexError:
+                        string_to_check = query_parts[attributed_idxs[i]]
+                        possible_citation = check_for_verse(verse_id=verse_id, string_to_check=string_to_check)
+                        results_of_attributions.append(possible_citation)
+                else:
+                    skip = False
+                    continue
+
+    # TODO: zde pak přidat všechny další parametry nalezené citace --> pak se to vrátí a přidá do výsledného DF.
+    if len(results_of_attributions) == 1:
+        results_of_attributions[0]['multiple_attribution'] = False
+        results_of_attributions[0]['journal'] = journal
+        results_of_attributions[0]['date'] = issue_date
+        results_of_attributions[0]['page_num'] = issue_page
+        results_of_attributions[0]['uuid'] = issue_uuid
+        results_of_attributions[0]['kramerius_url'] = kramerius_url
+    else:
+        for res in results_of_attributions:
+            res['multiple_attribution'] = True
+            res['journal'] = journal
+            res['date'] = issue_date
+            res['page_num'] = issue_page
+            res['uuid'] = issue_uuid
+            res['kramerius_url'] = kramerius_url
+
+    return results_of_attributions
+
+
+def make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.csv', save=True, return_df=False):
+    """ This functions applies initial checks on the preliminary results. """
+    # Load results:
+    print('Loading UNFILTERED results...')
+    results_dataframe = load_results(results_filename, delimiter=';')
+
+    # Load journals_fulldata:
+    print('Loading journals_fulldata.joblib...')
+    journals_full_data = joblib.load(join_path(ROOT_PATH, 'journals_fulldata.joblib'))
+
+    # Create (empty) final results dataframe:
+    final_results = {}
+    res_id = 0
+
+    rows_to_skip = []
+    print_progress = 0
+    iter_ = 0
+    for row_id in results_dataframe.index:
+        print_progress += 1
+        iter_ += 1
+        if print_progress >= 500:
+            print(iter_, '/', len(results_dataframe))
+            print_progress = 0
+
+        verse_id, query_file, query_window_len, query_overlap = get_row_data_for_check_results(dataframe=results_dataframe, row_id=row_id)
+  
+        if row_id in rows_to_skip:
+            continue
+        else:
+            attributed_verses, add_to_skip = select_attributions_to_json(dataframe=results_dataframe, query_file=query_file)
+            rows_to_skip.extend(add_to_skip)
+
+            results = evaluate_attributions_in_doc(attributed_verses=attributed_verses, query_file=query_file, query_window_len=query_window_len, query_overlap=query_overlap, journals_fulldata=journals_full_data)
+
+            for res in results:
+                final_results[res_id] = res
+                res_id += 1
+
+    final_results_df = pd.DataFrame.from_dict(final_results)
+    final_results_df = final_results_df.transpose()
+    
+    if save:
+        final_results_df.to_csv(join_path(RESULTS_PATH, f'FILTERED_{results_filename}'), encoding='utf-8', quotechar='"', sep=';')
+
+    if return_df:
+        return final_results_df
+
+
+""" FILTERING STOP-SUBVERSES """
+# This function filter stop subverses if these are the only one detected (they are kept if there are more subverses detected in the citation)
+# NOTE: define/change stop-subverses in evaluation_stop_subverses_21.txt
+
+
+def filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv', input_df=False, subverse_len=21, rewrite_original_csv=False, save=True, return_df=False):
+    """ This function filters those results that are detected based on solely one subverse that is listed in file evaluation_stop_subverses_{subverse_len}.txt """
+    if input_df is not False:
+        original_df = input_df
+    else:
+        print('Loading results dataframe ...')
+        original_df = pd.read_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', delimiter=';', encoding='utf-8', index_col=0)
+
+    print('Length of the original dataframe is:', len(original_df))
+
+    print(f'Loading stop-subverses from evaluation_stop_subverses_{subverse_len}.txt ...')
+    with open(join_path(ROOT_PATH, f'evaluation_stop_subverses_{subverse_len}.txt'), 'r', encoding='utf-8') as stops_f:
+        data = stops_f.read()
+        stop_subs = data.split('\n')
+
+    print('Number of stop subverses to filter:', len(set(stop_subs)))
+
+    filtered_df_dict = {}
+    fil_id = 0  
+
+    print('Filtering rows ...')
+    for row_id in original_df.index:
+        if original_df.loc[row_id]['matched_subverses'] in stop_subs:
+            continue
+        else:
+            row_as_dict = original_df.loc[row_id].to_dict()            
+            filtered_df_dict[fil_id] = row_as_dict
+            fil_id += 1
+
+    filtered_df = pd.DataFrame.from_dict(filtered_df_dict)
+    filtered_df = filtered_df.transpose()
+
+    print('Length of the filtered dataframe is:', len(filtered_df))
+    print('Number of filtered rows:', len(original_df)-len(filtered_df))
+
+    if rewrite_original_csv:
+        filtered_df.to_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', sep=';', encoding='utf-8')
+    
+    if save:
+        filtered_df.to_csv(join_path(RESULTS_PATH, f'ST_SUBS_{results_filename}'), quotechar='"', sep=';', encoding='utf-8')
+    
+    if return_df:
+        return filtered_df
+
+
+""" FILTERING 'HIDDEN DUPLICATES' """
+
+
+def get_row_data_for_overlap_dups(dataframe:pd.core.frame.DataFrame, row_id:int):
+    """ This function returns search properties of a given row in the results dataframe to be used in check_results function. """
+
+    verse_id = dataframe.loc[row_id]['verse_id']
+    uuid = dataframe.loc[row_id]['uuid']
+    page_num = dataframe.loc[row_id]['page_num']
+
+    return verse_id, uuid, page_num
+
+
+def select_attributions_to_same_page_et_verse(dataframe:pd.core.frame.DataFrame, uuid:str, page_num:int, verse_id:str):
+    """ This function selects all attributions to a given uuid, page nuber and verse ID
+    
+    It returns: dataframe of all of the results, row_ids to skip
+    """
+    subset_dataframe = dataframe[dataframe['uuid'] == uuid]
+    subset_dataframe = subset_dataframe[subset_dataframe['page_num'] == page_num]
+    subset_dataframe = subset_dataframe[subset_dataframe['verse_id'] == verse_id]
+
+    return subset_dataframe, subset_dataframe.index
+
+
+def is_string_in_other_string(str_0:str, str_1:str):
+    """ This function checks if one of two string contain the other. It returns bool and what string to discard """
+    if str_0 in str_1:
+        return True, 0
+    elif str_1 in str_0:
+        return True, 1
+    else:
+        return False, None
+
+
+def compare_overlapped_query_string(subset_dataframe:pd.core.frame.DataFrame):
+    """ This function compares query strings of a subset dataframe (as filtered by select_attributions_to_same_page_et_verse function). """
+    query_strings = {}
+    for row_id in subset_dataframe.index:
+        query_string = subset_dataframe.loc[row_id]['query_string']
+        query_strings[row_id] = query_string
+
+    output_rows = []
+    rows_dropped = 0
+    for qs_a in query_strings:
+        for qs_b in query_strings:
+            if qs_a == qs_b:
+                continue
+            else:
+                is_overlap, qs_to_drop = is_string_in_other_string(query_strings[qs_a], query_strings[qs_b])
+                if is_overlap:
+                    if qs_to_drop == 1:
+                        row_dict = subset_dataframe.loc[qs_a].to_dict()
+                        output_rows.append(row_dict)
+                        rows_dropped += 1
+                else:
+                    row_dict = subset_dataframe.loc[qs_a].to_dict()
+                    output_rows.append(row_dict)
+
+    return output_rows, rows_dropped
+
+
+def filter_duplicates_by_overlap(results_filename='ST_SUBS_FILTERED_UNFILTERED_batch_results.csv', input_df=False, subverse_len=21, rewrite_original_csv=False, save=True, return_df=False):
+    """ This function filters those duplicates that do not seem as full duplicates, because the query string is different. However, sometimes (due to overlaps), there are some matches that include full query string of other match. """
+    if input_df is not False:
+        results_dataframe = input_df
+    else:
+        print('Loading results dataframe ...')
+        results_dataframe = pd.read_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', delimiter=';', encoding='utf-8', index_col=0)
+
+    print('Length of the original dataframe is:', len(results_dataframe))
+
+    # Create (empty) final results dataframe:
+    final_results = {}
+    res_id = 0
+
+    rows_to_skip = []
+    rows_dropped = 0
+    print_progress = 0
+    res_id = 0
+    iter_ = 0
+    for row_id in results_dataframe.index:
+        print_progress += 1
+        iter_ += 1
+        if print_progress >= 500:
+            print(iter_, '/', len(results_dataframe))
+            print_progress = 0
+  
+        if row_id in rows_to_skip:
+            continue
+        else:
+            verse_id, uuid, page_num = get_row_data_for_overlap_dups(dataframe=results_dataframe, row_id=row_id)
+            
+            subset_dataframe, add_to_skip = select_attributions_to_same_page_et_verse(dataframe=results_dataframe, uuid=uuid, page_num=page_num, verse_id=verse_id)
+            rows_to_skip.extend(add_to_skip)
+
+            if len(subset_dataframe) == 1:
+                row_dict = results_dataframe.loc[row_id].to_dict()
+                final_results[res_id] = row_dict
+                res_id += 1
+            else:
+                row_dicts, num_of_rows_dropped = compare_overlapped_query_string(subset_dataframe=subset_dataframe)
+                rows_dropped += num_of_rows_dropped
+                for rd in row_dicts:
+                    final_results[res_id] = rd
+                    res_id += 1
+
+    final_results_df = pd.DataFrame.from_dict(final_results)
+    final_results_df = final_results_df.transpose()
+
+    print('Number of dropped rows:', rows_dropped)
+
+    if rewrite_original_csv:
+        final_results_df.to_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', sep=';', encoding='utf-8')
+    
+    if save:
+        final_results_df.to_csv(join_path(RESULTS_PATH, f'DUPS_{results_filename}'), quotechar='"', sep=';', encoding='utf-8')
+    
+    if return_df:
+        return final_results_df
+
+
+""" RESOLVING MULTIPLE ATTRIBUTIONS """
+
+
+def select_multiply_attributed_rows(dataframe:pd.core.frame.DataFrame, row_id):
+    """ This finction selects all rows that share same multiple attribution. """
+    uuid = dataframe.loc[row_id]['uuid']
+    query_string = dataframe.loc[row_id]['query_string']
+
+    other_attributions_df = dataframe[dataframe['uuid'] == uuid]
+    other_attributions_df = other_attributions_df[other_attributions_df['multiple_attribution'] == True]
+    other_attributions_df = other_attributions_df[other_attributions_df['query_string'] == query_string]
+
+    row_ids_to_skip = other_attributions_df.index
+
+    return other_attributions_df, row_ids_to_skip
+
+
+def fuzzy_string_matching_for_multiple_attributions(subverse_string:str, query_string:str, tolerance=0.85):
+    """ 
+    This function is used to evaluate multiple attributions within the same query string. The function returns parts of query string thatare the supposed match - if these overlap then it is multiple attribution, if not, there are probably just more verses cited within one passage.
+
+    :param subverse_string: string of the biblical subverse we are searching for.
+    :param query_string: string in which we are searching for the seubverse_string.
+    :param tolerance: how large proportion of the subverse_string must be present in query_string to consider it a match.
+    """
+    subverse_string = normalize_string(subverse_string)
+    subverse_len = len(subverse_string)
+
+    query_string = normalize_string(query_string)
+    query_len = len(query_string)
+
+    tolerance = subverse_len * (1-tolerance)
+
+    if subverse_len-tolerance > query_len:
+        # If subverse is longer than query string, it is not a match by default
+        return ()
+    elif subverse_len-tolerance <= query_len <= subverse_len+tolerance:
+        # If subverse is more or les of the same length as query string, just compare them.
+        edit_distance = distance(subverse_string, query_string)
+        if edit_distance <= tolerance:
+            return (0, len(query_string))
+    else:
+        # Oherwise, compare parts of the query string (always staring with word, so it is quicker; however, some mistakes may be made here.
+        word_len_subv = len(word_tokenize(subverse_string))
+        words_in_query_string = word_tokenize(query_string)
+        word_len_query_string = len(words_in_query_string)
+
+        for i, cycle in enumerate(range(word_len_subv, word_len_query_string+1)):
+            gram_str = ' '.join(words_in_query_string[i:(word_len_subv+i)])
+            edit_distance = distance(subverse_string, gram_str)
+            if edit_distance <= tolerance:
+                return (i,(word_len_subv+i))
+            else:
+                continue
+    
+    return ()
+
+
+def check_consecutive(input_list:list):
+    return sorted(input_list) == list(range(min(input_list), max(input_list)+1))
+
+
+def return_ranges_if_not_consecutives(full_range:list):
+    """ This function returns ranges of non-consecutive match. """
+    ranges = []
+    range_start = full_range[0]
+    for i, value in enumerate(full_range):
+        try:
+            if value+1 == full_range[i+1]:
+                continue
+            else:
+                ranges.append((range_start, value))
+                range_start = full_range[i+1]
+        except IndexError:
+            ranges.append((range_start, value))
+            continue
+    
+    return ranges
+
+
+def make_full_range(subverses:list, query_string:str):
+    """ This function returns the full range of matched subverses in the query string and bool whether the matched subverses are consecutively present in the query string. """
+    subs_range = []
+    for sub in subverses:
+        gram_str_range = fuzzy_string_matching_for_multiple_attributions(sub, query_string)
+        for i in range(gram_str_range[0], gram_str_range[1]+1):
+            if i not in subs_range:
+                subs_range.append(i)
+    
+    if check_consecutive(subs_range):
+        return [(min(subs_range), max(subs_range))]
+    
+    else:
+        subs_range.sort()
+        return return_ranges_if_not_consecutives(subs_range)
+
+
+def make_all_ranges_into_all_other_ranges(all_ranges_list:list, list_to_remove:list):
+    """ This function removes matched ranges of a selected subverse from the list of all ranges, so it is compared only with other ranges, not with itself. Theoretically this should not be really a problem, but I find it better to deal with it anyhow.  """
+    reduced_list = all_ranges_list.copy()
+    for item_to_remove in list_to_remove:
+        reduced_list.remove(item_to_remove)
+
+    return reduced_list
+
+
+def check_overlap_of_subs_ranges(subs_ranges:list):
+    """
+    This function checks if there are overlaps between ranges of subverses within the query string.
+    
+    :param subs_ranges: list of lists of ranges (e.g., [[(1,3)], [(5,6), (8,15)]])
+    """
+    overlap_stats = []
+    for a, s_range_a in enumerate(subs_ranges):
+        overlaps_of_sub_a = {}
+        for b, s_range_b in enumerate(subs_ranges):
+            if a == b:
+                continue
+            else:
+                current_stat = False
+                for a_range in s_range_a:
+                    for b_range in s_range_b:
+                        try:
+                            for i in range(a_range[0], a_range[1]+1):
+                                if i in range(b_range[0], b_range[1]+1):
+                                    current_stat = True
+                                    break
+
+                        except IndexError:
+                            continue
+                overlaps_of_sub_a[b] = current_stat
+
+        overlap_stats.append(overlaps_of_sub_a)
+    
+    return overlap_stats
+
+
+def evaluate_multiple_attributions(subset_dataframe:pd.core.frame.DataFrame):
+    """ This function evaluates the DROP value of respective rows. """
+    match_probability_values = []
+    verse_ids = []
+    matched_subverses = []
+    query_strings = []
+    for row_id in subset_dataframe.index:
+        match_probability_values.append(subset_dataframe.loc[row_id]['match_probability'])
+        matched_subverses.append(eval(subset_dataframe.loc[row_id]['matched_subverses']))
+        verse_ids.append(subset_dataframe.loc[row_id]['verse_id'])
+        query_strings.append(subset_dataframe.loc[row_id]['query_string'])
+
+    matched_ranges = []
+    for matched_subs in matched_subverses:
+        # NOTE: the query_strings should be all the same, so we can just select the first one
+        sub_ranges = make_full_range(matched_subs, query_string=query_strings[0])
+        matched_ranges.append(sub_ranges)
+    
+    # Get overlap states of each mach to all other matches.
+    overlap_stats = check_overlap_of_subs_ranges(matched_ranges)
+
+    output_dicts = []
+
+    num_of_rows_to_drop = 0
+    
+    for i, mpv in enumerate(match_probability_values):
+        # get overlap states of the matchon position "i":
+        i_overlaps = overlap_stats[i]
+        overlapped_positions = [i]
+        for i_match in i_overlaps:
+            # If there is some other match that overlaps with this specific match, get its id
+            if i_overlaps[i_match]:
+                overlapped_positions.append(i_match)
+
+        # If there are some overlaps, we will drop the current match if it does not have the highest probability value of all overlapping matches
+        if len(overlapped_positions) > 1:
+            scores_of_overlapped_matches = []
+            for op in overlapped_positions:
+                scores_of_overlapped_matches.append(match_probability_values[op])
+            if mpv == max(scores_of_overlapped_matches):
+                to_drop = False
+            else:
+                to_drop = True
+                num_of_rows_to_drop += 1
+
+        # But if there are no overlaps, we will not drop this match:
+        else:
+            to_drop = False
+
+        df_dict = subset_dataframe.loc[subset_dataframe.index[i]].to_dict()
+        df_dict['drop?'] = to_drop
+        output_dicts.append(df_dict)
+
+    return output_dicts, num_of_rows_to_drop
+
+
+def mark_multiple_attributions(results_filename='DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv', input_df=False, rewrite_original_csv=False, save=True, return_df=False):
+    """ This function suggest which of the multiple attribution is the right one. """
+    if input_df is not False:
+        original_df = input_df
+    else:
+        print('Loading results dataframe ...')
+        original_df = pd.read_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', delimiter=';', encoding='utf-8', index_col=0)
+
+    output_df_dict = {}
+    out_idx = 0
+
+    num_of_rows_to_drop = 0
+
+    rows_to_skip = []
+
+    print('Evaluating multiple attributions ...')
+    for row_id in original_df.index:
+        if row_id in rows_to_skip:
+            continue
+        else:
+            if original_df.loc[row_id]['multiple_attribution']:
+                other_attributions_df, add_to_skip = select_multiply_attributed_rows(dataframe=original_df, row_id=row_id)
+                rows_to_skip.extend(add_to_skip)
+                if len(other_attributions_df) == 1:
+                    row_as_dict = original_df.loc[row_id].to_dict()
+                    row_as_dict['drop?'] = False
+                    output_df_dict[out_idx] = row_as_dict
+                    out_idx += 1
+                else:
+                    rows_to_add, rows_to_drop_count = evaluate_multiple_attributions(subset_dataframe=other_attributions_df)
+                    num_of_rows_to_drop += rows_to_drop_count
+                    for rta in rows_to_add:
+                        output_df_dict[out_idx] = rta
+                        out_idx += 1
+            else:
+                row_as_dict = original_df.loc[row_id].to_dict()
+                row_as_dict['drop?'] = False
+                output_df_dict[out_idx] = row_as_dict
+                out_idx += 1
+
+    filtered_df = pd.DataFrame.from_dict(output_df_dict)
+    filtered_df = filtered_df.transpose()
+
+    print('Number of rows selected for drop:', num_of_rows_to_drop, 'out of', len(original_df))
+
+    if rewrite_original_csv:
+        filtered_df.to_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', sep=';', encoding='utf-8')
+    
+    if save:
+        filtered_df.to_csv(join_path(RESULTS_PATH, f'MA_{results_filename}'), quotechar='"', sep=';', encoding='utf-8')
+    
+    if return_df:
+        return filtered_df
+
+
+""" MARKING "SURE" CITATIONS """
+
+
+def mark_sure_citations(results_filename='MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv', input_df=False, rewrite_original_csv=False, save=True, return_df=False):
+    """ This function marks some of the citations as sure citations while other unsure. """
+    if input_df is not False:
+        original_df = input_df
+    else:
+        print('Loading results dataframe ...')
+        original_df = pd.read_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', delimiter=';', encoding='utf-8', index_col=0)
+
+    output_df_dict = {}
+    out_idx = 0
+
+    num_of_sure_citations = 0
+
+    print('Evaluation "sure" citations ...')
+    for row_id in original_df.index:
+        row_as_dict = original_df.loc[row_id].to_dict()
+
+        num_of_subverses_in_verse = len(split_verse(row_as_dict['verse_text'], tole_len=21))
+        match_subs_score = row_as_dict['matched_subverses_score']
+
+        if num_of_subverses_in_verse <= 2:
+            if match_subs_score == 1 and row_as_dict['exclusives_match'] == 1:
+                row_as_dict['CITATION'] = True
+                num_of_sure_citations += 1
+            else:
+                row_as_dict['CITATION'] = False
+        elif num_of_subverses_in_verse <= 4:
+            if match_subs_score >= 0.8 and row_as_dict['exclusives_match'] == 1:
+                row_as_dict['CITATION'] = True
+                num_of_sure_citations += 1
+            else:
+                row_as_dict['CITATION'] = False
+
+        else:
+            if match_subs_score >= 0.5 and row_as_dict['exclusives_match'] == 1:
+                row_as_dict['CITATION'] = True
+                num_of_sure_citations += 1
+            else:
+                row_as_dict['CITATION'] = False
+
+        output_df_dict[out_idx] = row_as_dict
+        out_idx += 1
+    
+    filtered_df = pd.DataFrame.from_dict(output_df_dict)
+    filtered_df = filtered_df.transpose()
+
+    print('Number of rows selected as sure citations:', num_of_sure_citations, 'out of', len(original_df))
+
+    if rewrite_original_csv:
+        filtered_df.to_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', sep=';', encoding='utf-8')
+    
+    if save:
+        filtered_df.to_csv(join_path(RESULTS_PATH, f'FINAL_{results_filename}'), quotechar='"', sep=';', encoding='utf-8')
+    
+    if return_df:
+        return filtered_df
+
+
+""" RESOLVING "SAME" VERSES - WORK IN PROGRESS ... """
+# TODO: The script that resolves if there are some verses that are actually "the same".
+
+mutual_verses = {
+    'L 11:3/Mt 6:11': ['L 11:3', 'Mt 6:11'],
+    'Mk 13:31/Mt 24:35/L 21:33': ['Mk 13:31', 'Mt 24:35', 'L 21:33'],
+    'Ex 20:16/Dt 5:20': ['Ex 20:16', 'Dt 5:20'],
+    '2K 1:2/Fp 1:2/2Te 1:2/1K 1:3/Ef 1:2/Ga 1:3': ['2K 1:2', 'Fp 1:2', '2Te 1:2', '1K 1:3', 'Ef 1:2', 'Ga 1:3'],
+    'Mt 11:15/Mt 13:9': ['Mt 11:15', 'Mt 13:9']   
+}
