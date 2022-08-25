@@ -1,4 +1,4 @@
-""" This script prepares batches to be runned by the run_biblical_intertextuality.py. """
-import run_biblical_intertextuality as rbi
+""" This script prepares batches to be runned by the biblical_intertextuality_package.py. """
+import biblical_intertextuality_package as bip
 
-rbi.update_batches_csv(clear=True, max_batch_size=40)
+bip.update_batches_csv(clear=True, max_batch_size=40)
