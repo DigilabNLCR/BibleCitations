@@ -8,7 +8,6 @@ from os import listdir as os_listdir
 from os.path import isdir as os_path_isdir
 from os.path import exists as os_exists
 from os import remove as os_remove
-from shutil import copyfile as shutil_copyfile
 from json import load as json_load
 from re import sub as re_sub
 from re import split as re_split

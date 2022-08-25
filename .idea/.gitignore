@@ -1,3 +1,9 @@
-# Default ignored files
 /shelf/
 /workspace.xml
+/vcs.xml
+/modules.xml
+/misc.xml
+/BibleCitations.iml
+/inspectionProfiles/
+
+./__pycache__
