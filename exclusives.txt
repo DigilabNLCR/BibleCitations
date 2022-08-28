@@ -1,0 +1,6 @@
+moje, tvoje, naše, vaše, jejich
+můj, tvůj, jeho, její, náš, váš
+být, jsem, jsi, je, jsme, jste, jsou, byl, byla, bylo, byly, byli, budu, budeš, bude, budeme, budete, budou, jest, bývali, bývaly, bývala, nejsem, nejsi, není, nejmse, nejste, nejsou, nebyla, nebylo, nebyli, nebyly, nebudu, nebudeš, nebude, nebudeme, nebudete, nebudou, nebývali, nebývaly, nebývala
+jest, ještě
+ne, ano
+já, ty, on, ona, my, vy, oni, ony

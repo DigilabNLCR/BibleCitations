@@ -30,11 +30,12 @@ BIBLES_PATH = join_path(ROOT_PATH, 'Bible_files')
 DATASETS_PATH = join_path(ROOT_PATH, 'datasets')
 DICTS_PATH = join_path(ROOT_PATH, 'dictionaries')
 CORPUS_PATH = join_path(ROOT_PATH, 'corpuses')
-RESULTS_PATH = join_path(ROOT_PATH, 'results')
 ALL_JSONS_PATH = join_path(ROOT_PATH, 'query_jsons')
 
 JOURNAL_FULLDATA_PATH = join_path(ROOT_PATH, 'journals_fulldata.joblib')
 
+# RESULTS_PATH = join_path(ROOT_PATH, 'results')
+RESULTS_PATH = join_path(ROOT_PATH, 'PUBLIC_RESULTS')
 BATCHES_FILE_PATH = join_path(ROOT_PATH, 'batches.csv')
 BATCH_RESULTS_FILE_PATH = join_path(RESULTS_PATH, 'batch_results.csv')
 
@@ -82,9 +83,9 @@ with open(STOP_SUBVERSES_PATH, 'r', encoding='utf-8') as ssv_f:
     stop_subverses = stop_subverses.split('\n')
 
 """ List of all translations. """
-# all_translations = ['BKR', 'BSV', 'HEJCL', 'SYK', 'ZP']
+all_translations = ['BKR', 'BSV', 'HEJCL', 'SYK', 'ZP']
 # NOTE: translation Bible svatováclavská is unfortunately not public. See README
-all_translations = ['BKR', 'HEJCL', 'SYK', 'ZP']
+# all_translations = ['BKR', 'HEJCL', 'SYK', 'ZP']
 
 
 """ FUNCTIONS THAT ENSURE VERSE SPLITTING ------------------------------------------------------------------------- """
@@ -1053,11 +1054,13 @@ def make_unfiltered_search_dataframe(results_filename='batch_results.csv', save=
     final_results = {}
     res_id = 0
     print_progress = 0
+    iter_ = 0
 
     print('Dropping duplicates...')
     for row_id in results_dataframe.index:
+        iter_ += 1
         if print_progress == 500:
-            print('\t', row_id, 'of', len(results_dataframe))
+            print('\t', iter_, 'of', len(results_dataframe))
             print_progress = 0
       
         verse_id, query_file = get_verseid_queryfile(dataframe=results_dataframe, row_id=row_id)
@@ -1131,15 +1134,14 @@ def exclusiveness_test(subverse_string:str, query_string:str) -> bool:
     return True
 
 
-def get_row_data_for_check_results(dataframe:pd.core.frame.DataFrame, row_id:int):
+def get_row_data_for_initial_filter(dataframe:pd.core.frame.DataFrame, row_id:int):
     """ This function returns search properties of a given row in the results dataframe to be used in check_results function. """
 
-    verse_id = dataframe.loc[row_id]['verse_id']
     query_file = dataframe.loc[row_id]['query_file']
     query_window_len = dataframe.loc[row_id]['query_window_len']
     query_overlap = dataframe.loc[row_id]['query_overlap']
 
-    return verse_id, query_file, query_window_len, query_overlap
+    return query_file, query_window_len, query_overlap
 
 
 def get_verse_et_idx(dataframe:pd.core.frame.DataFrame, row_id:int):
@@ -1225,13 +1227,13 @@ def fuzzy_string_matching_for_implementation_with_text(subverse_string:str, quer
         if edit_distance <= tolerance:
             return True, query_string, edit_distance
     else:
-        # Oherwise, compare parts of the query string (always staring with word, so it is quicker; however, some mistakes may be made here.
+        char_len_sub = len(subverse_string)
         word_len_subv = len(word_tokenize(subverse_string))
         words_in_query_string = word_tokenize(query_string)
         word_len_query_string = len(words_in_query_string)
 
         for i, cycle in enumerate(range(word_len_subv, word_len_query_string+1)):
-            gram_str = ' '.join(words_in_query_string[i:(word_len_subv+i)])
+            gram_str = ' '.join(words_in_query_string[i:])[:char_len_sub]
             edit_distance = distance(subverse_string, gram_str)
             if edit_distance <= tolerance:
                 return True, gram_str, edit_distance
@@ -1247,6 +1249,7 @@ def check_for_verse(verse_id:str, string_to_check:str) -> dict:
 
     for trsl in all_translations:
         verse_text = get_verse_text(trsl, verse_id, print_exceptions=False)
+        
         if verse_text:
             subverses = split_verse(verse_text, tole_len=21, return_shorts=True, short_limit=9)
 
@@ -1424,11 +1427,10 @@ def make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.cs
             print('\t', iter_, '/', len(results_dataframe))
             print_progress = 0
 
-        verse_id, query_file, query_window_len, query_overlap = get_row_data_for_check_results(dataframe=results_dataframe, row_id=row_id)
-  
         if row_id in rows_to_skip:
             continue
         else:
+            query_file, query_window_len, query_overlap = get_row_data_for_initial_filter(dataframe=results_dataframe, row_id=row_id)
             attributed_verses, add_to_skip = select_attributions_to_json(dataframe=results_dataframe, query_file=query_file)
             rows_to_skip.extend(add_to_skip)
 
@@ -1655,16 +1657,16 @@ def fuzzy_string_matching_for_multiple_attributions(subverse_string:str, query_s
         if edit_distance <= tolerance:
             return (0, len(query_string))
     else:
-        # Oherwise, compare parts of the query string (always staring with word, so it is quicker; however, some mistakes may be made here.
+        char_len_sub = len(subverse_string)
         word_len_subv = len(word_tokenize(subverse_string))
         words_in_query_string = word_tokenize(query_string)
         word_len_query_string = len(words_in_query_string)
 
         for i, cycle in enumerate(range(word_len_subv, word_len_query_string+1)):
-            gram_str = ' '.join(words_in_query_string[i:(word_len_subv+i)])
+            gram_str = ' '.join(words_in_query_string[i:])[:char_len_sub]
             edit_distance = distance(subverse_string, gram_str)
             if edit_distance <= tolerance:
-                return (i,(word_len_subv+i))
+                return (i, (char_len_sub+i))
             else:
                 continue
     
@@ -1761,7 +1763,7 @@ def evaluate_multiple_attributions(subset_dataframe:pd.core.frame.DataFrame):
         matched_subverses.append(eval(subset_dataframe.loc[row_id]['matched_subverses']))
         verse_ids.append(subset_dataframe.loc[row_id]['verse_id'])
         query_strings.append(subset_dataframe.loc[row_id]['query_string'])
-
+    
     matched_ranges = []
     for matched_subs in matched_subverses:
         # NOTE: the query_strings should be all the same, so we can just select the first one

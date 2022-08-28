@@ -1,9 +1,0 @@
-/shelf/
-/workspace.xml
-
-__pycache__/
-
-/journals_fulldata.joblib
-/journals_metadata.joblib
-
-/Bible_files/*BSV*.txt
