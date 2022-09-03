@@ -10,6 +10,7 @@ The evaluation scheme consists of the following steps:
     --> creates 'FILTERED_UNFILTERED_batch_results.csv' file
 3) Filtering stop-subverses.
     --> creates 'ST_SUBS_FILTERED_UNFILTERED_batch_results.csv' file
+    --> + creates 'FILTERED_BY_STOP_SUBS.csv' file (so you can check these results, too)
 4) Drop 'hidden' duplicates. These are the duplicate results that have formally different query string, but actually one of the query strings contains the other.
     --> creates 'DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv' file
 5) Marking multiple attributions. In this case the multiple attributions are not dropped, but kept with a column that suggest if the result should be dropped or not.
@@ -23,10 +24,10 @@ NOTE: All of the files are created in the process so you can explore the develop
 """
 import biblical_intertextuality_package as bip
 
-# step 1) - drop duplicates
-bip.make_unfiltered_search_dataframe(results_filename='batch_results.csv')
-# step 2) - initial filter
-bip.make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.csv')
+# # step 1) - drop duplicates
+# bip.make_unfiltered_search_dataframe(results_filename='batch_results.csv')
+# # step 2) - initial filter
+# bip.make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.csv')
 # step 3) - drop stop-subverses
 bip.filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv')
 # step 4) - drop hidden duplicates

@@ -1455,8 +1455,12 @@ def make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.cs
 # NOTE: define/change stop-subverses in evaluation_stop_subverses_21.txt
 
 
-def filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv', input_df=False, subverse_len=21, rewrite_original_csv=False, save=True, return_df=False):
-    """ This function filters those results that are detected based on solely one subverse that is listed in file evaluation_stop_subverses_{subverse_len}.txt """
+def filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv', input_df=False, subverse_len=21, rewrite_original_csv=False, save=True, return_df=False, save_filtered_out_file=True, filtered_out_filename='FILTERED_BY_STOP_SUBS.csv'):
+    """
+    This function filters those results that are detected based on solely one subverse that is listed in file evaluation_stop_subverses_{subverse_len}.txt
+    
+    Also, there are subverses in evaluation_stop_subverses_{subverse_len}.txt' that need 100% hit in characters in order to be taken seriously...
+    """
     if input_df is not False:
         original_df = input_df
     else:
@@ -1470,15 +1474,39 @@ def filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv', i
         data = stops_f.read()
         stop_subs = data.split('\n')
 
+    print(f'Loading subverses that need 100 % hit from 100_hit_needed_subs_{subverse_len}.txt ...')
+    with open(join_path(ROOT_PATH, f'evaluation_stop_subverses_{subverse_len}.txt'), 'r', encoding='utf-8') as stops_f:
+        data = stops_f.read()
+        full_hit_subs = data.split('\n')
+
     print('Number of stop subverses to filter:', len(set(stop_subs)))
 
     filtered_df_dict = {}
-    fil_id = 0  
+    filtered_out_dict = {}
+    fil_id = 0
+    fil_out_id = 0  
 
     print('Filtering rows ...')
     for row_id in original_df.index:
+        # If the hit sontains only the stop-subverse, filter it
         if original_df.loc[row_id]['matched_subverses'] in stop_subs:
-            continue
+            row_as_dict = original_df.loc[row_id].to_dict()
+            filtered_out_dict[fil_out_id] = row_as_dict
+            fil_out_id += 1
+        
+        # If the hit contains only the subverse that need 100% hit, check it
+        elif original_df.loc[row_id]['matched_subverses'] in full_hit_subs:
+            matched_chars = eval(original_df.loc[row_id]['matched_characters'])
+            if matched_chars == 1:
+                row_as_dict = original_df.loc[row_id].to_dict()            
+                filtered_df_dict[fil_id] = row_as_dict
+                fil_id += 1
+            else:
+                row_as_dict = original_df.loc[row_id].to_dict()
+                filtered_out_dict[fil_out_id] = row_as_dict
+                fil_out_id += 1
+
+        # Otherwise, take the citation as OK
         else:
             row_as_dict = original_df.loc[row_id].to_dict()            
             filtered_df_dict[fil_id] = row_as_dict
@@ -1495,6 +1523,12 @@ def filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv', i
     
     if save:
         filtered_df.to_csv(join_path(RESULTS_PATH, f'ST_SUBS_{results_filename}'), quotechar='"', sep=';', encoding='utf-8')
+
+    if save_filtered_out_file:
+        filtered_out_df = pd.DataFrame.from_dict(filtered_out_dict)
+        filtered_out_df = filtered_out_df.transpose()
+
+        filtered_out_df.to_csv(join_path(RESULTS_PATH, filtered_out_filename), quotechar='"', sep=';', encoding='utf-8')
     
     if return_df:
         return filtered_df
