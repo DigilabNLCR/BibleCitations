@@ -6,3 +6,5 @@ __pycache__/
 /journals_metadata.joblib
 
 /Bible_files/*BSV*.txt
+
+/query_jsons

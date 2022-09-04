@@ -44,6 +44,7 @@ STOP_SUBVERSES_PATH = join_path(ROOT_PATH, 'stop_subverses_21.txt')
 EXCLUSIVES_PATH = join_path(ROOT_PATH, 'exclusives.txt')
 
 
+
 """ GENERAL FUNCTIONS --------------------------------------------------------------------------------------------- """
 
 
