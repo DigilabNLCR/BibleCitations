@@ -537,7 +537,7 @@ def create_all_jsons_fulldata_file(return_dict=False):
             print_progress += 1
             files_done += 1
 
-    joblib.dump(files_as_keys, join_path(ROOT_PATH, 'journals_fulldata.joblib'))
+    joblib.dump(files_as_keys, JOURNAL_FULLDATA_PATH)
 
     if return_dict:
         return (files_as_keys)
