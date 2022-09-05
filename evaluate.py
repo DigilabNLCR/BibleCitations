@@ -24,10 +24,10 @@ NOTE: All of the files are created in the process so you can explore the develop
 """
 import biblical_intertextuality_package as bip
 
-# # step 1) - drop duplicates
-# bip.make_unfiltered_search_dataframe(results_filename='batch_results.csv')
-# # step 2) - initial filter
-# bip.make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.csv')
+# step 1) - drop duplicates
+bip.make_unfiltered_search_dataframe(results_filename='batch_results.csv')
+# step 2) - initial filter
+bip.make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.csv')
 # step 3) - drop stop-subverses
 bip.filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv')
 # step 4) - drop hidden duplicates

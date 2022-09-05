@@ -1068,14 +1068,26 @@ def make_unfiltered_search_dataframe(results_filename='batch_results.csv', save=
 
         row_dict = results_dataframe.loc[row_id].to_dict()
 
+        # NOTE: 334149b0-877c-11e6-8aeb-5ef3fc9ae867 has wrong date --> it is repaired here in the process:
+        if '334149b0-877c-11e6-8aeb-5ef3fc9ae867' in row_dict['query_file']:
+            row_dict['date'] = '30.06.1935'
+        else:
+            row_dict['date'] = jsons_metadata[query_file]['issue_date']
+
         row_dict['verse_id'] = verse_id
         row_dict['book'] = get_book_id(verse_id)
         row_dict['journal'] = jsons_metadata[query_file]['journal']
-        row_dict['date'] = jsons_metadata[query_file]['issue_date']
         row_dict['page_num'] = jsons_metadata[query_file]['issue_page']
 
-        final_results[res_id] = row_dict
-        res_id += 1
+        # NOTE: filtering out year out of the scope of 1925-1939:
+        issue_year = row_dict['date'].split('.')[-1]
+        years_to_consider = ['1925', '1926', '1927', '1928', '1929', '1930', '1931', '1932', '1933', '1934', '1935', '1936', '1937', '1938', '1939', '1937-1938']
+        if issue_year not in years_to_consider:
+            continue
+        else:
+            final_results[res_id] = row_dict
+            res_id += 1
+        
         print_progress += 1
 
     final_results_df = pd.DataFrame.from_dict(final_results)
@@ -1348,6 +1360,10 @@ def evaluate_attributions_in_doc(attributed_verses:dict, query_file:str, query_w
     """ This function evaluates attributed verses, supposedly detected in a single JSON file. """
     # Load data from journals_fulldata dictionary:
     journal, issue_date, issue_page, issue_uuid, kramerius_url, full_query_string = load_data_from_journals_fulldata(journals_fulldata=journals_fulldata, query_file=query_file)
+    
+    # NOTE: repair wrong date with 334149b0-877c-11e6-8aeb-5ef3fc9ae867
+    if '334149b0-877c-11e6-8aeb-5ef3fc9ae867' in issue_uuid:
+        issue_date = '30.06.1935'
 
     query_parts = split_query(full_query_string, window_len=query_window_len, overlap=query_overlap)
     
