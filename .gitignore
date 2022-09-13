@@ -8,3 +8,7 @@ __pycache__/
 /Bible_files/*BSV*.txt
 
 /query_jsons
+
+# NOTE: results of previous run + results of Zj
+/PUBLIC_RESULTS_previous
+/results

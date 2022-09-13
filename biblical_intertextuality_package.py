@@ -1066,6 +1066,10 @@ def make_unfiltered_search_dataframe(results_filename='batch_results.csv', save=
       
         verse_id, query_file = get_verseid_queryfile(dataframe=results_dataframe, row_id=row_id)
 
+        # NOTE: repair Syr verses to Sir (there has been a mistake in my dataset, now it is repaired but not in the initial batch_results.csv file in PUBLIC_RESULTS)
+        if 'Syr' in verse_id:
+            verse_id = verse_id.replace('Syr', 'Sir')
+
         row_dict = results_dataframe.loc[row_id].to_dict()
 
         # NOTE: 334149b0-877c-11e6-8aeb-5ef3fc9ae867 has wrong date --> it is repaired here in the process:

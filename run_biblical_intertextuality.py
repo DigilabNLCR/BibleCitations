@@ -15,4 +15,5 @@ import biblical_intertextuality_package as bip
 
 last_assigned_batch = bip.get_last_batch_id()
 batches = range(0, last_assigned_batch)
-bip.search_by_batches(batches, bible_dataset_filename='fullBibleDataset', query_window_len=6, query_overlap=1)
+# bip.search_by_batches(batches, bible_dataset_filename='fullBibleDataset', query_window_len=6, query_overlap=1)
+bip.search_by_batches(batches, bible_dataset_filename='ZjBibleDataset', query_window_len=6, query_overlap=1)
