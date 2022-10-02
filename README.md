@@ -6,7 +6,7 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
 - Nonetheless, the script can be used on your own material. It can be modified in any way and you can also add your own Biblical translations should you have access to them.
 
 ## Available tranlsations of Bible
-- Following translations are freely available in this repository:
+- Following translations are available in this repository (provided by [obohu.cz](https://obohu.cz/bible/)):
     - Bible Kralická (BKR) - Old and New Testament, see [Bible Kralická on obohu.cz](https://obohu.cz/bible/index.php?k=Gn&kap=1&styl=BKR)
     - Translation of Jan Hejčl (HEJCL) - Old Testament + Deuterocanonical books, see [translation of Jan Hejčl on obohu.cz](https://obohu.cz/bible/index.php?styl=HEJCL&k=Gn&kap=1)
     - Translation of Jan Ladislav Sýkora - New Testament, see [translation of Jan Ladislav Sýkora on obohu.cz](https://obohu.cz/bible/index.php?k=Mt&kap=1&styl=SYK)
