@@ -15,15 +15,17 @@ See [web of DL4DH on nkp.cz](https://dl4dh.nkp.cz) for more information and resu
 
 ## Versions
 ### Current version: 1.0.0
-- NOT COMPLETE YET, STILL IN THE PROCESS!!! Will be done by the end of August 2022 ;-)
+- The script here is now almost complete, just few details in [evaluation.ipynb](https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluation.ipynb) ARE STILL NOT FINISHED.
 The current version is the first complete version published.
-- the search is executed via journals_fulldata.joblib file (contains python dictionary object); this has made the search process faster by about !!!!DOPLNIT!!!!
-- results of search executed on our data publiseh in [PUBLIC_RESULTS]()
+- the search is executed via journals_fulldata.joblib file (contains python dictionary object); this has made the search process faster (while a bit more RAM demanding)
+- results of search executed on our data are publiseh in [PUBLIC_RESULTS](https://github.com/DigilabNLCR/BibleCitations/tree/main/PUBLIC_RESULTS)
+- the search now counts even with short verses
 ### Previous versions
 #### 0.0.2
 - first published version, in connection with presenting this project on [EASR 2022 conference, Cork, Ireland](https://www.easr2022.org/).
 - the search has been executed on individual JSON query files
 - limited evaluation functions
+- search ignores short verses
 #### 0.0.1
 - development version, never published
 
