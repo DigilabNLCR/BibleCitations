@@ -15,6 +15,7 @@ The evaluation scheme consists of the following steps:
     --> creates 'DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv' file
 5) Marking multiple attributions. In this case the multiple attributions are not dropped, but kept with a column that suggest if the result should be dropped or not.
     --> creates 'MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv' file
+# TODO: connect 'intertextual' verses
 6) Marking 'sure' citations:
     --> creates 'FINAL_MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv' file
 
@@ -34,6 +35,9 @@ bip.filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv')
 bip.filter_duplicates_by_overlap(results_filename='ST_SUBS_FILTERED_UNFILTERED_batch_results.csv')
 # step 5) - marking multiple attributions
 bip.mark_multiple_attributions(results_filename='DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv')
+
+# TODO: connect 'intertextual' verses
+
 # step 6) - marking "sure" citations
 bip.mark_sure_citations(results_filename='MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv')
 # step 7) - check it by yourselves
