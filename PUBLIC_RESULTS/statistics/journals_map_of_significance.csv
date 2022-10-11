@@ -1,10 +1,10 @@
 ,Source,Target,Value
-Čech-Posel záhrobní,Čech,Posel záhrobní,132
-Čech-Venkov,Čech,Venkov,270
-Posel záhrobní-Čech,Posel záhrobní,Čech,132
-Posel záhrobní-Venkov,Posel záhrobní,Venkov,74
-Venkov-Čech,Venkov,Čech,270
-Venkov-Posel záhrobní,Venkov,Posel záhrobní,74
+Čech-Posel záhrobní,Čech,Posel záhrobní,131
+Čech-Venkov,Čech,Venkov,269
+Posel záhrobní-Čech,Posel záhrobní,Čech,131
+Posel záhrobní-Venkov,Posel záhrobní,Venkov,73
+Venkov-Čech,Venkov,Čech,269
+Venkov-Posel záhrobní,Venkov,Posel záhrobní,73
 Čech-Československý zemědělec,Čech,Československý zemědělec,38
 Československý zemědělec-Čech,Československý zemědělec,Čech,38
 Čech-Český učitel,Čech,Český učitel,78
@@ -12,37 +12,37 @@ Venkov-Posel záhrobní,Venkov,Posel záhrobní,74
 Čech-Polední list,Čech,Polední list,53
 Čech-Přítomnost,Čech,Přítomnost,103
 Čech-Studentský časopis,Čech,Studentský časopis,42
-Československý zemědělec-Český učitel,Československý zemědělec,Český učitel,15
-Československý zemědělec-Moravský večerník,Československý zemědělec,Moravský večerník,26
-Československý zemědělec-Polední list,Československý zemědělec,Polední list,17
+Československý zemědělec-Český učitel,Československý zemědělec,Český učitel,14
+Československý zemědělec-Moravský večerník,Československý zemědělec,Moravský večerník,25
+Československý zemědělec-Polední list,Československý zemědělec,Polední list,16
 Československý zemědělec-Posel záhrobní,Československý zemědělec,Posel záhrobní,15
 Československý zemědělec-Přítomnost,Československý zemědělec,Přítomnost,17
 Československý zemědělec-Studentský časopis,Československý zemědělec,Studentský časopis,10
-Československý zemědělec-Venkov,Československý zemědělec,Venkov,35
+Československý zemědělec-Venkov,Československý zemědělec,Venkov,34
 Český učitel-Čech,Český učitel,Čech,78
-Český učitel-Československý zemědělec,Český učitel,Československý zemědělec,15
-Český učitel-Moravský večerník,Český učitel,Moravský večerník,42
-Český učitel-Polední list,Český učitel,Polední list,25
+Český učitel-Československý zemědělec,Český učitel,Československý zemědělec,14
+Český učitel-Moravský večerník,Český učitel,Moravský večerník,41
+Český učitel-Polední list,Český učitel,Polední list,24
 Český učitel-Posel záhrobní,Český učitel,Posel záhrobní,29
 Český učitel-Přítomnost,Český učitel,Přítomnost,40
 Český učitel-Studentský časopis,Český učitel,Studentský časopis,22
-Český učitel-Venkov,Český učitel,Venkov,72
+Český učitel-Venkov,Český učitel,Venkov,71
 Moravský večerník-Čech,Moravský večerník,Čech,108
-Moravský večerník-Československý zemědělec,Moravský večerník,Československý zemědělec,26
-Moravský večerník-Český učitel,Moravský večerník,Český učitel,42
-Moravský večerník-Polední list,Moravský večerník,Polední list,38
+Moravský večerník-Československý zemědělec,Moravský večerník,Československý zemědělec,25
+Moravský večerník-Český učitel,Moravský večerník,Český učitel,41
+Moravský večerník-Polední list,Moravský večerník,Polední list,37
 Moravský večerník-Posel záhrobní,Moravský večerník,Posel záhrobní,43
 Moravský večerník-Přítomnost,Moravský večerník,Přítomnost,62
 Moravský večerník-Studentský časopis,Moravský večerník,Studentský časopis,31
-Moravský večerník-Venkov,Moravský večerník,Venkov,139
+Moravský večerník-Venkov,Moravský večerník,Venkov,138
 Polední list-Čech,Polední list,Čech,53
-Polední list-Československý zemědělec,Polední list,Československý zemědělec,17
-Polední list-Český učitel,Polední list,Český učitel,25
-Polední list-Moravský večerník,Polední list,Moravský večerník,38
+Polední list-Československý zemědělec,Polední list,Československý zemědělec,16
+Polední list-Český učitel,Polední list,Český učitel,24
+Polední list-Moravský večerník,Polední list,Moravský večerník,37
 Polední list-Posel záhrobní,Polední list,Posel záhrobní,20
 Polední list-Přítomnost,Polední list,Přítomnost,31
 Polední list-Studentský časopis,Polední list,Studentský časopis,18
-Polední list-Venkov,Polední list,Venkov,63
+Polední list-Venkov,Polední list,Venkov,62
 Posel záhrobní-Československý zemědělec,Posel záhrobní,Československý zemědělec,15
 Posel záhrobní-Český učitel,Posel záhrobní,Český učitel,29
 Posel záhrobní-Moravský večerník,Posel záhrobní,Moravský večerník,43
@@ -65,10 +65,10 @@ Studentský časopis-Polední list,Studentský časopis,Polední list,18
 Studentský časopis-Posel záhrobní,Studentský časopis,Posel záhrobní,21
 Studentský časopis-Přítomnost,Studentský časopis,Přítomnost,31
 Studentský časopis-Venkov,Studentský časopis,Venkov,43
-Venkov-Československý zemědělec,Venkov,Československý zemědělec,35
-Venkov-Český učitel,Venkov,Český učitel,72
-Venkov-Moravský večerník,Venkov,Moravský večerník,139
-Venkov-Polední list,Venkov,Polední list,63
+Venkov-Československý zemědělec,Venkov,Československý zemědělec,34
+Venkov-Český učitel,Venkov,Český učitel,71
+Venkov-Moravský večerník,Venkov,Moravský večerník,138
+Venkov-Polední list,Venkov,Polední list,62
 Venkov-Přítomnost,Venkov,Přítomnost,93
 Venkov-Studentský časopis,Venkov,Studentský časopis,43
 Čech-Věstník katolického duchovenstva,Čech,Věstník katolického duchovenstva,273

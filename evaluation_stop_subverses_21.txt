@@ -2686,3 +2686,5 @@
 ['Zjevení Ježíše Krista']
 ['spravedlnosti z víry']
 ['Blahoslavený ten člověk']
+['týkajících se Hospodina']
+['králi Nabuchodonosore']
