@@ -1973,19 +1973,69 @@ def mark_sure_citations(results_filename='MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_ba
         filtered_df.to_csv(join_path(RESULTS_PATH, results_filename), quotechar='"', sep=';', encoding='utf-8')
     
     if save:
-        filtered_df.to_csv(join_path(RESULTS_PATH, f'FINAL_{results_filename}'), quotechar='"', sep=';', encoding='utf-8')
+        filtered_df.to_csv(join_path(RESULTS_PATH, f'SURE_{results_filename}'), quotechar='"', sep=';', encoding='utf-8')
     
     if return_df:
         return filtered_df
 
 
-""" RESOLVING "SAME" VERSES - WORK IN PROGRESS ... """
-# TODO: The script that resolves if there are some verses that are actually "the same".
+""" RESOLVING THE "SAME" VERSES """
 
-mutual_verses = {
+mutual_verses_layout = {
     'L 11:3/Mt 6:11': ['L 11:3', 'Mt 6:11'],
     'Mk 13:31/Mt 24:35/L 21:33': ['Mk 13:31', 'Mt 24:35', 'L 21:33'],
     'Ex 20:16/Dt 5:20': ['Ex 20:16', 'Dt 5:20'],
+    'Ex 20:15/Dt 5:19': ['Ex 20:15', 'Dt 5:19'],
+    'Ex 20:14/Dt 5:18': ['Ex 20:14', 'Dt 5:18'],
+    'Ex 20:13/Dt 5:17': ['Ex 20:13', 'Dt 5:17'],
+    'Ex 20:12/Dt 5:16': ['Ex 20:12', 'Dt 5:16'],
+    'Ex 20:7/Dt 5:11': ['Ex 20:7', 'Dt 5:11'],
+    'Ex 20:2/Dt 5:6': ['Ex 20:2', 'Dt 5:6'],
+    'Ex 20:3/Dt 5:7': ['Ex 20:3', 'Dt 5:7'],
     '2K 1:2/Fp 1:2/2Te 1:2/1K 1:3/Ef 1:2/Ga 1:3': ['2K 1:2', 'Fp 1:2', '2Te 1:2', '1K 1:3', 'Ef 1:2', 'Ga 1:3'],
-    'Mt 11:15/Mt 13:9': ['Mt 11:15', 'Mt 13:9']   
+    'Mt 11:15/Mt 13:9': ['Mt 11:15', 'Mt 13:9'],
+    'Mt 6:11/L 11:3': ['Mt 6:11', 'L 11:3']
 }
+
+
+mutual_verses = {}
+for mv in mutual_verses_layout:
+    for verse_id in mutual_verses_layout[mv]:
+        mutual_verses[verse_id] = mv
+
+
+def filter_mutual_verses(results_filename='SURE_MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv', delimiter=';'):
+    """ This filters those verses that "are the same" (e.g. "Nezabiješ" is both Ex 20:16 and Dt 5:20). """
+    # Load results:
+    print('Loading results...')
+    results_dataframe = pd.read_csv(os.path.join(RESULTS_PATH, results_filename), quotechar='"', delimiter=delimiter, encoding='utf-8', index_col=0)
+
+    # Create (empty) final results dataframe:
+    final_results = {}
+    res_id = 0
+
+    print('Running filtering...')
+    rows_to_skip = []
+
+    for row_id in results_dataframe.index:
+
+        row_as_dict = results_dataframe.loc[row_id].to_dict()
+        verse_id = row_as_dict['verse_id']
+
+        if verse_id in mutual_verses:
+            row_as_dict['verse_id'] = mutual_verses[verse_id]
+            if f'{row_as_dict["verse_id"]}{row_as_dict["query_string"]}' in rows_to_skip:
+                continue
+            else:
+                rows_to_skip.append(f'{row_as_dict["verse_id"]}{row_as_dict["query_string"]}')
+                final_results[res_id] = row_as_dict
+                res_id += 1
+
+        else:
+            final_results[res_id] = row_as_dict
+            res_id += 1
+
+    final_results_df = pd.DataFrame.from_dict(final_results)
+    final_results_df = final_results_df.transpose()
+    
+    final_results_df.to_csv(os.path.join(RESULTS_PATH, f'MUTUAL_DROP_{results_filename}'), encoding='utf-8', quotechar='"', sep=';')

@@ -2684,3 +2684,5 @@
 ['totiž počátek i konec']
 ['země třesení tak velikého.']
 ['Zjevení Ježíše Krista']
+['spravedlnosti z víry']
+['Blahoslavený ten člověk']
