@@ -1988,13 +1988,14 @@ mutual_verses_layout = {
     'Ex 20:15/Dt 5:19': ['Ex 20:15', 'Dt 5:19'],
     'Ex 20:14/Dt 5:18': ['Ex 20:14', 'Dt 5:18'],
     'Ex 20:13/Dt 5:17': ['Ex 20:13', 'Dt 5:17'],
-    'Ex 20:12/Dt 5:16': ['Ex 20:12', 'Dt 5:16'],
+    'Ex 20:12/Dt 5:16/Ef 6:2': ['Ex 20:12', 'Dt 5:16', 'Ef 6:2'],
     'Ex 20:7/Dt 5:11': ['Ex 20:7', 'Dt 5:11'],
     'Ex 20:2/Dt 5:6': ['Ex 20:2', 'Dt 5:6'],
     'Ex 20:3/Dt 5:7': ['Ex 20:3', 'Dt 5:7'],
     '2K 1:2/Fp 1:2/2Te 1:2/1K 1:3/Ef 1:2/Ga 1:3': ['2K 1:2', 'Fp 1:2', '2Te 1:2', '1K 1:3', 'Ef 1:2', 'Ga 1:3'],
     'Mt 11:15/Mt 13:9': ['Mt 11:15', 'Mt 13:9'],
-    'Mt 6:11/L 11:3': ['Mt 6:11', 'L 11:3']
+    'Mt 6:11/L 11:3': ['Mt 6:11', 'L 11:3'],
+    'Mt 3:3/J 1:23/Mk 1:3/Iz 40:3': ['Mt 3:3', 'J 1:23', 'Mk 1:3', 'Iz 40:3']
 }
 
 
@@ -2028,6 +2029,7 @@ def filter_mutual_verses(results_filename='SURE_MA_DUPS_ST_SUBS_FILTERED_UNFILTE
                 continue
             else:
                 rows_to_skip.append(f'{row_as_dict["verse_id"]}{row_as_dict["query_string"]}')
+                row_as_dict['drop?'] = False
                 final_results[res_id] = row_as_dict
                 res_id += 1
 

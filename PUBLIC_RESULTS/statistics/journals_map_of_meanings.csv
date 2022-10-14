@@ -1,111 +1,111 @@
 ,Source,Target,Shared,Value
-Čech-Posel záhrobní,Čech,Posel záhrobní,131,0.03882631890930646
-Čech-Venkov,Čech,Venkov,269,0.060340960071781066
-Posel záhrobní-Čech,Posel záhrobní,Čech,131,0.03882631890930646
-Posel záhrobní-Venkov,Posel záhrobní,Venkov,73,0.03548857559552747
-Venkov-Čech,Venkov,Čech,269,0.060340960071781066
-Venkov-Posel záhrobní,Venkov,Posel záhrobní,73,0.03548857559552747
-Čech-Československý zemědělec,Čech,Československý zemědělec,38,0.012063492063492064
-Československý zemědělec-Čech,Československý zemědělec,Čech,38,0.012063492063492064
-Čech-Český učitel,Čech,Český učitel,78,0.024329382407985028
-Čech-Moravský večerník,Čech,Moravský večerník,108,0.032018974206937445
-Čech-Polední list,Čech,Polední list,53,0.016740366392924828
-Čech-Přítomnost,Čech,Přítomnost,103,0.03098676293622142
-Čech-Studentský časopis,Čech,Studentský časopis,42,0.013448607108549471
-Československý zemědělec-Český učitel,Československý zemědělec,Český učitel,14,0.03932584269662921
-Československý zemědělec-Moravský večerník,Československý zemědělec,Moravský večerník,25,0.046125461254612546
-Československý zemědělec-Polední list,Československý zemědělec,Polední list,16,0.05536332179930796
-Československý zemědělec-Posel záhrobní,Československý zemědělec,Posel záhrobní,15,0.026041666666666668
-Československý zemědělec-Přítomnost,Československý zemědělec,Přítomnost,17,0.034274193548387094
-Československý zemědělec-Studentský časopis,Československý zemědělec,Studentský časopis,10,0.04149377593360996
-Československý zemědělec-Venkov,Československý zemědělec,Venkov,34,0.01911186059584036
-Český učitel-Čech,Český učitel,Čech,78,0.024329382407985028
-Český učitel-Československý zemědělec,Český učitel,Československý zemědělec,14,0.03932584269662921
-Český učitel-Moravský večerník,Český učitel,Moravský večerník,41,0.06591639871382636
-Český učitel-Polední list,Český učitel,Polední list,24,0.0636604774535809
-Český učitel-Posel záhrobní,Český učitel,Posel záhrobní,29,0.044072948328267476
-Český učitel-Přítomnost,Český učitel,Přítomnost,40,0.070298769771529
-Český učitel-Studentský časopis,Český učitel,Studentský časopis,22,0.06769230769230769
-Český učitel-Venkov,Český učitel,Venkov,71,0.03862894450489663
-Moravský večerník-Čech,Moravský večerník,Čech,108,0.032018974206937445
-Moravský večerník-Československý zemědělec,Moravský večerník,Československý zemědělec,25,0.046125461254612546
-Moravský večerník-Český učitel,Moravský večerník,Český učitel,41,0.06591639871382636
-Moravský večerník-Polední list,Moravský večerník,Polední list,37,0.0659536541889483
-Moravský večerník-Posel záhrobní,Moravský večerník,Posel záhrobní,43,0.05112960760998811
-Moravský večerník-Přítomnost,Moravský večerník,Přítomnost,62,0.08333333333333333
-Moravský večerník-Studentský časopis,Moravský večerník,Studentský časopis,31,0.06042884990253411
-Moravský večerník-Venkov,Moravský večerník,Venkov,138,0.0701219512195122
-Polední list-Čech,Polední list,Čech,53,0.016740366392924828
-Polední list-Československý zemědělec,Polední list,Československý zemědělec,16,0.05536332179930796
-Polední list-Český učitel,Polední list,Český učitel,24,0.0636604774535809
-Polední list-Moravský večerník,Polední list,Moravský večerník,37,0.0659536541889483
-Polední list-Posel záhrobní,Polední list,Posel záhrobní,20,0.03322259136212625
-Polední list-Přítomnost,Polední list,Přítomnost,31,0.06042884990253411
-Polední list-Studentský časopis,Polední list,Studentský časopis,18,0.06818181818181818
-Polední list-Venkov,Polední list,Venkov,62,0.03479236812570146
-Posel záhrobní-Československý zemědělec,Posel záhrobní,Československý zemědělec,15,0.026041666666666668
-Posel záhrobní-Český učitel,Posel záhrobní,Český učitel,29,0.044072948328267476
-Posel záhrobní-Moravský večerník,Posel záhrobní,Moravský večerník,43,0.05112960760998811
-Posel záhrobní-Polední list,Posel záhrobní,Polední list,20,0.03322259136212625
-Posel záhrobní-Přítomnost,Posel záhrobní,Přítomnost,43,0.054637865311308764
-Posel záhrobní-Studentský časopis,Posel záhrobní,Studentský časopis,21,0.038391224862888484
-Přítomnost-Čech,Přítomnost,Čech,103,0.03098676293622142
-Přítomnost-Československý zemědělec,Přítomnost,Československý zemědělec,17,0.034274193548387094
-Přítomnost-Český učitel,Přítomnost,Český učitel,40,0.070298769771529
-Přítomnost-Moravský večerník,Přítomnost,Moravský večerník,62,0.08333333333333333
-Přítomnost-Polední list,Přítomnost,Polední list,31,0.06042884990253411
-Přítomnost-Posel záhrobní,Přítomnost,Posel záhrobní,43,0.054637865311308764
-Přítomnost-Studentský časopis,Přítomnost,Studentský časopis,31,0.06753812636165578
-Přítomnost-Venkov,Přítomnost,Venkov,93,0.04747320061255743
-Studentský časopis-Čech,Studentský časopis,Čech,42,0.013448607108549471
-Studentský časopis-Československý zemědělec,Studentský časopis,Československý zemědělec,10,0.04149377593360996
-Studentský časopis-Český učitel,Studentský časopis,Český učitel,22,0.06769230769230769
-Studentský časopis-Moravský večerník,Studentský časopis,Moravský večerník,31,0.06042884990253411
-Studentský časopis-Polední list,Studentský časopis,Polední list,18,0.06818181818181818
-Studentský časopis-Posel záhrobní,Studentský časopis,Posel záhrobní,21,0.038391224862888484
-Studentský časopis-Přítomnost,Studentský časopis,Přítomnost,31,0.06753812636165578
-Studentský časopis-Venkov,Studentský časopis,Venkov,43,0.024613623354321695
-Venkov-Československý zemědělec,Venkov,Československý zemědělec,34,0.01911186059584036
-Venkov-Český učitel,Venkov,Český učitel,71,0.03862894450489663
-Venkov-Moravský večerník,Venkov,Moravský večerník,138,0.0701219512195122
-Venkov-Polední list,Venkov,Polední list,62,0.03479236812570146
-Venkov-Přítomnost,Venkov,Přítomnost,93,0.04747320061255743
-Venkov-Studentský časopis,Venkov,Studentský časopis,43,0.024613623354321695
-Čech-Věstník katolického duchovenstva,Čech,Věstník katolického duchovenstva,273,0.0770098730606488
-Věstník katolického duchovenstva-Čech,Věstník katolického duchovenstva,Čech,273,0.0770098730606488
-Čech-Moravský hospodář,Čech,Moravský hospodář,5,0.0016377333770062235
-Československý zemědělec-Moravský hospodář,Československý zemědělec,Moravský hospodář,5,0.03597122302158273
-Český učitel-Moravský hospodář,Český učitel,Moravský hospodář,5,0.02127659574468085
-Moravský hospodář-Čech,Moravský hospodář,Čech,5,0.0016377333770062235
-Moravský hospodář-Československý zemědělec,Moravský hospodář,Československý zemědělec,5,0.03597122302158273
-Moravský hospodář-Český učitel,Moravský hospodář,Český učitel,5,0.02127659574468085
-Moravský hospodář-Moravský večerník,Moravský hospodář,Moravský večerník,5,0.011574074074074073
-Moravský hospodář-Polední list,Moravský hospodář,Polední list,4,0.023391812865497075
-Moravský hospodář-Přítomnost,Moravský hospodář,Přítomnost,4,0.010554089709762533
-Moravský hospodář-Studentský časopis,Moravský hospodář,Studentský časopis,4,0.03418803418803419
-Moravský hospodář-Venkov,Moravský hospodář,Venkov,6,0.0035778175313059034
-Moravský večerník-Moravský hospodář,Moravský večerník,Moravský hospodář,5,0.011574074074074073
-Polední list-Moravský hospodář,Polední list,Moravský hospodář,4,0.023391812865497075
-Přítomnost-Moravský hospodář,Přítomnost,Moravský hospodář,4,0.010554089709762533
-Studentský časopis-Moravský hospodář,Studentský časopis,Moravský hospodář,4,0.03418803418803419
-Venkov-Moravský hospodář,Venkov,Moravský hospodář,6,0.0035778175313059034
-Československý zemědělec-Věstník katolického duchovenstva,Československý zemědělec,Věstník katolického duchovenstva,19,0.021468926553672316
-Český učitel-Věstník katolického duchovenstva,Český učitel,Věstník katolického duchovenstva,31,0.03199174406604747
-Moravský hospodář-Posel záhrobní,Moravský hospodář,Posel záhrobní,3,0.006550218340611353
-Moravský hospodář-Věstník katolického duchovenstva,Moravský hospodář,Věstník katolického duchovenstva,4,0.005194805194805195
-Moravský večerník-Věstník katolického duchovenstva,Moravský večerník,Věstník katolického duchovenstva,54,0.047244094488188976
-Polední list-Věstník katolického duchovenstva,Polední list,Věstník katolického duchovenstva,25,0.027472527472527472
-Posel záhrobní-Moravský hospodář,Posel záhrobní,Moravský hospodář,3,0.006550218340611353
-Posel záhrobní-Věstník katolického duchovenstva,Posel záhrobní,Věstník katolického duchovenstva,64,0.055315471045808126
-Přítomnost-Věstník katolického duchovenstva,Přítomnost,Věstník katolického duchovenstva,47,0.04288321167883212
-Studentský časopis-Věstník katolického duchovenstva,Studentský časopis,Věstník katolického duchovenstva,26,0.0304093567251462
-Venkov-Věstník katolického duchovenstva,Venkov,Věstník katolického duchovenstva,117,0.05030094582975064
-Věstník katolického duchovenstva-Československý zemědělec,Věstník katolického duchovenstva,Československý zemědělec,19,0.021468926553672316
-Věstník katolického duchovenstva-Český učitel,Věstník katolického duchovenstva,Český učitel,31,0.03199174406604747
-Věstník katolického duchovenstva-Moravský hospodář,Věstník katolického duchovenstva,Moravský hospodář,4,0.005194805194805195
-Věstník katolického duchovenstva-Moravský večerník,Věstník katolického duchovenstva,Moravský večerník,54,0.047244094488188976
-Věstník katolického duchovenstva-Polední list,Věstník katolického duchovenstva,Polední list,25,0.027472527472527472
-Věstník katolického duchovenstva-Posel záhrobní,Věstník katolického duchovenstva,Posel záhrobní,64,0.055315471045808126
-Věstník katolického duchovenstva-Přítomnost,Věstník katolického duchovenstva,Přítomnost,47,0.04288321167883212
-Věstník katolického duchovenstva-Studentský časopis,Věstník katolického duchovenstva,Studentský časopis,26,0.0304093567251462
-Věstník katolického duchovenstva-Venkov,Věstník katolického duchovenstva,Venkov,117,0.05030094582975064
+Čech-Posel záhrobní,Čech,Posel záhrobní,132,0.08143121529919803
+Čech-Venkov,Čech,Venkov,269,0.13537996980372421
+Posel záhrobní-Čech,Posel záhrobní,Čech,132,0.08143121529919803
+Posel záhrobní-Venkov,Posel záhrobní,Venkov,74,0.06519823788546256
+Venkov-Čech,Venkov,Čech,269,0.13537996980372421
+Venkov-Posel záhrobní,Venkov,Posel záhrobní,74,0.06519823788546256
+Čech-Československý zemědělec,Čech,Československý zemědělec,38,0.02562373567093729
+Československý zemědělec-Čech,Československý zemědělec,Čech,38,0.02562373567093729
+Čech-Český učitel,Čech,Český učitel,78,0.05288135593220339
+Čech-Moravský večerník,Čech,Moravský večerník,109,0.07027724049000644
+Čech-Polední list,Čech,Polední list,54,0.03665987780040733
+Čech-Přítomnost,Čech,Přítomnost,105,0.06898817345597898
+Čech-Studentský časopis,Čech,Studentský časopis,44,0.030492030492030493
+Československý zemědělec-Český učitel,Československý zemědělec,Český učitel,14,0.05384615384615385
+Československý zemědělec-Moravský večerník,Československý zemědělec,Moravský večerník,25,0.0702247191011236
+Československý zemědělec-Polední list,Československý zemědělec,Polední list,16,0.06896551724137931
+Československý zemědělec-Posel záhrobní,Československý zemědělec,Posel záhrobní,15,0.032679738562091505
+Československý zemědělec-Přítomnost,Československý zemědělec,Přítomnost,18,0.05454545454545454
+Československý zemědělec-Studentský časopis,Československý zemědělec,Studentský časopis,10,0.050505050505050504
+Československý zemědělec-Venkov,Československý zemědělec,Venkov,34,0.036055143160127257
+Český učitel-Čech,Český učitel,Čech,78,0.05288135593220339
+Český učitel-Československý zemědělec,Český učitel,Československý zemědělec,14,0.05384615384615385
+Český učitel-Moravský večerník,Český učitel,Moravský večerník,41,0.11021505376344086
+Český učitel-Polední list,Český učitel,Polední list,24,0.09375
+Český učitel-Posel záhrobní,Český učitel,Posel záhrobní,29,0.06079664570230608
+Český učitel-Přítomnost,Český učitel,Přítomnost,40,0.11764705882352941
+Český učitel-Studentský časopis,Český učitel,Studentský časopis,22,0.10091743119266056
+Český učitel-Venkov,Český učitel,Venkov,71,0.07569296375266525
+Moravský večerník-Čech,Moravský večerník,Čech,109,0.07027724049000644
+Moravský večerník-Československý zemědělec,Moravský večerník,Československý zemědělec,25,0.0702247191011236
+Moravský večerník-Český učitel,Moravský večerník,Český učitel,41,0.11021505376344086
+Moravský večerník-Polední list,Moravský večerník,Polední list,38,0.10888252148997135
+Moravský večerník-Posel záhrobní,Moravský večerník,Posel záhrobní,44,0.0773286467486819
+Moravský večerník-Přítomnost,Moravský večerník,Přítomnost,64,0.15130023640661938
+Moravský večerník-Studentský časopis,Moravský večerník,Studentský časopis,31,0.0981012658227848
+Moravský večerník-Venkov,Moravský večerník,Venkov,139,0.14227226202661208
+Polední list-Čech,Polední list,Čech,54,0.03665987780040733
+Polední list-Československý zemědělec,Polední list,Československý zemědělec,16,0.06896551724137931
+Polední list-Český učitel,Polední list,Český učitel,24,0.09375
+Polední list-Moravský večerník,Polední list,Moravský večerník,38,0.10888252148997135
+Polední list-Posel záhrobní,Polední list,Posel záhrobní,20,0.043478260869565216
+Polední list-Přítomnost,Polední list,Přítomnost,32,0.09937888198757763
+Polední list-Studentský časopis,Polední list,Studentský časopis,18,0.09183673469387756
+Polední list-Venkov,Polední list,Venkov,63,0.06847826086956521
+Posel záhrobní-Československý zemědělec,Posel záhrobní,Československý zemědělec,15,0.032679738562091505
+Posel záhrobní-Český učitel,Posel záhrobní,Český učitel,29,0.06079664570230608
+Posel záhrobní-Moravský večerník,Posel záhrobní,Moravský večerník,44,0.0773286467486819
+Posel záhrobní-Polední list,Posel záhrobní,Polední list,20,0.043478260869565216
+Posel záhrobní-Přítomnost,Posel záhrobní,Přítomnost,45,0.08411214953271028
+Posel záhrobní-Studentský časopis,Posel záhrobní,Studentský časopis,23,0.05515587529976019
+Přítomnost-Čech,Přítomnost,Čech,105,0.06898817345597898
+Přítomnost-Československý zemědělec,Přítomnost,Československý zemědělec,18,0.05454545454545454
+Přítomnost-Český učitel,Přítomnost,Český učitel,40,0.11764705882352941
+Přítomnost-Moravský večerník,Přítomnost,Moravský večerník,64,0.15130023640661938
+Přítomnost-Polední list,Přítomnost,Polední list,32,0.09937888198757763
+Přítomnost-Posel záhrobní,Přítomnost,Posel záhrobní,45,0.08411214953271028
+Přítomnost-Studentský časopis,Přítomnost,Studentský časopis,32,0.11347517730496454
+Přítomnost-Venkov,Přítomnost,Venkov,95,0.09615384615384616
+Studentský časopis-Čech,Studentský časopis,Čech,44,0.030492030492030493
+Studentský časopis-Československý zemědělec,Studentský časopis,Československý zemědělec,10,0.050505050505050504
+Studentský časopis-Český učitel,Studentský časopis,Český učitel,22,0.10091743119266056
+Studentský časopis-Moravský večerník,Studentský časopis,Moravský večerník,31,0.0981012658227848
+Studentský časopis-Polední list,Studentský časopis,Polední list,18,0.09183673469387756
+Studentský časopis-Posel záhrobní,Studentský časopis,Posel záhrobní,23,0.05515587529976019
+Studentský časopis-Přítomnost,Studentský časopis,Přítomnost,32,0.11347517730496454
+Studentský časopis-Venkov,Studentský časopis,Venkov,45,0.05011135857461024
+Venkov-Československý zemědělec,Venkov,Československý zemědělec,34,0.036055143160127257
+Venkov-Český učitel,Venkov,Český učitel,71,0.07569296375266525
+Venkov-Moravský večerník,Venkov,Moravský večerník,139,0.14227226202661208
+Venkov-Polední list,Venkov,Polední list,63,0.06847826086956521
+Venkov-Přítomnost,Venkov,Přítomnost,95,0.09615384615384616
+Venkov-Studentský časopis,Venkov,Studentský časopis,45,0.05011135857461024
+Čech-Věstník katolického duchovenstva,Čech,Věstník katolického duchovenstva,274,0.16456456456456456
+Věstník katolického duchovenstva-Čech,Věstník katolického duchovenstva,Čech,274,0.16456456456456456
+Čech-Moravský hospodář,Čech,Moravský hospodář,5,0.0035688793718772305
+Československý zemědělec-Moravský hospodář,Československý zemědělec,Moravský hospodář,5,0.040983606557377046
+Český učitel-Moravský hospodář,Český učitel,Moravský hospodář,5,0.032467532467532464
+Moravský hospodář-Čech,Moravský hospodář,Čech,5,0.0035688793718772305
+Moravský hospodář-Československý zemědělec,Moravský hospodář,Československý zemědělec,5,0.040983606557377046
+Moravský hospodář-Český učitel,Moravský hospodář,Český učitel,5,0.032467532467532464
+Moravský hospodář-Moravský večerník,Moravský hospodář,Moravský večerník,5,0.019157088122605363
+Moravský hospodář-Polední list,Moravský hospodář,Polední list,4,0.031007751937984496
+Moravský hospodář-Přítomnost,Moravský hospodář,Přítomnost,4,0.017467248908296942
+Moravský hospodář-Studentský časopis,Moravský hospodář,Studentský časopis,4,0.0449438202247191
+Moravský hospodář-Venkov,Moravský hospodář,Venkov,6,0.007009345794392523
+Moravský večerník-Moravský hospodář,Moravský večerník,Moravský hospodář,5,0.019157088122605363
+Polední list-Moravský hospodář,Polední list,Moravský hospodář,4,0.031007751937984496
+Přítomnost-Moravský hospodář,Přítomnost,Moravský hospodář,4,0.017467248908296942
+Studentský časopis-Moravský hospodář,Studentský časopis,Moravský hospodář,4,0.0449438202247191
+Venkov-Moravský hospodář,Venkov,Moravský hospodář,6,0.007009345794392523
+Československý zemědělec-Věstník katolického duchovenstva,Československý zemědělec,Věstník katolického duchovenstva,19,0.029641185647425898
+Český učitel-Věstník katolického duchovenstva,Český učitel,Věstník katolického duchovenstva,31,0.046898638426626324
+Moravský hospodář-Posel záhrobní,Moravský hospodář,Posel záhrobní,3,0.008426966292134831
+Moravský hospodář-Věstník katolického duchovenstva,Moravský hospodář,Věstník katolického duchovenstva,4,0.0073937153419593345
+Moravský večerník-Věstník katolického duchovenstva,Moravský večerník,Věstník katolického duchovenstva,54,0.07248322147651007
+Polední list-Věstník katolického duchovenstva,Polední list,Věstník katolického duchovenstva,26,0.040625
+Posel záhrobní-Moravský hospodář,Posel záhrobní,Moravský hospodář,3,0.008426966292134831
+Posel záhrobní-Věstník katolického duchovenstva,Posel záhrobní,Věstník katolického duchovenstva,64,0.07729468599033816
+Přítomnost-Věstník katolického duchovenstva,Přítomnost,Věstník katolického duchovenstva,48,0.06685236768802229
+Studentský časopis-Věstník katolického duchovenstva,Studentský časopis,Věstník katolického duchovenstva,27,0.045075125208681135
+Venkov-Věstník katolického duchovenstva,Venkov,Věstník katolického duchovenstva,117,0.09154929577464789
+Věstník katolického duchovenstva-Československý zemědělec,Věstník katolického duchovenstva,Československý zemědělec,19,0.029641185647425898
+Věstník katolického duchovenstva-Český učitel,Věstník katolického duchovenstva,Český učitel,31,0.046898638426626324
+Věstník katolického duchovenstva-Moravský hospodář,Věstník katolického duchovenstva,Moravský hospodář,4,0.0073937153419593345
+Věstník katolického duchovenstva-Moravský večerník,Věstník katolického duchovenstva,Moravský večerník,54,0.07248322147651007
+Věstník katolického duchovenstva-Polední list,Věstník katolického duchovenstva,Polední list,26,0.040625
+Věstník katolického duchovenstva-Posel záhrobní,Věstník katolického duchovenstva,Posel záhrobní,64,0.07729468599033816
+Věstník katolického duchovenstva-Přítomnost,Věstník katolického duchovenstva,Přítomnost,48,0.06685236768802229
+Věstník katolického duchovenstva-Studentský časopis,Věstník katolického duchovenstva,Studentský časopis,27,0.045075125208681135
+Věstník katolického duchovenstva-Venkov,Věstník katolického duchovenstva,Venkov,117,0.09154929577464789
