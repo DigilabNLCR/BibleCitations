@@ -1473,7 +1473,7 @@ def make_filtered_search_dataframe(results_filename='UNFILTERED_batch_results.cs
 
 """ FILTERING STOP-SUBVERSES """
 # This function filter stop subverses if these are the only one detected (they are kept if there are more subverses detected in the citation)
-# NOTE: define/change stop-subverses in evaluation_stop_subverses_21.txt
+# NOTE: define/change stop-subverses in evaluation_stop_subverses_21.txt and in 100_hit_needed_subs_21.txt
 
 
 def filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv', input_df=False, subverse_len=21, rewrite_original_csv=False, save=True, return_df=False, save_filtered_out_file=True, filtered_out_filename='FILTERED_BY_STOP_SUBS.csv'):
@@ -1496,7 +1496,7 @@ def filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv', i
         stop_subs = data.split('\n')
 
     print(f'Loading subverses that need 100 % hit from 100_hit_needed_subs_{subverse_len}.txt ...')
-    with open(join_path(ROOT_PATH, f'evaluation_stop_subverses_{subverse_len}.txt'), 'r', encoding='utf-8') as stops_f:
+    with open(join_path(ROOT_PATH, f'100_hit_needed_subs_{subverse_len}.txt'), 'r', encoding='utf-8') as stops_f:
         data = stops_f.read()
         full_hit_subs = data.split('\n')
 
@@ -1517,7 +1517,7 @@ def filter_stop_subs(results_filename='FILTERED_UNFILTERED_batch_results.csv', i
         
         # If the hit contains only the subverse that need 100% hit, check it
         elif original_df.loc[row_id]['matched_subverses'] in full_hit_subs:
-            matched_chars = eval(original_df.loc[row_id]['matched_characters'])
+            matched_chars = float(original_df.loc[row_id]['matched_characters'])
             if matched_chars == 1:
                 row_as_dict = original_df.loc[row_id].to_dict()            
                 filtered_df_dict[fil_id] = row_as_dict
@@ -1995,7 +1995,7 @@ mutual_verses_layout = {
     '2K 1:2/Fp 1:2/2Te 1:2/1K 1:3/Ef 1:2/Ga 1:3': ['2K 1:2', 'Fp 1:2', '2Te 1:2', '1K 1:3', 'Ef 1:2', 'Ga 1:3'],
     'Mt 11:15/Mt 13:9': ['Mt 11:15', 'Mt 13:9'],
     'Mt 6:11/L 11:3': ['Mt 6:11', 'L 11:3'],
-    'Mt 3:3/J 1:23/Mk 1:3/Iz 40:3': ['Mt 3:3', 'J 1:23', 'Mk 1:3', 'Iz 40:3']
+    'Mt 3:3/J 1:23/Mk 1:3/L 3:4/Iz 40:3': ['Mt 3:3', 'J 1:23', 'Mk 1:3', 'L 3:4', 'Iz 40:3']
 }
 
 

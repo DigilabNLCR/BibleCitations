@@ -2688,3 +2688,5 @@
 ['Blahoslavený ten člověk']
 ['týkajících se Hospodina']
 ['králi Nabuchodonosore']
+['Tehdy jde,']
+['náležitě spravovati?"']
