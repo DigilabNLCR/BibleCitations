@@ -1,0 +1,188 @@
+    <div class="header">
+        <div class="header-content-box">
+            <div class="header-text-content">
+                <p class="header-note">STUDIE NÁRODNÍ KNIHOVNY ČESKÉ REPUBLIKY • 2022</p>
+                <h1 class="h1-header">TESTOVACÍ VERZE v0.0.1</h1>
+                <h1 class="h1-header">Biblické citáty</h1>
+                <h3>aneb mapa religionisticky relevantních významů</h3>
+                <p class="p-header">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent in mauris eu tortor porttitor accumsan. Maecenas aliquet accumsan leo. Praesent dapibus. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+            <img src="images/pan_na_lavicce.png" alt="Pán na lavičce" class="header-image">
+        </div>
+    </div>
+
+    <div class="content-window-white">
+        <div class="content-inner-box">
+            <div class="content-text">
+                <h2>Mapa významů</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent in mauris eu tortor porttitor accumsan. Maecenas aliquet accumsan leo. Praesent dapibus.</p>
+            </div>
+            <div class="flourish-embed flourish-network" data-src="visualisation/11137468"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+        </div>
+    </div>
+
+    <div class="content-window-grey">
+        <div class="content-inner-box"> 
+            <div class="content-text">
+                <h2>Nadpis popisu stránky</h2>
+                <p>This is a paragraph.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent in mauris eu tortor porttitor accumsan. Maecenas aliquet accumsan leo. Praesent dapibus. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Aenean id metus id velit ullamcorper pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-window-white">
+        <div class="content-inner-box">
+            <div class="content-text-for-chart">
+                <h3>Nejčastější citace v letech</h3>
+                <p>Some bacis comment for chart: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent in mauris eu tortor porttitor accumsan. Maecenas aliquet accumsan leo. Praesent dapibus. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+            </div>
+            <div class="chart-navigation">
+                <span class="slider-div">
+                    <div id="slider-round" class="slider-round"></div>
+                </span>
+                <span>
+                    <p class="chart-change-notes">Filtrovat podle</p>
+                </span>
+                <span>
+                    <select id="selectDataset">
+                        <option value="Top">Nejčastější citace celkem</option>
+                        <option value="TopEvangelia">Nejčastěší citace z Evangelia</option>
+                        <option value="TopNZ">Nejčastěší citace z Nového Zákona</option>
+                        <option value="TopSZ">Nejčastěší citace ze Starého Zákona</option>
+                        <option value="TopDesatero">Nejčastěší citace Desatera</option>
+                    </select>
+                </span>
+                <span>
+                    <span class="chart-change-notes">Přepnout typ grafu</span>
+                </span>
+                <span class="two-buttons">  
+                    <button id="BarLineButton">sloupcový graf</button>
+                    <button id="RotateChartButton" class="rotate-chart">otočit graf</button>
+                </span>
+            </div>
+            <div class="chart-1">
+                <canvas id="chartCitationsTopInYears" class="chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-window-grey">
+        <div class="content-inner-box">
+            <div class="content-text-for-chart">
+                <h3>Nejčastější citace celkem</h3>
+                <p>Graf ukazuje, jak se ve využitém korpusu vyvíjela citovanost deseti nejzastoupenějších biblických míst. Je zde patrný setrvalý zájem o Desatero, kde převládá přikázání <i>Nezabiješ</i> (Ex 20:13/Dt 5:17), které je i celkově nejcitovanějším veršem a o Evangelia, kde je celkově nejcitovanější úryvek z verše L 2:14: <i>Sláva na výsostech bohu</i>. Přehled celkově nejcitovanějších veršů naleznete <a href="https://public.flourish.studio/visualisation/11097410/">zde</a> </p>
+            </div>
+            <div class="chart-navigation">
+                <span class="slider-div">
+                    <div id="slider-round-top10" class="slider-round"></div>
+                </span>
+                <span>
+                    <span class="chart-change-notes">Přepnout typ grafu</span>
+                </span>
+                <span class="two-buttons">  
+                    <button id="BarLineButton-top10">sloupcový graf</button>
+                    <button id="RotateChartButton-top10" class="rotate-chart">otočit graf</button>
+                </span>
+            </div>
+            <div class="chart-1">
+                <canvas id="chartCitationsTop" class="chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-window-white">
+        <div class="content-inner-box">
+            <div class="content-text-for-chart">
+                <h3>Nejčastější citace z Evangelia</h3>
+                <p>Popis... </p>
+            </div>
+            <div class="chart-navigation">
+                <span class="slider-div">
+                    <div id="slider-round-gospels" class="slider-round"></div>
+                </span>
+                <span>
+                    <span class="chart-change-notes">Přepnout typ grafu</span>
+                </span>
+                <span class="two-buttons">  
+                    <button id="BarLineButton-gospels">sloupcový graf</button>
+                    <button id="RotateChartButton-gospels" class="rotate-chart">otočit graf</button>
+                </span>
+            </div>
+            <div class="chart-1">
+                <canvas id="chartCitationsTopGospels" class="chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-window-grey">
+        <div class="content-inner-box">
+            <div class="content-text-for-chart">
+                <h3>Nejčastější citace z Nového Zákona</h3>
+                <p>Popis... </p>
+            </div>
+            <div class="chart-navigation">
+                <span class="slider-div">
+                    <div id="slider-round-NT" class="slider-round"></div>
+                </span>
+                <span>
+                    <span class="chart-change-notes">Přepnout typ grafu</span>
+                </span>
+                <span class="two-buttons">  
+                    <button id="BarLineButton-NT">sloupcový graf</button>
+                    <button id="RotateChartButton-NT" class="rotate-chart">otočit graf</button>
+                </span>
+            </div>
+            <div class="chart-1">
+                <canvas id="chartCitationsTopNT" class="chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-window-white">
+        <div class="content-inner-box">
+            <div class="content-text-for-chart">
+                <h3>Nejčastější citace ze Starého Zákona</h3>
+                <p>Popis... </p>
+            </div>
+            <div class="chart-navigation">
+                <span class="slider-div">
+                    <div id="slider-round-OT" class="slider-round"></div>
+                </span>
+                <span>
+                    <span class="chart-change-notes">Přepnout typ grafu</span>
+                </span>
+                <span class="two-buttons">  
+                    <button id="BarLineButton-OT">sloupcový graf</button>
+                    <button id="RotateChartButton-OT" class="rotate-chart">otočit graf</button>
+                </span>
+            </div>
+            <div class="chart-1">
+                <canvas id="chartCitationsTopOT" class="chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-window-grey">
+        <div class="content-inner-box">
+            <div class="content-text-for-chart">
+                <h3>Nejčastější citace Desatera</h3>
+                <p>Popis... </p>
+            </div>
+            <div class="chart-navigation">
+                <span class="slider-div">
+                    <div id="slider-round-TC" class="slider-round"></div>
+                </span>
+                <span>
+                    <span class="chart-change-notes">Přepnout typ grafu</span>
+                </span>
+                <span class="two-buttons">  
+                    <button id="BarLineButton-TC">sloupcový graf</button>
+                    <button id="RotateChartButton-TC" class="rotate-chart">otočit graf</button>
+                </span>
+            </div>
+            <div class="chart-1">
+                <canvas id="chartCitationsTopTC" class="chart-canvas"></canvas>
+            </div>
+        </div>
+    </div>

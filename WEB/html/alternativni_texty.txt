@@ -1,0 +1,9 @@
+let commentTop10 = '<h3>Nejčastější citace celkem</h3><p>Graf ukazuje, jak se ve využitém korpusu vyvíjela citovanost deseti nejzastoupenějších biblických míst. Je zde patrný setrvalý zájem o Desatero, kde převládá přikázání „<i>Nezabiješ</i>“ (Ex 20:13/Dt 5:17), které je i celkově nejcitovanějším veršem, a o Evangelia, kde je celkově nejcitovanější úryvek z verše L 2:14: „<i>Sláva na výsostech bohu</i>“. Přehled celkově nejcitovanějších veršů naleznete <a href="https://public.flourish.studio/visualisation/11097410/">zde</a></p>';
+
+let commentTopGospels = '<h3>Nejčastěší citace z Evangelia</h3><p>Graf ukazuje, jak se vyvíjela v čase citovanost deseti nejzastoupenějších biblických míst, tentokrát však s omezením pouze na evangelia.</p>';
+
+let commentTopNT = '<h3>Nejčastěší citace z Nového Zákona</h3><p>Graf opět ukazuje, jak se vyvíjela v čase citovanost deseti nejzastoupenějších biblických míst, tentokrát se zaměřením jen na Nový zákon s výjimkou evangelií. Do statistik se nám zde propisuje také přikázání „<i>Cti otce svého i matku svou</i>“, na které se v Novém zákoně odkazuje také verš Ef 6:2.</p>';
+
+let commentTopOT = '<h3>Nejčastěší citace ze Starého Zákona</h3><p>Graf ukazuje, jak se vyvíjela citovanost deseti nejzastoupenějších starozákonních citátů. Zajímavý je společný výskyt moralistních citátů  (Gen 3:19, Prov. 26:27, Iza 45:8), které do velké míry zlidověly.</p>';
+
+let commentTopTC = '<h3>Nejčastěší citace Desatera</h3><p>Graf ukazuje, které příkazy Desatera byly v korpusu nejvíce citovány, a vývoj jejich citovanosti v čase. Dominuje přikázání „<i>Nezabiješ</i>“ (Ex 20:13 / Dt 5:17). Nasleduje v nižším celkovém výskytu, ale vytrvale, přikázání „<i>Nepokradeš</i>“ (Ex 20:15 / Dt 5:19), podtrhující celkovou sociální a politickou situaci.</p>';

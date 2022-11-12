@@ -1,0 +1,74 @@
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        const cookiesConsentGiven = 'cookies_consent'
+      
+        if (localStorage.getItem(cookiesConsentGiven) == 'true') {
+            console.log('Cookies are on');
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'granted',
+                'functionality_storage': 'denied',
+                'personalization_storage': 'denied',
+                'security_storage': 'denied',
+            });
+        } else {
+            console.log('Cookies are off');
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'functionality_storage': 'denied',
+                'personalization_storage': 'denied',
+                'security_storage': 'denied',
+            });
+        };
+        
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K7D8DRD');
+
+        console.log('PAGE LOADED')
+        function cookiesAgree () {
+            console.log('DOING AGREE')
+            gtag('consent', 'update', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'granted',
+                'functionality_storage': 'granted',
+                'personalization_storage': 'denied',
+                'security_storage': 'denied',
+            });
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-K7D8DRD');
+        };
+
+        function cookiesDisagree () {
+            console.log('DOING DISAGREE')
+            gtag('consent', 'update', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'functionality_storage': 'denied',
+                'personalization_storage': 'denied',
+                'security_storage': 'denied',
+            });
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-K7D8DRD');
+        };
+
+        const cookiesAcceptButton = document.getElementById('accept');
+        const cookiesDeclineButton = document.getElementById('decline');
+
+        cookiesAcceptButton.onclick = function() {cookiesAgree()};
+        cookiesDeclineButton.onclick = function() {cookiesDisagree()};
+    </script>
+    
+    <!-- For cookies information -->
+    <script type="module" src="cookies/cookies.js"></script>
