@@ -62,6 +62,5 @@ The current version is the first complete version published.
 - [run_biblical_intertextuality.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/run_biblical_intertextuality.py)
 
 ## 5) Apply evaluation functions
-- use [evaluate.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluate.py) but some functions are yet in development
-- STILL IN PROGRESS, this process serves to improve and filter the discovered citations.
+- use [evaluate.py](https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluate.py) some functiona may still need some improvement.
 - You can explore the process of evaluation using [evaluation.ipynb](https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluation.ipynb) notebook.
