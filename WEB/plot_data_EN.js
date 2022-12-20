@@ -11,70 +11,70 @@ const dataForPlottingTop =
 		backgroundColor: 'rgb(0, 83, 101, 0.6)',
 		borderColor: 'rgb(0, 83, 101, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 83, 101, 1)',
-		verseText: 'Slyšeli jste, že bylo řečeno: „Oko za oko, zub za zub.“'
+		verseText: 'You have heard that it was said, An eye for an eye and a tooth for a tooth.'
 	},{
 		verseId: 'Matt 3:3/John 1:23/Mark 1:3/Luke 3:4/Isa 40:3',
 		citations: [4, 9, 11, 6, 5, 6, 9, 1, 4, 0, 3, 1, 1, 0, 5],
 		backgroundColor: 'rgb(0, 118, 79, 0.6)',
 		borderColor: 'rgb(0, 118, 79, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 118, 79, 1)',
-		verseText: 'jakož psáno jest v knize řečí proroka Isaiáše: „Hlas volajícího na poušti: Připravte cestu Páně, přímé čiňte stezky jeho;'
+		verseText: 'For this is he who was spoken of by the prophet Isaiah, saying: The voice of one crying in the wilderness: Prepare the way of the Lord; make His paths straight.'
 	},{
 		verseId: 'Luke 2:14',
 		citations: [7, 10, 11, 8, 4, 12, 8, 9, 11, 4, 2, 1, 5, 2, 3],
 		backgroundColor: 'rgb(159, 101, 30, 0.6)',
 		borderColor: 'rgb(159, 101, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 101, 30, 1)',
-		verseText: 'Sláva na výsostech Bohu, a na zemi pokoj, lidem dobrá vůle.'
+		verseText: 'Glory to God in the highest, and on earth peace, goodwill among men!'
 	},{
 		verseId: 'Matt 11:28',
 		citations: [1, 6, 4, 11, 2, 1, 4, 1, 2, 2, 1, 0, 2, 1, 2],
 		backgroundColor: 'rgb(159, 36, 30, 0.6)',
 		borderColor: 'rgb(159, 36, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 36, 30, 1)',
-		verseText: '„Pojďte ke mně všichni, kteří těžce pracujete a jste přetíženi, a já vám dám odpočinek.'
+		verseText: 'Come to Me, all you who labor and are heavy laden, and I will give you rest.'
 	},{
 		verseId: 'Matt 6:11/Luke 11:3',
 		citations: [4, 3, 3, 0, 4, 6, 2, 3, 7, 3, 3, 1, 6, 5, 4],
 		backgroundColor: 'rgb(0, 139, 168, 0.6)',
 		borderColor: 'rgb(0, 139, 168, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 139, 168, 1)',
-		verseText: 'Chléb náš vezdejší dej nám dnes.'
+		verseText: 'Give us this day our bread sufficient for this day.'
 	},{
 		verseId: 'Exod 20:15/Deut 5:19',
 		citations: [6, 3, 7, 3, 5, 3, 6, 1, 1, 2, 2, 2, 2, 0, 4],
 		backgroundColor: 'rgb(0, 168, 113, 0.6)',
 		borderColor: 'rgb(0, 168, 113, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 168, 113, 1)',
-		verseText: 'Nepokradeš.'
+		verseText: 'Thou shalt not steal.'
 	},{
 		verseId: 'Matt 16:18',
 		citations: [16, 7, 4, 2, 3, 3, 6, 1, 2, 0, 1, 2, 2, 0, 0],
 		backgroundColor: 'rgb(227, 144, 43, 0.6)',
 		borderColor: 'rgb(227, 144, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 144, 43, 1)',
-		verseText: 'I já pravím tobě: Ty jsi Petr (t. j. skála), a na té skále vzdělám cirkev svou, a brány pekelné jí nepřemohou.'
+		verseText: 'And I also say to you that you are Peter, and on this Rock I will build My church, and the gates of Hades shall not prevail against It.'
 	},{
 		verseId: 'Exod 20:13/Deut 5:17',
 		citations: [11, 6, 11, 6, 16, 7, 6, 7, 5, 11, 6, 7, 2, 3, 3],
 		backgroundColor: 'rgb(227, 52, 43, 0.6)',
 		borderColor: 'rgb(227, 52, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 52, 43, 1)',
-		verseText: 'Nezabiješ.'
+		verseText: 'Thou shalt not kill'
 	},{
 		verseId: 'Luke 20:25',
 		citations: [6, 4, 3, 5, 1, 4, 5, 0, 1, 2, 2, 1, 2, 2, 4],
 		backgroundColor: 'rgb(102, 185, 203, 0.6)',
 		borderColor: 'rgb(102, 185, 203, 0.9)',
 		hoverBackgroundColor: 'rgb(102, 185, 203, 1)',
-		verseText: 'I řekl jim: „Dávejte tedy, co je císařovo, císaři, a co jest Božího, Bohu.“'
+		verseText: 'And He said to them, Render therefore to Caesar the things that are Caesar´s, and to God the things that are God´s.“'
 	},{
 		verseId: 'Matt 20:16',
 		citations: [5, 4, 3, 2, 1, 2, 4, 4, 6, 6, 3, 2, 2, 0, 2],
 		backgroundColor: 'rgb(77, 194, 156, 0.6)',
 		borderColor: 'rgb(77, 194, 156, 0.9)',
 		hoverBackgroundColor: 'rgb(77, 194, 156, 1)',
-		verseText: 'Tak budou poslední prvními a první posledními; neboť mnoho jest povolaných, ale málo vyvolených.“'
+		verseText: 'So the last will be first, and the first last. For many are called, but few chosen.'
 	}
 ];
 
@@ -85,70 +85,70 @@ const dataForPlottingTopEvangelia =
 		backgroundColor: 'rgb(0, 83, 101, 0.6)',
 		borderColor: 'rgb(0, 83, 101, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 83, 101, 1)',
-		verseText: 'Slyšeli jste, že bylo řečeno: „Oko za oko, zub za zub.“'
+		verseText: 'You have heard that it was said, An eye for an eye and a tooth for a tooth.'
 	},{
 		verseId: 'Matt 3:3/John 1:23/Mark 1:3/Luke 3:4/Isa 40:3',
 		citations: [4, 9, 11, 6, 5, 6, 9, 1, 4, 0, 3, 1, 1, 0, 5],
 		backgroundColor: 'rgb(0, 118, 79, 0.6)',
 		borderColor: 'rgb(0, 118, 79, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 118, 79, 1)',
-		verseText: 'jakož psáno jest v knize řečí proroka Isaiáše: „Hlas volajícího na poušti: Připravte cestu Páně, přímé čiňte stezky jeho;'
+		verseText: 'For this is he who was spoken of by the prophet Isaiah, saying: The voice of one crying in the wilderness: Prepare the way of the Lord; make His paths straight.'
 	},{
 		verseId: 'Luke 2:14',
 		citations: [7, 10, 11, 8, 4, 12, 8, 9, 11, 4, 2, 1, 5, 2, 3],
 		backgroundColor: 'rgb(159, 101, 30, 0.6)',
 		borderColor: 'rgb(159, 101, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 101, 30, 1)',
-		verseText: 'Sláva na výsostech Bohu, a na zemi pokoj, lidem dobrá vůle.'
+		verseText: 'Glory to God in the highest, and on earth peace, goodwill among men!'
 	},{
 		verseId: 'Matt 11:28',
 		citations: [1, 6, 4, 11, 2, 1, 4, 1, 2, 2, 1, 0, 2, 1, 2],
 		backgroundColor: 'rgb(159, 36, 30, 0.6)',
 		borderColor: 'rgb(159, 36, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 36, 30, 1)',
-		verseText: '„Pojďte ke mně všichni, kteří těžce pracujete a jste přetíženi, a já vám dám odpočinek.'
+		verseText: 'Come to Me, all you who labor and are heavy laden, and I will give you rest.'
 	},{
 		verseId: 'Matt 6:11/Luke 11:3',
 		citations: [4, 3, 3, 0, 4, 6, 2, 3, 7, 3, 3, 1, 6, 5, 4],
 		backgroundColor: 'rgb(0, 139, 168, 0.6)',
 		borderColor: 'rgb(0, 139, 168, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 139, 168, 1)',
-		verseText: 'Chléb náš vezdejší dej nám dnes.'
+		verseText: 'Give us this day our bread sufficient for this day.'
 	},{
 		verseId: 'Matt 27:25',
 		citations: [4, 4, 5, 8, 2, 0, 7, 2, 1, 1, 0, 0, 1, 0, 0],
 		backgroundColor: 'rgb(0, 168, 113, 0.6)',
 		borderColor: 'rgb(0, 168, 113, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 168, 113, 1)',
-		verseText: 'A odpověděv všecken lid, řekl: Krev jeho na nás, i na naše syny.'
+		verseText: 'And all the people answered and said, His blood be on us and on our children.'
 	},{
 		verseId: 'Matt 16:18',
 		citations: [16, 7, 4, 2, 3, 3, 6, 1, 2, 0, 1, 2, 2, 0, 0],
 		backgroundColor: 'rgb(227, 144, 43, 0.6)',
 		borderColor: 'rgb(227, 144, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 144, 43, 1)',
-		verseText: 'I já pravím tobě: Ty jsi Petr (t. j. skála), a na té skále vzdělám cirkev svou, a brány pekelné jí nepřemohou.'
+		verseText: 'And I also say to you that you are Peter, and on this Rock I will build My church, and the gates of Hades shall not prevail against It.'
 	},{
 		verseId: 'Luke 18:42',
 		citations: [8, 1, 6, 2, 5, 1, 1, 4, 2, 1, 0, 0, 1, 1, 2],
 		backgroundColor: 'rgb(227, 52, 43, 0.6)',
 		borderColor: 'rgb(227, 52, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 52, 43, 1)',
-		verseText: 'A Ježíš řekl jemu: Prohlédni. Víra tvá tě uzdravila.'
+		verseText: 'Then Jesus said to him, Receive your sight. Your faith has healed you.'
 	},{
 		verseId: 'Luke 20:25',
 		citations: [6, 4, 3, 5, 1, 4, 5, 0, 1, 2, 2, 1, 2, 2, 4],
 		backgroundColor: 'rgb(102, 185, 203, 0.6)',
 		borderColor: 'rgb(102, 185, 203, 0.9)',
 		hoverBackgroundColor: 'rgb(102, 185, 203, 1)',
-		verseText: 'I řekl jim: „Dávejte tedy, co je císařovo, císaři, a co jest Božího, Bohu.“'
+		verseText: 'And He said to them, Render therefore to Caesar the things that are Caesar´s, and to God the things that are God´s.'
 	},{
 		verseId: 'Matt 20:16',
 		citations: [5, 4, 3, 2, 1, 2, 4, 4, 6, 6, 3, 2, 2, 0, 2],
 		backgroundColor: 'rgb(77, 194, 156, 0.6)',
 		borderColor: 'rgb(77, 194, 156, 0.9)',
 		hoverBackgroundColor: 'rgb(77, 194, 156, 1)',
-		verseText: 'Tak budou poslední prvními a první posledními; neboť mnoho jest povolaných, ale málo vyvolených.“'
+		verseText: 'So the last will be first, and the first last. For many are called, but few chosen.'
 	}
 ];
 
@@ -159,84 +159,84 @@ const dataForPlottingTopNZ =
 		backgroundColor: 'rgb(0, 83, 101, 0.6)',
 		borderColor: 'rgb(0, 83, 101, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 83, 101, 1)',
-		verseText: 'Ježíš Kristus jest ten, který přišel skrze vodu a krev. Nejen s vodou, ale s vodou a s krví. A Duch je toho svědkem, poněvadž Duch je pravda. '
+		verseText: 'This is He who came through water and blood; Jesus Christ; not only by water, but by water and blood. And it is the Spirit who bears witness, because the Spirit is truth.'
 	},{
 		verseId: 'Rom 13:11',
 		citations: [1, 3, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
 		backgroundColor: 'rgb(0, 118, 79, 0.6)',
 		borderColor: 'rgb(0, 118, 79, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 118, 79, 1)',
-		verseText: 'A vědouce ten čas: že již hodina jest, abychom ze sna povstali. Neboť nyní bližší jest naše spasení, nežli když sme uvěřili.'
+		verseText: 'And do this, knowing the time, that now it is high time to awake out of sleep; for now our salvation is nearer than when we first believed.'
 	},{
 		verseId: 'Acts 5:29',
 		citations: [4, 2, 2, 0, 1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0],
 		backgroundColor: 'rgb(159, 101, 30, 0.6)',
 		borderColor: 'rgb(159, 101, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 101, 30, 1)',
-		verseText: 'Petr a apoštolově odpověděli: „Více sluší poslouchati Boha než lidí.'
+		verseText: 'But Peter and the other apostles answered and said: We ought to obey God rather than men.'
 	},{
 		verseId: '2Pet 1:17',
 		citations: [1, 2, 6, 0, 1, 1, 3, 0, 2, 0, 0, 0, 0, 1, 0],
 		backgroundColor: 'rgb(159, 36, 30, 0.6)',
 		borderColor: 'rgb(159, 36, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 36, 30, 1)',
-		verseText: 'Obdržel zajisté od Boha Otce čest i slávu, když se stal k němu takovýto hlas od velikolepé slávy: „Tento jest Syn můj milý, v němž jsem si zalíbil. (Jeho poslouchejte.“)'
+		verseText: 'For He received from God the Father honor and glory when such a voice came to Him from the Excellent Glory: This is My beloved Son, in whom I am well pleased.'
 	},{
 		verseId: 'Exod 20:12/Deut 5:16/Eph 6:2',
 		citations: [3, 6, 2, 3, 4, 7, 0, 2, 2, 0, 2, 1, 0, 0, 4],
 		backgroundColor: 'rgb(0, 139, 168, 0.6)',
 		borderColor: 'rgb(0, 139, 168, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 139, 168, 1)',
-		verseText: 'Cti otce svého i matku svou, jakož přikázal tobě Hospodin Bůh tvůj, aby se prodleli dnové tvoji, a aby tobě dobře bylo na zemi, kterouž Hospodin Bůh tvůj dá tobě.'
+		verseText: 'Honor your father and your mother, that your days may be long upon the land which Jehovah your God is giving you.'
 	},{
 		verseId: '2Cor 1:2/Phil 1:2/2Thess 1:2/1Cor 1:3/Eph 1:2/Gal 1:3',
 		citations: [2, 3, 1, 1, 3, 2, 1, 1, 1, 0, 4, 5, 0, 1, 0],
 		backgroundColor: 'rgb(0, 168, 113, 0.6)',
 		borderColor: 'rgb(0, 168, 113, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 168, 113, 1)',
-		verseText: 'Milost vám a pokoj od Boha, našeho Otce, a Pána Ježíše Krista, '
+		verseText: 'Grace to you and peace from God our Father and the Lord Jesus Christ.'
 	},{
 		verseId: '1Cor 15:20',
 		citations: [3, 1, 0, 3, 0, 1, 1, 1, 1, 2, 0, 1, 0, 0, 0],
 		backgroundColor: 'rgb(227, 144, 43, 0.6)',
 		borderColor: 'rgb(227, 144, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 144, 43, 1)',
-		verseText: 'Ale Kristus vstal z mrtvých, jako první ze zesnulých. '
+		verseText: 'But now Christ has been raised from the dead, and has become the firstfruits of those who have fallen asleep.'
 	},{
 		verseId: '2Tim 4:7',
 		citations: [1, 4, 3, 0, 2, 0, 1, 0, 1, 0, 1, 1, 3, 0, 0],
 		backgroundColor: 'rgb(227, 52, 43, 0.6)',
 		borderColor: 'rgb(227, 52, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 52, 43, 1)',
-		verseText: 'Dobrý boj sem bojoval, běh sem dokonal, víru sem zachoval.'
+		verseText: 'I have fought the good fight, I have finished the course, I have kept the faith.'
 	},{
 		verseId: 'Heb 5:9',
 		citations: [2, 2, 1, 1, 1, 1, 1, 3, 3, 1, 0, 2, 0, 0, 0],
 		backgroundColor: 'rgb(102, 185, 203, 0.6)',
 		borderColor: 'rgb(102, 185, 203, 0.9)',
 		hoverBackgroundColor: 'rgb(102, 185, 203, 1)',
-		verseText: 'a byv dokonán stal se příčinou věčné spásy všem, kteří ho poslouchají,'
+		verseText: 'And having been found perfect, He became the author of eternal salvation to all who obey Him,'
 	},{
 		verseId: 'Acts 2:17',
 		citations: [1, 2, 0, 1, 0, 1, 4, 0, 2, 0, 1, 3, 0, 0, 0],
 		backgroundColor: 'rgb(77, 194, 156, 0.6)',
 		borderColor: 'rgb(77, 194, 156, 0.9)',
 		hoverBackgroundColor: 'rgb(77, 194, 156, 1)',
-		verseText: '»V posledních dnech, praví Bůh, vyleji část svého Ducha na všechny lidi; prorokovati budou vaši synové a vaše dcery; vaši jinoši budou míti vidění, vaši starci budou sníti sny;'
+		verseText: 'And it shall come to pass in the last days, says God, That I will pour out from My Spirit upon all flesh; your sons and your daughters shall prophesy, your young men shall see visions, your old men shall dream dreams.'
 	},{
 		verseId: '2Cor 2:6',
 		citations: [3, 0, 0, 1, 0, 3, 2, 0, 2, 2, 3, 1, 2, 0, 1],
 		backgroundColor: 'rgb(235, 177, 107, 0.6)',
 		borderColor: 'rgb(235, 177, 107, 0.9)',
 		hoverBackgroundColor: 'rgb(235, 177, 107, 1)',
-		verseText: 'Toto pokárání od většiny, kterého se mu dostalo, stačí; '
+		verseText: 'This punishment from the majority is sufficient for such a man'
 	},{
 		verseId: '2Cor 7:10',
 		citations: [0, 2, 0, 1, 2, 2, 0, 1, 3, 0, 0, 0, 0, 2, 0],
 		backgroundColor: 'rgb(235, 113, 107, 0.6)',
 		borderColor: 'rgb(235, 113, 107, 0.9)',
 		hoverBackgroundColor: 'rgb(235, 113, 107, 1)',
-		verseText: 'Zármutek totiž, který jest podle Boha, působí pokání ke spáse, kterého se nelituje, ale zármutek světa působí smrt.'
+		verseText: 'For godly sorrow produces repentance leading to salvation, not to be regretted; but the sorrow of the world produces death.'
 	}
 ];
 
@@ -247,84 +247,84 @@ const dataForPlottingTopSZ =
 		backgroundColor: 'rgb(0, 83, 101, 0.6)',
 		borderColor: 'rgb(0, 83, 101, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 83, 101, 1)',
-		verseText: 'jakož psáno jest v knize řečí proroka Isaiáše: „Hlas volajícího na poušti: Připravte cestu Páně, přímé čiňte stezky jeho;'
+		verseText: 'For this is he who was spoken of by the prophet Isaiah, saying: The voice of one crying in the wilderness: Prepare the way of the Lord; make His paths straight.'
 	},{
 		verseId: 'Exod 20:15/Deut 5:19',
 		citations: [6, 3, 7, 3, 5, 3, 6, 1, 1, 2, 2, 2, 2, 0, 4],
 		backgroundColor: 'rgb(0, 118, 79, 0.6)',
 		borderColor: 'rgb(0, 118, 79, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 118, 79, 1)',
-		verseText: 'Nepokradeš.'
+		verseText: 'Thou shalt not steal.'
 	},{
 		verseId: 'Ps 127:1',
 		citations: [2, 2, 0, 2, 2, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0],
 		backgroundColor: 'rgb(159, 101, 30, 0.6)',
 		borderColor: 'rgb(159, 101, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 101, 30, 1)',
-		verseText: 'Píseň stupňů, Šalomounova. Nebude-li Hospodin stavěti domu, nadarmo usilují ti, kteříž stavějí jej; nebude-li Hospodin ostříhati města, nadarmo bdí strážný.'
+		verseText: 'A song of ascents. Of Solomon. Unless the LORD builds the house, they labor in vain that build it: unless the LORD keeps the city, the watchman wakes, but in vain.'
 	},{
 		verseId: 'Exod 20:12/Deut 5:16/Eph 6:2',
 		citations: [3, 6, 2, 3, 4, 7, 0, 2, 2, 0, 2, 1, 0, 0, 4],
 		backgroundColor: 'rgb(159, 36, 30, 0.6)',
 		borderColor: 'rgb(159, 36, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 36, 30, 1)',
-		verseText: 'Cti otce svého i matku svou, jakož přikázal tobě Hospodin Bůh tvůj, aby se prodleli dnové tvoji, a aby tobě dobře bylo na zemi, kterouž Hospodin Bůh tvůj dá tobě.'
+		verseText: 'Honor your father and your mother, that your days may be long upon the land which Jehovah your God is giving you.'
 	},{
 		verseId: 'Gen 3:19',
 		citations: [4, 1, 1, 0, 5, 3, 1, 0, 2, 2, 0, 0, 0, 0, 0],
 		backgroundColor: 'rgb(0, 139, 168, 0.6)',
 		borderColor: 'rgb(0, 139, 168, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 139, 168, 1)',
-		verseText: 'V potu tváře jísti budeš chléb, dokud se nevrátíš do země, ze které jsi vzat. Ano, prach jsi, a v prach se navrátíš.'
+		verseText: 'In the sweat of your face shall you eat bread, till you return unto the ground; for out of it were you taken: for dust you are, and unto dust shall you return.'
 	},{
 		verseId: 'Prov 26:27',
 		citations: [3, 4, 2, 2, 3, 4, 3, 1, 2, 1, 0, 2, 3, 5, 1],
 		backgroundColor: 'rgb(0, 168, 113, 0.6)',
 		borderColor: 'rgb(0, 168, 113, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 168, 113, 1)',
-		verseText: 'Kdo (jinému) jámu kopá, (sám) do ní padá, a kdo valí kámen, bude ním zavalen.'
+		verseText: 'Whosoever digs a pit shall fall in it: and he that rolls a stone, it will return upon him.'
 	},{
 		verseId: 'Exod 20:13/Deut 5:17',
 		citations: [11, 6, 11, 6, 16, 7, 6, 7, 5, 11, 6, 7, 2, 3, 3],
 		backgroundColor: 'rgb(227, 144, 43, 0.6)',
 		borderColor: 'rgb(227, 144, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 144, 43, 1)',
-		verseText: 'Nezabiješ.'
+		verseText: 'Thou shalt not kill.'
 	},{
 		verseId: '2Sam 14:5',
 		citations: [0, 1, 2, 1, 0, 1, 1, 1, 2, 1, 0, 0, 0, 0, 1],
 		backgroundColor: 'rgb(227, 52, 43, 0.6)',
 		borderColor: 'rgb(227, 52, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 52, 43, 1)',
-		verseText: 'I tázal se jí král: „Co je ti?" A ona odpověděla: „Ach, vdovou jsem já, neboť umřel mi muž.'
+		verseText: 'And the king said unto her, What ails you? And she answered, I am indeed a widow woman, and my husband is dead.'
 	},{
 		verseId: 'Exod 20:14/Deut 5:18',
 		citations: [3, 0, 3, 3, 3, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1],
 		backgroundColor: 'rgb(102, 185, 203, 0.6)',
 		borderColor: 'rgb(102, 185, 203, 0.9)',
 		hoverBackgroundColor: 'rgb(102, 185, 203, 1)',
-		verseText: 'Nesesmilníš.'
+		verseText: 'You shall not commit adultery.'
 	},{
 		verseId: 'Isa 45:8',
 		citations: [1, 0, 0, 1, 4, 2, 0, 0, 0, 3, 1, 0, 1, 0, 0],
 		backgroundColor: 'rgb(77, 194, 156, 0.6)',
 		borderColor: 'rgb(77, 194, 156, 0.9)',
 		hoverBackgroundColor: 'rgb(77, 194, 156, 1)',
-		verseText: 'Rosu dejte nebesa s hůry, a nejvyšší oblakové dštěte spravedlnost; otevři se země, a ať vzejde spasení, a spravedlnost ať spolu vykvete. Já Hospodin způsobím to.'
+		verseText: 'Drop down, you heavens, from above, and let the skies pour down righteousness: let the earth open, and let them bring forth salvation, and let righteousness spring up together; I the LORD have created it.'
 	},{
 		verseId: 'Prov 31:10',
 		citations: [1, 2, 2, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0],
 		backgroundColor: 'rgb(235, 177, 107, 0.6)',
 		borderColor: 'rgb(235, 177, 107, 0.9)',
 		hoverBackgroundColor: 'rgb(235, 177, 107, 1)',
-		verseText: 'Ženu statečnou kdo nalezne? Nebo daleko nad perly cena její.'
+		verseText: 'Who can find a virtuous woman? for her price is far above rubies.'
 	},{
 		verseId: 'Ezek 24:19',
 		citations: [1, 3, 0, 0, 0, 0, 1, 1, 0, 2, 0, 1, 1, 1, 0],
 		backgroundColor: 'rgb(235, 113, 107, 0.6)',
 		borderColor: 'rgb(235, 113, 107, 0.9)',
 		hoverBackgroundColor: 'rgb(235, 113, 107, 1)',
-		verseText: 'I řekl mně lid: „Proč nám neoznamuješ, co znamenají tyto věci, jež činíš?"'
+		verseText: 'And the people said unto me, Will you not tell us what these things are to us, that you so do?'
 	}
 ];
 
@@ -335,77 +335,77 @@ const dataForPlottingTopDesatero =
 		backgroundColor: 'rgb(0, 83, 101, 0.6)',
 		borderColor: 'rgb(0, 83, 101, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 83, 101, 1)',
-		verseText: 'Já jsem Hospodin Bůh tvůj, kterýž jsem tě vyvedl z země Egyptské z domu služby.'
+		verseText: 'I am the LORD your God, who has brought you out of the land of Egypt, out of the house of bondage.'
 	},{
 		verseId: 'Exod 20:5',
 		citations: [0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
 		backgroundColor: 'rgb(0, 118, 79, 0.6)',
 		borderColor: 'rgb(0, 118, 79, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 118, 79, 1)',
-		verseText: 'Nebudeš se jim klaněti, aniž (jich) ctíti; jáť jsem Hospodin, Bůh tvůj silný a řevnivý, jenž do třetího a čtvrtého kolena stíhá syny za nepravosti těch otců, kteří mne nenávidí,'
+		verseText: 'You shall not bow down yourself to them, nor serve them: for I the LORD your God am a jealous God, visiting the iniquity of the fathers upon the children unto the third and fourth generation of them that hate me'
 	},{
 		verseId: 'Exod 20:15/Deut 5:19',
 		citations: [6, 3, 7, 3, 5, 3, 6, 1, 1, 2, 2, 2, 2, 0, 4],
 		backgroundColor: 'rgb(159, 101, 30, 0.6)',
 		borderColor: 'rgb(159, 101, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 101, 30, 1)',
-		verseText: 'Nepokradeš.'
+		verseText: 'Thou shalt not steal.'
 	},{
 		verseId: 'Exod 20:12/Deut 5:16/Eph 6:2',
 		citations: [3, 6, 2, 3, 4, 7, 0, 2, 2, 0, 2, 1, 0, 0, 4],
 		backgroundColor: 'rgb(159, 36, 30, 0.6)',
 		borderColor: 'rgb(159, 36, 30, 0.9)',
 		hoverBackgroundColor: 'rgb(159, 36, 30, 1)',
-		verseText: 'Cti otce svého i matku svou, jakož přikázal tobě Hospodin Bůh tvůj, aby se prodleli dnové tvoji, a aby tobě dobře bylo na zemi, kterouž Hospodin Bůh tvůj dá tobě.'
+		verseText: 'Honor your father and your mother, that your days may be long upon the land which Jehovah your God is giving you.'
 	},{
 		verseId: 'Exod 20:13/Deut 5:17',
 		citations: [11, 6, 11, 6, 16, 7, 6, 7, 5, 11, 6, 7, 2, 3, 3],
 		backgroundColor: 'rgb(0, 139, 168, 0.6)',
 		borderColor: 'rgb(0, 139, 168, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 139, 168, 1)',
-		verseText: 'Nezabiješ.'
+		verseText: 'Thou shalt not kill.'
 	},{
 		verseId: 'Exod 20:3/Deut 5:7',
 		citations: [0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0],
 		backgroundColor: 'rgb(0, 168, 113, 0.6)',
 		borderColor: 'rgb(0, 168, 113, 0.9)',
 		hoverBackgroundColor: 'rgb(0, 168, 113, 1)',
-		verseText: 'Nebudeš míti bohů jiných přede mnou.'
+		verseText: 'You shall have no other gods before me.'
 	},{
 		verseId: 'Exod 20:14/Deut 5:18',
 		citations: [3, 0, 3, 3, 3, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1],
 		backgroundColor: 'rgb(227, 144, 43, 0.6)',
 		borderColor: 'rgb(227, 144, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 144, 43, 1)',
-		verseText: 'Nesesmilníš.'
+		verseText: 'You shall not commit adultery.'
 	},{
 		verseId: 'Deut 5:21',
 		citations: [3, 2, 0, 1, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
 		backgroundColor: 'rgb(227, 52, 43, 0.6)',
 		borderColor: 'rgb(227, 52, 43, 0.9)',
 		hoverBackgroundColor: 'rgb(227, 52, 43, 1)',
-		verseText: 'Nepožádáš manželky bližního svého, aniž požádáš domu bližního svého, pole jeho, neb služebníka jeho, aneb děvky jeho, vola jeho neb osla jeho, aneb čehokoli z těch věcí, kteréž jsou bližního tvého.'
+		verseText: 'Neither shall you desire your neighbor´s wife, neither shall you covet your neighbor´s house, his field, or his manservant, or his maidservant, his ox, or his donkey, or anything that is your neighbor´s.'
 	},{
 		verseId: 'Exod 20:16/Deut 5:20',
 		citations: [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 		backgroundColor: 'rgb(102, 185, 203, 0.6)',
 		borderColor: 'rgb(102, 185, 203, 0.9)',
 		hoverBackgroundColor: 'rgb(102, 185, 203, 1)',
-		verseText: 'Nepromluvíš proti bližnímu svému křivého svědectví.'
+		verseText: 'Neither shall you bear false witness against your neighbor.'
 	},{
 		verseId: 'Deut 5:9',
 		citations: [0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
 		backgroundColor: 'rgb(77, 194, 156, 0.6)',
 		borderColor: 'rgb(77, 194, 156, 0.9)',
 		hoverBackgroundColor: 'rgb(77, 194, 156, 1)',
-		verseText: 'Nebudeš se jim klaněti, ani jich ctíti. Nebo já jsem Hospodin Bůh tvůj, Bůh silný, horlivý, navštěvující nepravost otců na synech do třetího i čtvrtého pokolení těch, kteříž nenávidí mne,'
+		verseText: 'You shall not bow down yourself unto them, nor serve them: for I the LORD your God am a jealous God, visiting the iniquity of the fathers upon the children unto the third and fourth generation of them that hate me.'
 	},{
 		verseId: 'Exod 20:8',
 		citations: [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 		backgroundColor: 'rgb(235, 177, 107, 0.6)',
 		borderColor: 'rgb(235, 177, 107, 0.9)',
 		hoverBackgroundColor: 'rgb(235, 177, 107, 1)',
-		verseText: 'Pomni na den sobotní, abys jej světil.'
+		verseText: 'Remember the sabbath day, to keep it holy.'
 	}
 ];
 
