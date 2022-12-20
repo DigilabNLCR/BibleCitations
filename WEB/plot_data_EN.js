@@ -62,7 +62,7 @@ const dataForPlottingTop =
 		hoverBackgroundColor: 'rgb(227, 52, 43, 1)',
 		verseText: 'Thou shalt not kill'
 	},{
-		verseId: 'Luke 20:25',
+		verseId: 'Luke 20:25/Mark 12:17',
 		citations: [6, 4, 3, 5, 1, 4, 5, 0, 1, 2, 2, 1, 2, 2, 4],
 		backgroundColor: 'rgb(102, 185, 203, 0.6)',
 		borderColor: 'rgb(102, 185, 203, 0.9)',
@@ -136,7 +136,7 @@ const dataForPlottingTopEvangelia =
 		hoverBackgroundColor: 'rgb(227, 52, 43, 1)',
 		verseText: 'Then Jesus said to him, Receive your sight. Your faith has healed you.'
 	},{
-		verseId: 'Luke 20:25',
+		verseId: 'Luke 20:25/Mark 12:17',
 		citations: [6, 4, 3, 5, 1, 4, 5, 0, 1, 2, 2, 1, 2, 2, 4],
 		backgroundColor: 'rgb(102, 185, 203, 0.6)',
 		borderColor: 'rgb(102, 185, 203, 0.9)',
