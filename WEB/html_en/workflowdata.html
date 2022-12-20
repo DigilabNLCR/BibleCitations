@@ -1,71 +1,82 @@
-    <div class="header">
-        <div class="header-content-box">
-            <div class="header-text-content">
-                <h1 class="h1-header">Workflow & data</h1>
-                <p class="p-header">Na tomto místě se můžete seznámit s postupem, který jsme vyvinuli jako návrh možného řešení detekce biblických citací (nejen) v prvorepublikovém tisku. Zde poskytnutý popis se snaží co možná nejvíce problematiku přiblížit, aniž by se zbytečně zabíhalo do technických záležitostí.</p>
-                <p class="p-header">Kompletní script a řešení je možné nalézt na portálu <a href="https://github.com/DigilabNLCR/BibleCitations">GitHub</a></p>
-            </div>
-            <a href="https://github.com/DigilabNLCR/BibleCitations" class="header-image-link"><img src="images/Octocat.png" alt="GitHub Octocat" class="header-image-link"><img src="images/GitHub_Logo.png" alt="GitHub Octocat" class="header-image-link"></a>
+<div class="header">
+    <div class="header-content-box">
+        <div class="header-text-content">
+            <h1 class="h1-header">Workflow & Data</h1>
+            <p class="p-header">Here you can learn about the procedure we have developed as a possible solution for detecting biblical citations (not only) in the press of the First Republic. The description offered here attempts to make this topic as comprehensible as possible without getting too technical.</p>
+            <p class="p-header">You can find the complete script and solution on <a href="https://github.com/DigilabNLCR/BibleCitations">GitHub</a>.</p>
         </div>
+        <a href="https://github.com/DigilabNLCR/BibleCitations" class="header-image-link"><img src="images/Octocat.png" alt="GitHub Octocat" class="header-image-link"><img src="images/GitHub_Logo.png" alt="GitHub Octocat" class="header-image-link"></a>
     </div>
+</div>
 
-    <div class="content-window-white">
-        <div class="content-inner-box">
-            <div class="content-text">
-                <h2 id="PeriodikaDataset">Periodika</h2>
-                <p>Jak již bylo zmíněno na <a href="./index.php">úvodní stránce projektu</a>, náš projekt je zaměřen na prvorepublikový tisk v letech 1925 až 1939. Konkrétní periodika byla zvolena tak, aby obsahovala pestřejší škálu témat, u kterých lze očekávat rozdílné výsledky detekování biblických citací. Omezený časový výsek, stejně jako zvolená periodika, jsou ale také odrazem dostupnosti dat a jejich vzájemným časovým překryvem. Důležité je upozornit zejména na dostupnost některých periodik v letech - konkrétně katolicky laděný Čech nám byl dostupný pouze v letech 1925 až 1935, ačkoliv vycházel až do roku 1937. Polední list jsme v době tvorby projektu měli k dispozici dokonce pouze v letech 1930 až 1933.</p>
-                <li>
-                    <ul>... SEZNAM PERIODIK - DOPLNIT AŽ BUDE SEPSÁN !!! </ul>
-                </li>
-                <p>Níže můžete vidět graf, který podává celkový přehled o rozsahu prozkoumávaného datasetu.</p>
-            </div>
-            <div class="flourish-embed flourish-chart" data-src="visualisation/11096072"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+<div class="content-window-white">
+    <div class="content-inner-box">
+        <div class="content-text">
+            <h2 id="PeriodikaDataset">Periodicals</h2>
+            <p>As mentioned on the project <a href="./index_EN.php">homepage</a>, our project focuses on the First Republic press between 1925 and 1939. The specific periodicals were chosen to include a diverse range of topics for which different results in detecting biblical citations might be expected. However, the limited time period, as well as the periodicals chosen, also reflect the availability of data and their chronological overlap. In particular it is important to mention the availability of certain periodicals during specific years – the Catholic <i>Čech</i> was available only between 1925 and 1935, although it was published until 1937. As of the creation of this project, <i>Polední list</i> (<i>The Midday Paper</i>) was only available between 1930 and 1933.</p>
+            <ul>
+                <li><a href="https://www.ndk.cz/periodical/uuid:5c259210-2182-11e6-918e-5ef3fc9ae867"><i>Čech: politický týdeník katolický</i></a> (<i>The Bohemian: Catholic Political Weekly</i>) was a Catholic newspaper published daily since 1869 (between 1897 and 1903 under the name <i>Katolické listy</i>), representing the oldest political party in the Czech lands, the National Party of Old Bohemia.</li>
+                <li><a href="https://ndk.cz/periodical/uuid:945558f0-4da6-11e6-8361-5ef3fc9ae867"><i>Věstník katolického duchovenstva</i></a> (<i>The Catholic Clergy Gazette</i>) was a monthly journal published between 1900 and 1942, between 1900 and 1920 twice a month. As the subtitles of this gazette indicate, <i>The ecclesiastical-political and interest body of the Catholic clergy in the Lands of the Bohemian Crown, or the ecclesiastical-political and interest body of the Catholic clergy in the Czechoslovak state</i>, dealt to a large extent with Catholic topics.</li>¨
+                <li><a href="https://ndk.cz/periodical/uuid:c9efda4e-a4ba-4406-b59a-98b8ad162b49"><i>Moravský hospodář</i></a> (<i>The Moravian Farmer</i>) succeeded <i>Ústřední list rolnictva moravského</i> (<i>The Central Journal of Moravian Agriculture</i>). It was first published in 1898 and shut down in 1941. This periodical, published once every two weeks, focused on agriculture and economics.</li>
+                <li><a href="https://www.ndk.cz/periodical/uuid:df98905c-a994-4804-afce-d19792d9c22d"><i>Moravský večerník</i></a> (<i>The Moravian Evening Post</i>) was published in Olomouc between 1922 and 1945 at various intervals, during the reference period as a daily newspaper. Each issue focused on politics as well as short news from the region, cultural tips, sports news, and advertisements.</li>
+                <li><a href="https://ndk.cz/periodical/uuid:68cd2c50-e40b-11e8-bc37-005056827e51"><i>Přítomnost: nezávislý týdeník</i></a> (<i>The Presence: an Independent Weekly</i>) was published between 1924 and 1939, and between 1942 and 1945. In the 1930s, it was one of the most respected newspapers covering politics.</li>
+                <li><a href="https://www.ndk.cz/periodical/uuid:e75c0530-19fc-11e7-981b-005056825209"><i>Venkov: orgán České strany agrární</i></a> (<i>The Countryside: Journal of the Czech Agrarian Party</i>), was the main medium of the <i>Czech Agrarian Party</i>, issued by the central press authority of the Agrarian Party since 1916 and published between 1906 and1938.</li>
+                <li><a href="https://ndk.cz/periodical/uuid:98006af7-9835-4d9c-99e1-e0be29b4a037"><i>Studentský časopis</i></a> (<i>The Student Magazine</i>) was first published in 1922 and continued till 1942. It was a youth magazine and its content was designed accordingly. During the reference period it was published ten times a year.</li>
+                <li><a href="https://ndk.cz/periodical/uuid:babfdbe0-5f48-11e8-a67a-5ef3fc9ae867"><i>Československý zemědělec</i></a> (<i>The Czechoslovak Farmer</i>) was published weekly between 1919 and 1939. This periodical regularly contained several supplements dealing with agriculture and the economy in the broadest sense.</li>
+                <li><a href="https://ndk.cz/periodical/uuid:6a7a0500-060a-11e6-a5b6-005056827e52"><i>Český učitel: věstník Zemského ústředního spolku jednot učitelských v Čechách</i></a> (<i>The Czech Teacher: Journal of the Provincial Central Association of Teachers’ Units in Bohemia</i>) was first published in 1897 as a weekly newspaper (except during the holidays), was discontinued during the First World War, and resumed in 1919. This journal ceased to exist in 1941. It focused mostly on topics concerning education and teaching.</li>
+                <li><a href="https://www.ndk.cz/periodical/uuid:fe61f250-7553-11ec-b436-5ef3fc9bb22f"><i>Posel záhrobní: spiritistický časopis věnovaný záhadám duševním</i></a> (<i>The Messenger from Beyond the Grave: a Spiritualist Magazine Dealing with the Mysteries of the Spirit</i>) was a prominent medium of the Czech spiritualists associated with Karel Sezemský. It was published four times a year between 1900 and 1940 and contained not only translations from foreign magazines and mediums’ speeches, but also announced upcoming spiritualist lectures and conventions.</li>
+                <li><a href="https://www.ndk.cz/periodical/uuid:62722340-2d7f-11e2-a8e5-005056827e52"><i>Polední list</i></a> (<i>The Midday Paper</i>) was a non-political magazine published daily by the Tempo journalistic concern between 1929 and 1945.</li>
+            </ul>
+            <p>Below, you can see a chart that provides a general overview of the scope of the dataset under study.</p>
         </div>
+        <div class="flourish-embed flourish-chart" data-src="visualisation/11096072"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
     </div>
+</div>
 
-    <div class="content-window-grey">
-        <div class="content-inner-box">
-            <div class="content-text">
-                <h2 id="BibleDataset">Bible</h2>
-                <p>Charakter nám dostupného biblického datasetu výrazně ovlivňuje možnosti, které máme pro detekci jednotlivých veršů napříč prohledávaným korpusem, viz <a href="#anchorBibleProblems">níže</a>. Ze server <a href="https://obohu.cz/">obohu.cz</a> nám byly poskytnuty čtyři překlady - konkrétně <a href="https://obohu.cz/bible/index.php?k=Gn&kap=1&styl=BKR">Bible Kralická</a> (Starý a Nový zákon), překlad <a href="https://obohu.cz/bible/index.php?styl=HEJCL&k=Gn&kap=1">Jana Hejčla</a> (Starý zákon a Deuterokanonické knihy), překlad <a href="https://obohu.cz/bible/index.php?k=Mt&kap=1&styl=SYK">Jana Ladislava Sýkory</a> (Nový zákon) a překlad <a href="https://obohu.cz/bible/index.php?styl=ZP&k=Mt&kap=1">Františka Žilky</a> (Nový zákon). Navíc nám byly <a href="https://www.muni.cz/lide/4755-pavel-kosek">Pavlem Koskem z Masarykovy Univerzity</a> poskytnuty některé části tzv. Bible Svatováclavské. Na následujícím grafu můžete vidět přehledovou statistiku rozsahu biblického datasetu.</p>
-            </div>
-            <div class="flourish-embed flourish-chart" data-src="visualisation/11090686"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+<div class="content-window-grey">
+    <div class="content-inner-box">
+        <div class="content-text">
+            <h2 id="BibleDataset">The Bible</h2>
+            <p>The nature of the available biblical dataset greatly influences our options for detecting individual verses across the searched corpus, see <a href="#anchorBibleProblems">below</a>. The server <a href="https://obohu.cz/">obohu.cz</a> provided us with four translations – namely the <a href="https://obohu.cz/bible/index.php?k=Gn&kap=1&styl=BKR">Kralice Bible</a> (Old and New Testament), the translation by <a href="https://obohu.cz/bible/index.php?styl=HEJCL&k=Gn&kap=1">Jan Hejčl</a> (Old Testament and Deuterocanonical books), the translation by <a href="https://obohu.cz/bible/index.php?k=Mt&kap=1&styl=SYK">Jan Ladislav Sýkora</a> (New Testament) and the translation by <a href="https://obohu.cz/bible/index.php?styl=ZP&k=Mt&kap=1">František Žilka</a> (New Testament). Moreover, <a href="https://www.muni.cz/lide/4755-pavel-kosek">Pavel Kosek from Masaryk University</a> provided us with some parts of the St. Wenceslas Bible. In the following chart, you can see summary statistics on the extent of the biblical dataset.</p>
         </div>
+        <div class="flourish-embed flourish-chart" data-src="visualisation/11090686"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
     </div>
+</div>
 
-    <div class="content-window-white">
-        <div class="content-inner-box">
-            <div class="content-text">
-                <h2>Problematika dat</h2>
-                <p>Najít v jakémkoliv textu biblický verš se může zdát jako poměrně jednoduchá a přímočará záležitost. Celý proces nicméně naráží na mnoho komplikací, které plynou jak z povahy biblického textu, tak z povahy textů, ve kterých citace hledáme. Níže shrnujeme nejpodstatnější překážky, které vylučují jednoduché fulltextové vyhledávání.</p>
-                <h3 id="anchorBibleProblems">Problematika biblického textu</h3>
-                <p>Bible je v českém jazyce  dostupná v mnoha překladech. Situace ve 30. letech minulého století nebyla jiná, a i v této době se paralelně používalo více překladů. Jak je vidět <a href="#BibleDataset">výše</a>, dostupnost používaných překladů je bohužel značně omezená a nemalá část z nich stále podléhá autorskému zákonu. Ve zkoumaných textech se navíc nezřídka objevují různé parafráze či aluze (narážky), které mohou mnohdy být považovány za biblický citát, avšak neodpovídají žádnému z nám dostupných překladů. Například známá část verše Mt 22:37 „<i>Milovati budeš Pána Boha svého z celého srdce svého, a ze vší duše své, a ze vší mysli své.</i>“ byla nalezena i ve spojení „<i>Milovati budeš Pána Boha svého … nade všecko“</i>.</p>
-                <p>Biblické verše jsou navíc nezřídka citovány jen zčásti. To vede k nutnosti verše rozdělovat na menší části, které v rámci tohoto projektu nazýváme podverše. Automatizované dělení na menší části s sebou nicméně přináší další komplikace, jelikož takovéto dělení ne vždy vede ke smysluplnému úryvku z verše. Může tak docházet ke zkreslení výsledků.</p>
-                <p>Další obtíže způsobují verše a podverše, které jsou příliš obecné povahy, a i když se třeba plně vyskytují v prohledávaném textu, o biblické citáty se nejedná. Tento problém je řešen pomocí předem připraveného seznamu takovýchto veršů a podveršů, které ve výsledném čištění dat ignorujeme. To do zpracování nicméně vnáší ruční práci, která nemusí být vždy stoprocentní (odpovídající verše byly vytipovány až na základě prohledávání), navíc některé obecné verše se mohou ukázat jako skutečné biblické citáty. Jako příklad může sloužit verš Ex 20:13, tedy přikázání „<i>Nezabiješ</i>“. Zdali je nalezená citace skutečně biblickým citátem či nikoliv je rozpoznatelné až dle kontextu. Detekce na takovéto úrovni by vyžadovala jiný, významně <a href="#anchorImprovements">složitější přístup</a>.</p>
-                <p>Posledním úskalím, které zde zmíníme, je vnitřní intertextualita Bible. Některá znění veršů a podveršů se objevují v Bibli na více místech, a není tak vždy jednoznačné, kterému verši je nalezenou citaci vhodné připsat. Příkladem tohoto fenoménu může být proslulý idiom „<i>hlas volajícího na poušti</i>“, který nalezneme na několika místech Bible (evangelia Mt 3:3, J 1:23 a Mk 1:3 v tomto odkazují na Iz 40:3).</p>
-                <h3 id="anchorJournalsProblems">Problematika periodik</h3>
-                <p>Problematický ale není pouze biblický text. Také periodika, ve kterých verše hledáme, mají své nedostatky. Tím prvním je samotná dostupnost, která limituje náš výběr. Druhým a nejzásadnějším problémem je pak kvalita OCR. Tato překážka v některých případech naprosto znemožňuje práci s daty, avšak ve většině případů je naštěstí kvalita OCR dostatečná, aby bylo možné s určitou tolerancí citáty detekovat.</p>
-            </div>
-            <pre>
-                <code class="language-python">
-""" Ukázka naprosto špatně rozpozananého textu. """
-bad_ocr_example = ':1$yé^7nisn^rátu>" .tam\'.^hilcòlnr\' v\'mmt^ferjèh^Vojenskí; ^viětíek, pochybu je, д^е Iry pbíipsl tra ^гогкаг!е vlc/zastřelení j rukojmí řgeUibferai Rozkaž\'byl tak‘e|z!r»ičeň, ^zaie^oyalo •*Se jen usnesení\' 1.; jptíníU, žiSající i zaStřek: ní rukojmí, к nětmuž^Eglhofer .poznamenal: „Jsem; srbz(Шпеп.'
-
-""" Ukázka nedokonale rozpozananého textu, který obsahuje Biblický citát. """
-poor_ocr_with_bible_quote = '„Mrlovati budeš bližního svého jako sebe samého“, je teprve druhé ze dvou přikázání lásky, podobné prvému :„Мдlovati budeš Pána Boha svého ... nade všecko.“ Proč dnešní láska blíženecká je namnoze tak neplodná, pouhá slova?'
-                </code>
-            </pre>
+<div class="content-window-white">
+    <div class="content-inner-box">
+        <div class="content-text">
+            <p></p>
+            <h2>The Question of Data</h2>
+            <p>It might seem easy and straightforward to find a biblical verse in any text. However, many complications are encountered during such process, stemming from the nature of both the biblical text and the text in which we are searching for the quotations. Below we list the most important obstacles which stand in the way of a simple fulltext search.</p>
+            <h3 id="anchorBibleProblems">The Question of the Biblical Text</h3>
+            <p>The Bible is available in Czech in many translations. The situation in the 1930s was no different: multiple translations were similarly used in parallel. As mentioned <a href="#BibleDataset">above</a>, the availability of translations in use is unfortunately very limited, and many of them are still subject to copyright law. What is more, the studied texts often contain various paraphrases or allusions that may be considered biblical quotations, but do not correspond to any of the translations available. For example, a well-know part of the verse Matt 22:37 “<i>Milovati bodes Pána Boha svého z celého srdce svého, a ze vší duše své, a ze vší mysli své.</i>” (<i>You shall love the Lord your God with all your heart, with all your soul, and with all your mind.</i>) was also found in “<i>Milovati budeš Pána Boha svého … nade všecko</i>” (“<i>You shall love the Lord your God … above all</i>”).</p>
+            <p>Moreover, the biblical verses are often quoted only in part. This means that it was necessary to divide verses into smaller parts – called sub-verses – for the purpose of this project. However, automated division into smaller parts causes further complications, as such divisions do not always create meaningful parts of verses. This may lead to distorted results.</p>
+            <p>Further difficulties are caused by verses and sub-verses that are too general and which, although they may be fully present in the text being searched, are not biblical citations. This issue is resolved by using a previously prepared list of such verses and sub-verses that are ignored in the resulting data processing. This, however, means that manual work by the scholar is necessary, which may not always be 100% accurate (the corresponding verses were selected only by a search), and some general verses may turn out to be actual biblical citations. Exod 20:13, the commandment “Thou shalt not kill.,” is an example of this. Whether or not a particular citation is actually biblical can only be discerned from its context. This level of detection would require a different, significantly more <a href="#anchorImprovements">complex approach</a>.</p>
+            <p>The final obstacle mentioned here is the internal intertextuality of the Bible. Some verses and sub-verses appear in more than one part in the Bible, so it is not always clear to which verse a given citation should be attributed. An example of this phenomenon is the famous idiom “<i>hlas volajícího na poušti</i>,” (<i>“The voice of one crying in the wilderness”</i>) found in several parts of the Bible (Matt 3:3, John 1:23 and Mark 1:3 refer to Isa 40:3).</p>
+            <h3 id="anchorJournalsProblems">The Question of Periodicals</h3>
+            <p>But it is not just the biblical text that may be problematic. The periodicals in which we search for the verses also have their shortcomings. The first of these is their availability, which limits our choice. The second and most important problem is the quality of the OCR. This obstacle sometimes makes working with the data completely impossible. Fortunately, in most cases the OCR quality is sufficient to detect the citations within a certain tolerance.</p>
         </div>
-    </div>
+        <pre>
+            <code class="language-python">
+""" An example of a completely misrecognised text. """
+bad_ocr_example = ':1$yé^7nisn^rátu>" .tam\'.^hilcòlnr\' v\'mmt^ferjèh^Vojenskí; ^viětíek, pochybu je, д^е Iry pbíipsl tra ^гогкаг!е vlc/zastřelení j rukojmí řgeUibferai Rozkaž\'byl tak‘e|z!r»ičeň, ^zaie^oyalo •*Se jen usnesení\' 1.; jptíníU, žiSající i zaStřek: ní rukojmí, к nětmuž^Eglhofer .poznamenal: “Jsem; srbz(Шпеп.'
 
-    <div class="content-window-grey">
-        <div class="content-inner-box">
-            <div class="content-text">
-                <h2>Postup</h2>
-                <p>Abychom překonali výše zmíněné limity, hledání jsme rozdělili do několika kroků. Níže je popsán proces prohledávání na jednom konkrétním případě. Pro detailní postup včetně kódu se můžete podívat na <a href="https://github.com/DigilabNLCR/BibleCitations">GitHub</a> projektu, zejména na <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/biblical_intertextuality_notebook.ipynb">Jupyter Notebook</a> popisující proces prohledávání. Celý projekt je vystavěn v <a href="https://www.python.org/downloads/release/python-399/">Python v. 3.9.9</a> za použití externích balíčků.</p>
-            </div>
-            <pre>
-                <code class="language-python" id="anchorPythonPackages">
+""" An example of an imperfectly recognised text that contains a biblical citation. """
+poor_ocr_with_bible_quote = '“Mrlovati budeš bližního svého jako sebe samého”, je teprve druhé ze dvou přikázání lásky, podobné prvému :“Мдlovati budeš Pána Boha svého ... nade všecko.” Proč dnešní láska blíženecká je namnoze tak neplodná, pouhá slova?'
+            </code>
+        </pre>
+    </div>
+</div>
+
+<div class="content-window-grey">
+    <div class="content-inner-box">
+        <div class="content-text">
+            <h2>The Process</h2>
+            <p>To overcome the aforementioned limitations, we divided the search into several steps. Below, the search process is demonstrated in one particular case. You can find the detailed process, including the code, at the project <a href="https://github.com/DigilabNLCR/BibleCitations">GitHub</a>, especially at <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/biblical_intertextuality_notebook.ipynb">Jupyter Notebook</a>, which describes the search process. The whole project has been built in <a href="https://www.python.org/downloads/release/python-399/">Python v. 3.9.9</a> using external packages.</p>
+        </div>
+        <pre>
+            <code class="language-python" id="anchorPythonPackages">
 import pandas as pd
 import os
 import joblib
@@ -85,96 +96,96 @@ from gensim import corpora
 from collections import defaultdict
 from nltk import word_tokenize, sent_tokenize
 from math import ceil, isnan
-                </code>
-            </pre>
-        </div>
+            </code>
+        </pre>
     </div>
+</div>
 
-    <div class="content-window-white">
-        <div class="content-inner-box">
-            <div class="content-text">
-                <h3>Příprava biblického datasetu</h3>
-                <p>Prvním krokem je vytvoření biblického datasetu, který pak umožní prohledávání na libovolných datech. Biblický dataset obsahuje všechny verše ve všech nám <a href="#BibleDataset">dostupných překladech</a>. Vytvoření datasetu je níže ilustrováno na příkladu verše Mk 12:17 v překladu <a href="https://obohu.cz/bible/index.php?styl=SYK&kap=12&k=Mk">Ladislava Sýkory</a>:</p>
-                <p style="text-align: center; padding: 15px; font-size: 20px;">„<i>Ježíš pak řekl jim: „Dávejte tedy, co je císařovo, císaři; a co je Božího, Bohu!“ I divili se mu.</i>“</p>
-                <p>Každý verš je nejprve rozdělen na podverše:</p>
-            </div>
-            <pre>
-                <code class="language-python">
-verse_text = 'Ježíš pak řekl jim: ,Dávejte tedy, co jest císařovo, císaři, a co jest Božího, Bohu.“ I divili se mu.'
+<div class="content-window-white">
+    <div class="content-inner-box">
+        <div class="content-text">
+            <h3>Biblical Dataset Preparation</h3>
+            <p>The first step is to create a biblical dataset, which then allows searching using arbitrary data. The biblical dataset contains all the verses in all <a href="#BibleDataset">the translations available</a>. The creation of the dataset is illustrated below using Mark 12:17 in <a href="https://obohu.cz/bible/index.php?styl=SYK&kap=12&k=Mk">Ladislav Sýkora’s</a> translation:</p>
+            <p style="text-align: center; padding: 15px; font-size: 20px;">“<i>Ježíš pak řekl jim: „Dávejte tedy, co je císařovo, císaři; a co je Božího, Bohu!“ I divili se mu.</i>”<br>“<i>And Jesus answered and said to them, Render to Caesar the things that are Caesar's, and to God the things that are God's. And they marveled at Him.</i>”</p>
+            <p>Each verse is first divided into sub-verses:</p>
+        </div>
+        <pre>
+            <code class="language-python">
+verse_text = 'Ježíš pak řekl jim: ,Dávejte tedy, co jest císařovo, císaři, a co jest Božího, Bohu.” I divili se mu.'
 subverses = ['Ježíš pak řekl jim Dávejte tedy',
-             'Dávejte tedy co jest císařovo',
-             'co jest císařovo císaři',
-             'císaři a co jest Božího',
-             'a co jest Božího Bohu.“ I divili se mu.',
-             'Bohu.“ I divili se mu.']
-                </code>
-            </pre>
-            <div class="content-text">
-                <p>Každý z těchto podveršů je následně rozdělen na n-gramy o velikosti maximálně čtyř znaků. Volba právě čtyř znaků byla výsledkem mnoha experimentů. Toto rozdělení podverše na menší části předchází výše zmíněným problémům s OCR. Můžete si všimnout, že některá slova jsou označena jako tzv. stop-words, tedy slova, která ve vyhledávání ignorujeme. V tomto případě se jedná například o „<i>a</i>“, „<i>i</i>“ nebo „<i>se</i>“.</p>
-            </div>
-            <pre>
-                <code class="language-python">
+        'Dávejte tedy co jest císařovo',
+        'co jest císařovo císaři',
+        'císaři a co jest Božího',
+        'a co jest Božího Bohu.” I divili se mu.',
+        'Bohu.” I divili se mu.']
+            </code>
+        </pre>
+        <div class="content-text">
+            <p>Each of these sub-verses is then divided into n-grams of a maximum four characters. Choosing just four characters reflects the results of many experiments. This division of the sub-verse into smaller parts prevents the OCR problems mentioned above. You may notice that some words are marked as stop-words, i.e. words that are ignored in the search. In this case, these are, for example, the words “<i>and</i>,” “<i>also</i>” and “<i>with</i>.”</p>
+        </div>
+        <pre>
+            <code class="language-python">
 subverse_1 = ['jezi', 'ezis', 'rekl', 'jim', 'dave', 'avej', 'vejt', 'ejte', 'tedy']
 subverse_2 = ['dave', 'avej', 'vejt', 'ejte', 'tedy', 'co', 'jest', 'cisa', 'isar', 'saro', 'arov', 'rovo'] 
 subverse_3 = ['co', 'jest', 'cisa', 'isar', 'saro', 'arov', 'rovo', 'cisa', 'isar', 'sari']
 subverse_4 = ['cisa', 'isar', 'sari', 'co', 'jest', 'bozi', 'ozih', 'ziho'] 
 subverse_5 = ['co', 'jest', 'bozi', 'ozih', 'ziho', 'bohu', 'divi', 'ivil', 'vili', 'mu'] 
 subverse_6 = ['bohu', 'divi', 'ivil', 'vili', 'mu']
-                </code>
-            </pre>
-            <div class="content-text">
-                <p>N-grammovaný verš je následně převeden na vektor, který zaznamenává počet výskytů jednotlivých n-gramů v podverši. N-gramy jsou tedy nahrazeny čísly a postupně je vytvářen slovník, který zachovává přiřazení n-gramů k jednotlivým číslům. Pro tyto účely byl využit python balíček <a href="https://radimrehurek.com/gensim/">gensim</a>.</p>
-            </div>
-            <pre>
-                <code class="language-python">
+            </code>
+        </pre>
+        <div class="content-text">
+            <p>The n-grammed verse is then converted into a vector that records the number of occurrences of each n-gram in the sub-verse. Thus, the n-grams are replaced by numbers and a dictionary is gradually created that preserves the assignment of n-grams to numbers. The Python package <a href="https://radimrehurek.com/gensim/">gensim</a> was used for this purpose.</p>
+        </div>
+        <pre>
+            <code class="language-python">
 subverse_1 = ((10, 1), (11, 1), (12, 1), (13, 1), (14, 1), (21, 1), (22, 1), (23, 1), (24, 1))
 subverse_2 = ((0, 1), (1, 1), (10, 1), (11, 1), (12, 1), (13, 1), (14, 1), (15, 1), (16, 1), (17, 1), (18, 1), (19, 1))
 subverse_3 = ((0, 1), (1, 1), (15, 2), (16, 2), (17, 1), (18, 1), (19, 1), (20, 1))
 subverse_4 = ((0, 1), (1, 1), (2, 1), (3, 1), (4, 1), (15, 1), (16, 1), (20, 1))
 subverse_5 = ([(0, 1), (1, 1), (2, 1), (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (9, 1))
 subverse_6 = ((5, 1), (6, 1), (7, 1), (8, 1), (9, 1))
-                </code>
-            </pre>
-            <div class="content-text">
-                <p>Uvedeným postupem je vytvořen kompletní dataset, který zachovává přiřazení označení verše (např. Mk 12:17) ke všem vektorům, které odpovídají jednotlivým podveršům napříč překlady.</p>
-            </div>
+            </code>
+        </pre>
+        <div class="content-text">
+            <p>This procedure produces a complete dataset that preserves the assignment of verse labels (e.g., Mark 12:17) to all vectors that correspond to individual sub-verses across translations.</p>
         </div>
     </div>
+</div>
 
-    <div class="content-window-grey">
-        <div class="content-inner-box">
-            <div class="content-text">
-                <h3>Hledání v tisku</h3>
-                <p>Jakmile máme vytvořen biblický dataset, můžeme se pustit do vyhledávání na libovolných datech, v našem případě na prvorepublikovém tisku. Každý dokument, který máme k dispozici, nejdříve rozdělíme na menší části. Experimentálně jsme došli k dělení dokumentů na části po šesti větách, vždy s překryvem alespoň jedné věty (pro případ, že by hledaný podverš obsahoval dvě věty a vyskytoval se na rozhraní částí prohledávaného dokumentu).</p>
-                <p>Každá z těchto menších částí dokumentu je pak rozdělena na n-gramy a vektorizována za použití stejného slovníku, jaký byl vytvořen v rámci tvorby biblického datasetu. Takto získaný vektor je následně porovnán s vektory jednotlivých podveršů. Pokud se n-gramy některého podverše ve sledované pasáži objevují alespoň ze 70 %, je předběžně zaznamenána shoda.</p>
-            </div>
-            <pre>
-                <code class="language-python">
-""" Ukázka úryvku z tisku, který obsahuje biblický citát. """
+<div class="content-window-grey">
+    <div class="content-inner-box">
+        <div class="content-text">
+            <h3>Searching in the Press</h3>
+            <p>Once we have created a biblical dataset, we can start searching arbitrary data, in this case the First Republican press. We first divide each document into smaller parts. Through experiment, we arrived at dividing documents into parts of six sentences each, always with at least one sentence overlapping (in case the search substring contains two sentences, and occurs at the border of the parts of the searched document).</p>
+            <p>Each of these smaller parts of the document is then divided into n-grams and vectorised using the same vocabulary that originated while creating the biblical dataset. The resulting vector is then compared with the vectors of the individual sub-verses. If the n-grams of a sub-verse appear in at least 70% of the extract, a preliminary match is recorded.</p>
+        </div>
+        <pre>
+            <code class="language-python">
+""" An example of an excerpt from the press that includes a biblical citation. """
 journal_passage = 'Věrnost církvi, věrnost vlasti, věrnost národa. Sám Kristus řekl určitě a jasné: Dávejte co jest císařovo císaři a co jest Božího Bohu. Jiný apoštolský výrok: Není mocnosti leč od Boha a které jsou, od Boha zřízeny jsou. Stát bez Boba byí by na chybném podkladu.'
 
-""" vektorizovaná část úryvku obsahující biblický citát """
+""" vectorised part of an excerpt containing a biblical citation """
 vectorized_passage = ((0, 2), (1, 2), (2, 1), (3, 1), (4, 1), (5, 1), (10, 1), (11, 1), (12, 1), (13, 1), (15, 2), (16, 2), (17, 1), (18, 1), (19, 1), (20, 1), (23, 1))
 
-""" porovnání podverše a úryvku: """
+""" a comparison of the sub-verse and the excerpt: """
 subverse_text = 'Dávejte tedy co jest císařovo'
 subverse_vector = ((0, 1), (1, 1), (10, 1), (11, 1), (12, 1), (13, 1), (14, 1), (15, 1), (16, 1), (17, 1), (18, 1), (19, 1))
 
 overlap = ((0, 2), (1, 2), (10, 1), (11, 1), (12, 1), (13, 1), (15, 2), (16, 2), (17, 1), (18, 1), (19, 1))
 
-""" jediné slovo z podverše, které není detekováno je "tedy" """
+""" the only word from the sub-verse that was not detected is "tedy" ("therefore") """
 unmatched = ((14, 1))
 
-""" Překryv je tady 91,66 %. """
+""" Here, the overlap is 91.66%. """
 hit = 0.9166
-                </code>
-            </pre>
-            <div class="content-text">
-                <p>Následně je každý takto předběžně detekovaný podverš jednotlivě kontrolován, zda se v textu skutečně vyskytuje. Vzhledem k možné problematice OCR i omezenosti překladů Bible je nastavena určitá míra tolerance, která umožňuje, aby byla nalezena shoda i pokud se nevyskytuje verš v úplně přesném znění. Pro tyto účely byla využita metoda tzv. <i>Levenštejnovy vzdálenosti</i>. Ve zkratce tato „vzdálenost“ značí kolik znaků je třeba změnit, aby dva řetězce byly stejné. Experimentálně jsme došli k nastavení, že shoda by měla být minimálně 85 % znaků z celkové délky podverše. Níže můžete vidět shodu jednotlivých podveršů na ukázkové pasáži.</p>
-            </div>
-            <pre>
-                <code class="language-python" id="anchorLevenshtein">
-""" ukázka měření Levenštejnovy vzdálenosti """
+            </code>
+        </pre>
+        <div class="content-text">
+            <p>Subsequently, each sub-verse preliminarily detected in this way is individually checked for its actual presence in the text. Because of potential issues with the OCR and the limitations of Bible translations, a certain level of tolerance is set to allow a match to be found even if the verse does not appear in the exact wording. For these purposes, the <i>Levenshtein distance</i> algorithm was used. In short, this ‘distance’ indicates how many characters have to be changed to make two identical strings. Through experiment, we concluded that at least 85% of the total length of the substring should be identical. Below you can see the correspondence of the individual sub-verses in the sample passage.</p>
+        </div>
+        <pre>
+            <code class="language-python" id="anchorLevenshtein">
+""" sample of the Levenshtein distance measurement """
 from Levenshtein import distance
 
 subverse_string = 'davejte tedy co jest cisarovo'
@@ -183,62 +194,63 @@ query_string = 'davejte co jest cisarovo cisa'
 tolerance = len(subverse_string)*(1-0.85)
 
 if distance(subverse_string, query_string) <= tolerance:
-    match = True
-                </code>
-            </pre>
-            <div class="content-text">
-                <p>V uvedeném případě se kvůli slovu „<i>tedy</i>“ o shodu nejedná. Jednak kvůli samotnému „<i>tedy</i>“, ale i kvůli tomu, že jeho přítomnost prodloužila porovnávanou pasáž o řetězec „<i>cisa</i>“. Celkově je tedy třeba upravit 10 znaků, aby porovnávané řetězce byly stejné. Shoda je v tomto případě tedy pouhých 65,5 %. V případě porovnávaného verše se však v prohledávané pasáži plně objevují podverše „<i>co jest císařovo císaři</i>“ a „<i>císaři a co jest Božího</i>“.</p>
-                <p>Tato ukázka ukazuje i problematiku dělení veršů na podverše. Toto rozdělení v mnoha případech nedává valný smysl, nicméně v praxi se ukazuje jako poměrně fuknční. „Inteligentnější“ dělení veršů by vyžadovalo složitější přístup. Pro prozkoumání způsobu, jakým je dělení veršů prováděno se můžete podívat na <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/biblical_intertextuality_notebook.ipynb">Jupyter Notebook</a> popisující proces prohledávání.</p>
-            </div>
+match = True
+            </code>
+        </pre>
+        <div class="content-text">
+            <p>In this case, the word “<i>tedy</i>” (“<i>therefore</i>”) means that this is not a match. Not only due to the word “<i>therefore</i>” itself, but also because its presence extended the compared passage by the string “<i>cisa</i>.” Thus, a total of 10 characters must be modified to make the compared strings identical. In this case, the match is therefore only 65.5%. In the case of the verse under comparison, however, the sub-verses “<i>co jest císařovo císaři</i>” and “<i>císaři a co jest Božího</i>” fully appear in the extract searched.</p>
+            <p>This sample also demonstrates the issue of dividing verses into sub-verses. In many cases, this division does not make much sense, but it turns out to be quite useful in practice. A more ‘intelligent’ division of the verses would require a more complex approach. For more information on how the verse splitting is done, see the <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/biblical_intertextuality_notebook.ipynb">Jupyter Notebook</a> describing the search process.</p>
         </div>
     </div>
+</div>
 
-    <div class="content-window-white">
-        <div class="content-inner-box">
-            <div class="content-text">
-                <h3>Čištění výsledků</h3>
-                <p>Citáty nalezené za pomocí výše popsaného postupu jsou z principu nedokonalé. Nastavené tolerance, které umožňují nalézat citace i ve špatně rozpoznaném textu, vedou k mnoha falešně pozitivním výsledkům. Navíc bylo detekováno mnoho veršů a podveršů, které sice svým textem odpovídají, ale o skutečné biblické citáty se nejedná. Předběžné výsledky je tedy nutné ještě vyčistit. Celý proces čištění výsledků, který obsahuje i předběžné vyhodnocení celkové shody, je možné prozkoumat v <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluation.ipynb">Jupyter Notebooku</a> popisujícím evaluaci. Mimo filtraci duplicitních výsledků jsou nejdůležitější následující dva kroky:</p>
-                <ol type="1">
-                    <li>Filtrace osamocených „stop-subverses“. Z detekovaných výsledků jsou vytipovány ty podverše, které samy o sobě nemají žádnou jasnou biblickou relevanci. Může se jednat například o citáty zemědělské/pastevecké povahy, např. Nu 32:4 „<i>máme velmi mnoho dobytka</i>“, o zmínky o právu a spravedlnosti, např. Žd 11:33 „<i>vykonali spravedlnost</i>“, či o další verše všeobecné povahy. Při výběru je nicméně dobré pamatovat na to, že některé verše, které vypadají obyčejně, se mohou jako biblické citáty vyskytovat a touto filtrací tak samozřejmě také něco ztrácíme. Mezi stop-subverse však mohou být zařazeny i ty podverše, které sice mají jasnou biblickou konotaci, ale samy o sobě nejsou biblickým citátem ale běžným slovním spojením v rámci křesťanského prostředí - např. „<i>a Pána Ježíše Krista.</i>“ Celkem bylo vytipováno 2692 <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluation_stop_subverses_21.txt">stop-podveršů</a><br>Mimo samotné stop-podverše bylo také vytipováno několik veršů, u kterých je vyžadována 100% shoda, aby byly uznány za výsledek. Tolerance překlepů u veršů typu „<i>Nezabiješ</i>“ vede k příliš mnoho falešně pozitivním výsledkům.</li>
-                    <li>Vypořádání se s vícečetnými atribucemi. Jak bylo zmíněno <a href="#anchorBibleProblems">výše</a>, některé verše se navzájem duplikují či jsou si svým obsahem velice podobné. Všeobecně je citace připsána tomu verši, který má lepší shodu, v případech, kdy je shoda stejná je citace označena za duplicitní, ale ponechána je více veršům.</li>
-                </ol>
-                <p>Výsledky, které jsou takto vyfiltrované, mohou být dále podrobeny ruční kontrole, případně dalším filtrům. Je například možné vybrat pouze ty citáty, které obsahují celý verš a u kterých je tedy vysoce pravděpodobné, že jsou skutečnými citáty (na grafu níže <i>"sure" citations</i> zastoupené fialovou barvou). Tím sice podstatně redukujeme počet falešně pozitivních citací, ale samozřejmě mnohé méně jasné citace ztrácíme.</p>
-                <p id="resultsClearing">Na následujícím grafu můžete vidět vývoj celkového počtu citací v letech po jednotlivých krocích čištění. Data, která jsou prezentována v grafech napříč tímto projektem vycházejí z <i>filtered multiple attributions</i> znázorněné oranžovou barvou. Tyto výsledky mohou stále obsahovat určité množství <i>falešeně pozitivních</i> výsledků, nicméně zároveň z výsledků nezahazují zbytečné množství těch <i>falešně negativních</i>.</p>
-                <p>Kompletní výsledky naleznete <a href="https://github.com/DigilabNLCR/BibleCitations/tree/main/PUBLIC_RESULTS">zde</a>, zejména pak v <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/PUBLIC_RESULTS/MUTUAL_DROP_SURE_MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv">tomto CSV souboru</a>.</p>
-            </div>
-            <div class="flourish-embed flourish-chart" data-src="visualisation/11096881"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
-        </div>
-    </div>
+<div class="content-window-white">
+    <div class="content-inner-box">
+        <div class="content-text">
+            <h3 id="anchorCleaning">Result Cleaning</h3>
+            <p>Citations found using the procedure described above are fundamentally imperfect. Set tolerances that allow citations to be found even in poorly recognised text lead to many false positives. In addition, many verses and sub-verses have been detected that, while matching the text, are not really biblical citations. Therefore, the preliminary results must still be cleaned. The entire process of cleaning the results, which includes a preliminary evaluation of overall compliance, can be explored in the <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluation.ipynb">Jupyter Notebook</a>, which describes the evaluation. In addition to filtering out duplicate results, the following two critical steps must be taken:</p>
 
-    <div class="content-window-grey">
-        <div class="content-inner-box">
-            <div class="content-text">
-                <h2>Limity</h2>
-                <p>Celý postup je navržen tak, aby badatelé mohli nastavit různé míry tolerance dle vlastního uvážení a šité na míru prohledávanému korpusu. Zde navržené řešení je zatím značně nedokonalé a může sloužit pouze jako předvýběr pasáží, na které se badatel může následně detailně zaměřit. Statistické výstupy je třeba brát pouze jako orientační.</p>
-                <h3 id="anchorImprovements">Možná zlepšení</h3>
-                <p>Vzhledem k nedokonalosti navrženého řešení je samozřejmě možné dále pracovat na jeho vylepšování. První oblast vývoje může být zaměřena na rychlost procesu. <a href="#anchorRuntimes">Níže</a> můžete vidět přehledy o času, který je k vyhledávání potřeba. V průběhu vytváření workflow již došlo ke značnému zlepšení, které ovlivnily například následující faktory:</p>
-                <ul>
-                    <li>nalezení ideálního nastavení funkcí, které reflektuje povahu datasetů</li>
-                    <li>volba příhodných balíčků Python (např. volba <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein.distance</a> oproti <a href="https://www.nltk.org/api/nltk.metrics.distance.html?highlight=edit_distance">nltk.metrics.distance.edit_distance</a>), či vektorizace za pomoci balíčku <a href="https://radimrehurek.com/gensim/">gensim</a></li>
-                    <li>vyhnutí se tzv. „<i>dot operations</i>“ u importování funkcí z externích balíčků (viz <a href="#anchorPythonPackages">výše</a>).</li>
-                </ul>
-                <p>Zrychlení je ale možné dosáhnout i dalšími způsoby - ať už vylepšením samotného scriptu, jeho transformací do jiného programovacího jazyka (doporučen byl např. <a href="https://www.rust-lang.org/">Rust</a>) či použitím výpočetně silnějších strojů.</p>
-                <p>Důležitější část vývoje by se však měla zaměřit na zlepšování přesnosti vyhledávání. Jednou z možných cest by bylo využití metod strojového učení (ML), které však předpokládá, že máme již čistý dataset na jehož základě můžeme trénovat. Zde navržené řešení tak může poskytnout předběžná data, která po vyčištění mohou být použita jako vstup pro ML řešení.</p>
-                <p>Jednodušší metodou může být detekce výskytu klíčových slov v okolí nalezené citace. Pokud by se v blízkosti vyskytovala např. slova jako „<i>Ježíš</i>“, „<i>Bible</i>“ a podobně, zásadně to zvyšuje šanci, že se jedná o biblický citát. Tento přístup má však samozřejmě pouze omezenou výpovědní hodnotu a je také omezen současným stavem OCR prohledávaných dokumentů, viz <a href="#anchorJournalsProblems">výše</a>.</p>
-                <p>Další cestou tedy může být snaha o vylepšení prohledávaného datasetu, v našem případě prvorepublikového tisku. Na prohledávaný dataset je možné aplikovat novější a přesnější OCR programy, nebo je možné pokusit se stávající stav vylepšit za pomoci koretorů, např. <a href="http://lindat.mff.cuni.cz/services/korektor/">LINDAT Korektor</a>.</p>
-            </div>
+            <ol type="1">
+                <li>Filtering the lone ‘stop-subverses.’ Out of the detected results, those sub-verses are selected that have no clear biblical relevance on their own. These may include citations of an agricultural/pastoral nature, e.g. Nu 32:4 “<i>máme velmi mnoho dobytka</i>” (“<i>we have a lot of cattle</i>”) , references to law and justice, e.g. Heb 11:33 “<i>vykonali spravedlnost</i>” (“<i>worked righteousness</i>”), or other general verses. However, during the selection, it is good to remember that some verses that look ordinary may in fact be biblical citations, so there are obviously some losses when using this filtering method. Stop-subverses may nevertheless also include those sub-verses which, while having a clear biblical connotation, are not biblical quotations, but common phrases within a Christian setting, such as “<i>a Pána Ježíše Krista</i>” (“<i>and The Lord Jesus Christ</i>”). A total of 2,692 <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/evaluation_stop_subverses_21.txt">stop-subverses</a> were identified.<br>In addition to the stop-subverses, some verses were also selected for which 100% agreement is required to be recognised as a result. Tolerance of typos in verses, such as “<i>Nezabiješ</i>” (“<i>Thou shalt not kill</i>”) , results in too many false positives.</li>
+                <li>Dealing with Multiple Attributions. As mentioned <a href="#anchorBibleProblems">above</a>, some verses are duplicated or have a very similar meaning. Generally, the citation is attributed to the verse with the better match. When the match is complete, the citation is marked as duplicate, but multiple verses are left.</li>
+            </ol>
+            <p>Results filtered in this way can be subjected to further manual checking or additional filters. For example, it is possible to select only those citations that contain the entire verse and are therefore highly likely to be genuine quotes (‘<i>sure citations</i>’ depicted in purple in the chart below). While this significantly reduces the number of false positive citations, of course many less clear citations are lost.</p>
+            <p id="resultsClearing">In the following chart, you can see the evolution of the total number of citations in the years following each cleaning step. The data presented in the charts across this project are based on the <i>filtered multiple attributions</i> shown in orange. These results may still include a certain number of <i>false positives</i>, but at the same time, they do not remove an unnecessary number of <i>false negatives from the results</i>.</p>
+            <p>You can find all the results <a href="https://github.com/DigilabNLCR/BibleCitations/tree/main/PUBLIC_RESULTS">here</a>, especially in <a href="https://github.com/DigilabNLCR/BibleCitations/blob/main/PUBLIC_RESULTS/MUTUAL_DROP_SURE_MA_DUPS_ST_SUBS_FILTERED_UNFILTERED_batch_results.csv">this CSV file</a>.</p>
         </div>
+        <div class="flourish-embed flourish-chart" data-src="visualisation/11096881"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
     </div>
+</div>
 
-    <div class="content-window-white">
-        <div class="content-inner-box">
-            <div class="content-text">
-                <h2>Časová náročnost</h2>
-            </div>
-            <div class="flourish-embed flourish-chart" data-src="visualisation/11096231"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
-            <div class="content-text">
-                <p>Tento graf zobrazuje průměrné časy, které byly potřeba ke zpracování jednotlivých stránek. Výsledky reflektují zejména celkovou délku analyzovaných stránek (např. periodikum Venkov má nejdelší časy analýzy zejména proto, že má nejdelší stránky), ale projevuje se také počtem předpokládaně detekovaných citací - čas zpracování zásadně narůstá zejména při ověřování <i>Levenštejnovy vzdálenosti</i> (viz <a href="#anchorLevenshtein">výše</a>) V průběhu vytváření scriptu docházelo k postupnému vylepšování potřebných časů, zde vyobrazené časy se vztahují k poslední verzi zveřejněné na portálu <a href="https://github.com/DigilabNLCR/BibleCitations">GitHub</a>). Celkový čas prohledávání v poslední verzi byl přibližně 220 a půl hodin.</p>
-                <p>Další čas byl samozřejmě potřebný pro následné čištění dat, kde bylo nejvíce času věnováno (ručnímu) výběru stop-podveršů.</p>
-            </div>
+<div class="content-window-grey">
+    <div class="content-inner-box">
+        <div class="content-text">
+            <h2>Limitations</h2>
+            <p>The entire procedure is designed to allow researchers to set different tolerance levels at their discretion, tailored to the corpus being searched. The solution proposed here is still fairly imperfect and can only serve for the pre-selection of excerpts which the researcher can subsequently study in detail. Statistical outputs should be perceived as indicative only.</p>
+            <h3 id="anchorImprovements">Possible Improvements</h3>
+            <p>Given the imperfections of the proposed solution, it is of course possible to continue working on it and make improvements. The first area of improvement could be the speed of the whole process. You can see summaries of the time needed for searching <a href="#anchorRuntimes">below</a>. During the creation of this workflow, significant improvements have already been made, influenced by factors such as the following:</p>
+            <ul>
+                <li>finding the ideal feature settings that reflect the nature of the datasets</li>
+                <li>choosing the appropriate Python packages (e.g. the <a href="https://pypi.org/project/python-Levenshtein/">Levenshtein.distance</a> option versus <a href="https://www.nltk.org/api/nltk.metrics.distance.html?highlight=edit_distance">nltk.metrics.distance.edit_distance</a>) or vectorisation using the <a href="https://radimrehurek.com/gensim/">gensim</a> package</li>
+                <li>avoiding <i>dot operations</i> when importing functions from external packages (see <a href="#anchorPythonPackages">above</a>).</li>
+            </ul>
+            <p>Faster results can be achieved in other ways as well – either by improving the script itself, transforming it into another programming language (<a href="https://www.rust-lang.org/">Rust</a> was among those recommended), or using more computationally powerful machines.</p>
+            <p>That being said, it is more important for development to focus on improving search accuracy. One possible route is using machine learning (ML) methods, but this assumes that a clean dataset is already available for training purposes. Thus, the solution proposed here can provide preliminary data which, when cleaned, can be used as input for ML solutions.</p>
+            <p>It may be simpler to detect the occurrence of keywords around the found citation. If words such as “<i>Jesus</i>”, “<i>Bible</i>”  and the like occur in the vicinity, the chance that it is a biblical citation is much higher. However, this approach is of course of limited predictive value, and is also limited by the current state of the OCR of searched documents, see <a href="#anchorJournalsProblems">above</a>.</p>
+            <p>Trying to improve the searched dataset, in this case the First Republic press, may also be worth considering. Newer and more accurate OCR programmes can be applied to the searched dataset; it is also possible to try to improve its existing state using correctors such as the <a href="http://lindat.mff.cuni.cz/services/korektor/">LINDAT Corrector</a>.</p>
         </div>
     </div>
+</div>
+
+<div class="content-window-white">
+    <div class="content-inner-box">
+        <div class="content-text">
+            <h2 id="anchorRuntimes">Time Requirements</h2>
+        </div>
+        <div class="flourish-embed flourish-chart" data-src="visualisation/11096231"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+        <div class="content-text">
+            <p>This chart shows the average time (in seconds) necessary to process each page (pagination according to the periodical, not standard pages). The results mainly reflect the total length of the analysed pages (e.g. the periodical <i>Venkov</i> has the longest analysis times primarily because it has the longest pages), but the expected number of detected citations is also reflected – the processing time increases substantially especially when verifying the <i>Levenshtein distance</i> (see <a href="#anchorLevenshtein">above</a>). During the creation of the script, the required times were gradually improved (the times shown here refer to the latest version published on <a href="https://github.com/DigilabNLCR/BibleCitations">GitHub</a>). For the latest version, the total search time was approximately 220 and a half hours.</p>
+            <p>Additional time was necessary for subsequent data cleaning, where most of the time was devoted to the (manual) selection of stop-subverses.</p>
+        </div>
+    </div>
+</div>

@@ -33,7 +33,7 @@ const saveToLocalStorageAgreed = () => localStorageType.setItem(cookiesConsentGi
 const saveToLocalStorageDisagreed = () => localStorageType.setItem(cookiesConsentGiven, false)
 
 function cookiesInfoDisAppear() {
-    cookiesInfo.style.transform = "translateY(450px)";
+    cookiesInfo.style.transform = "translateY(500px)";
 };
 
 function cookiesInfoAppear() {
